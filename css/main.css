@@ -819,7 +819,7 @@ body {
   display: inline-block;
   vertical-align: top;
   line-height: 36px;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: normal;
 }
 .use-motion .brand {
@@ -1055,7 +1055,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #bef298;
+  background: #594246;
 }
 .sidebar-nav {
   margin: 0;
@@ -1966,7 +1966,7 @@ ul li {
   display: none;
 }
 .site-meta .site-title {
-  font-size: 40px;
+  font-size: 35px;
   font-weight: bolder;
 }
 @media (max-width: 767px) {
@@ -2126,7 +2126,7 @@ ul li {
 }
 .posts-expand .post-title {
   font-size: 28px;
-  font-weight: 300;
+  font-weight: bolder;
 }
 .posts-expand .post-body img {
   margin: 0;
