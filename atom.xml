@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[小伙伴的聚居地]]></title>
+  
+  <link href="/blog/atom.xml" rel="self"/>
+  <link href="http://prozhuchen.github.io/"/>
+  <updated>2015-09-29T06:47:51.280Z</updated>
+  <id>http://prozhuchen.github.io/</id>
+  
+  <author>
+    <name><![CDATA[朱琛]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[新的开始]]></title>
+    <link href="http://prozhuchen.github.io/2015/09/28/%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/"/>
+    <id>http://prozhuchen.github.io/2015/09/28/新的开始/</id>
+    <published>2015-09-28T10:44:12.000Z</published>
+    <updated>2015-09-29T06:47:51.280Z</updated>
+    <content type="html"><![CDATA[<p>这是<strong>新的开始</strong>，我用hexo创建了第一篇文章。<a id="more"></a></p>
+<p>通过下面的命令，就可以创建新文章<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">D:\workspace\javascript\nodejs-hexo&#62;hexo new &#26032;&#30340;&#24320;&#22987;&#10;[info] File created at D:\workspace\javascript\nodejs-hexo\source\_posts\&#26032;&#30340;&#24320;&#22987;.md</span><br></pre></td></tr></table></figure></p>
+<p>感觉非常好。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.compact([0, 1, false, 2, &#8216;&#8217;, 3]);&#10;=&#62; [1, 2, 3]</span><br></pre></td></tr></table></figure>
+<pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span>
+<span class="built_in">int</span> a<span class="comment">;</span>
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[<p>这是<strong>新的开始</strong>，我用hexo创建了第一篇文章。]]>
+    
+    </summary>
+    
+      <category term="开始" scheme="http://prozhuchen.github.io/tags/%E5%BC%80%E5%A7%8B/"/>
+    
+      <category term="我" scheme="http://prozhuchen.github.io/tags/%E6%88%91/"/>
+    
+      <category term="日记" scheme="http://prozhuchen.github.io/tags/%E6%97%A5%E8%AE%B0/"/>
+    
+      <category term="日志" scheme="http://prozhuchen.github.io/categories/%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
+  
+</feed>
