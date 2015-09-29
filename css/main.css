@@ -819,7 +819,7 @@ body {
   display: inline-block;
   vertical-align: top;
   line-height: 36px;
-  font-size: 20px;
+  font-size: 30px;
   font-weight: normal;
 }
 .use-motion .brand {
@@ -1055,7 +1055,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c71ad5;
+  background: #ad6b24;
 }
 .sidebar-nav {
   margin: 0;
