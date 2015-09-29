@@ -1055,7 +1055,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ad6b24;
+  background: #bef298;
 }
 .sidebar-nav {
   margin: 0;
@@ -1966,7 +1966,7 @@ ul li {
   display: none;
 }
 .site-meta .site-title {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: bolder;
 }
 @media (max-width: 767px) {
