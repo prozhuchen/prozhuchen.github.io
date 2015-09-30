@@ -990,7 +990,7 @@ body {
 .site-description {
   margin-top: 5px;
   font-size: 14px;
-  color: #555;
+  color: #ffebcd;
 }
 .site-state {
   overflow: hidden;
@@ -1055,7 +1055,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #954d4d;
+  background: #363d61;
 }
 .sidebar-nav {
   margin: 0;
@@ -2132,7 +2132,9 @@ ul li {
   margin: 0;
 }
 .posts-expand .post-tags {
-  text-align: left;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .posts-expand .post-tags a {
   padding: 1px 5px;
@@ -2166,7 +2168,7 @@ ul li {
   text-align: center;
 }
 .page-post-detail .post-meta {
-  margin-bottom: 60px;
+  margin-bottom: 20px;
 }
 .pagination {
   margin: 80px 0 0;
