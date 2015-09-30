@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><![CDATA[朱琛的小屋]]></title>
+  
+  <link href="/blog/atom.xml" rel="self"/>
+  <link href="http://prozhuchen.github.io/"/>
+  <updated>2015-09-30T10:52:29.471Z</updated>
+  <id>http://prozhuchen.github.io/</id>
+  
+  <author>
+    <name><![CDATA[朱琛]]></name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Hexo博客第二站：部署到GitHub上]]></title>
+    <link href="http://prozhuchen.github.io/2015/09/30/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%BA%8C%E7%AB%99/"/>
+    <id>http://prozhuchen.github.io/2015/09/30/Hexo博客第二站/</id>
+    <published>2015-09-30T07:06:50.000Z</published>
+    <updated>2015-09-30T10:52:29.471Z</updated>
+    <content type="html"><![CDATA[<p>我们开始把Hexo博客部署在GitHub上。<a id="more"></a></p>
+<p>首先声明一点，作为一个静态博客，Hexo不止能部署在Git上，只要支持Web访问的空间都可以存放Hexo静态博客。不过GitHub作为一个程序员聚居地，年轻的我们也需要靠近组织嘛。<br>在这里我们假设小伙伴都已经有了一个GitHub账号，并且有了一个GitHub博客。如果没有做的请看这里  &gt; <a href="http://blog.csdn.net/renfufei/article/details/37725057/" target="_blank" rel="external">GitHub博客搭建</a>。</p>
+<p>注意：下面的命令在Git Bash上运行。</p>
+<h1 id="GitHub生成_SSH_key">GitHub生成 SSH key</h1><h2 id="生成_SSH_key">生成 SSH key</h2><p>作为第一步，首先得让我们的电脑连上GitHub。<br>输入<code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</code>,接下来就是不断的敲回车就可以啦。</p>
+<pre><code>ssh-keygen -t rsa -b <span class="number">4096</span> -C <span class="string">"your_email@example.com"</span>
+<span class="comment"># Creates a new ssh key, using the provided email as a label</span>
+Generating public/<span class="keyword">private</span> rsa key pair.
+Enter <span class="built_in">file</span> <span class="operator">in</span> which <span class="built_in">to</span> save <span class="operator">the</span> key (/Users/you/.ssh/id_rsa): [Press enter]
+Enter passphrase (<span class="constant">empty</span> <span class="keyword">for</span> no passphrase): [Type <span class="operator">a</span> passphrase]
+Enter same passphrase again: [Type passphrase again]
+Your identification has been saved <span class="operator">in</span> /Users/you/.ssh/id_rsa.
+Your public key has been saved <span class="operator">in</span> /Users/you/.ssh/id_rsa.pub.
+The key fingerprint is:
+<span class="number">01</span>:<span class="number">0</span>f:f4:<span class="number">3</span>b:ca:<span class="number">85</span>:d6:<span class="number">17</span>:a1:<span class="number">7</span>d:f0:<span class="number">68</span>:<span class="number">9</span>d:f0:a2:db your_email@example.com
+</code></pre><p>此时在你电脑的 <code>C:\Users\用户名\.ssh\</code>这个目录下就可以找到我们需要的SSH key - id_rsa.pub了。<br>此时在你的GitHub的settings里找到SSH keys，把id_rsa.pub里面的东西添加到Add an SSH key的key里面。<br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/GitHub+Hexo静态博客第二站1.jpg" alt=""><br>然后在Git Bash里面输入<code>ssh -T git@github.com</code>:</p>
+<pre><code>$ ssh -T git@github.com
+Hi prozhuchen! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span> provide shell access.
+</code></pre><p>第一步成功！</p>
+<h2 id="输入ssh_-T_git@github-com_时出现的错误">输入<code>ssh -T git@github.com</code> 时出现的错误</h2><ol>
+<li>输入<code>ssh -T git@github.com</code>出现<code>Permission denied (publickey)</code><br>借鉴这篇博文 <a href="http://blog.csdn.net/sunnypotter/article/details/18948053" target="_blank" rel="external">git连接github失败的问题</a>。</li>
+<li>出现<code>ssh:connect tohost github.com port22:Bad file number</code><br>可以看出是端口出现了问题，22是默认的ssh端口，但一般好像是关上的，所以我们改掉端口。<br>我们在SSH key的目录下(一般是<code>C:\Users\用户名\.ssh\</code>)新建一个config文件，内容是：</li>
+</ol>
+<pre><code>    Host github<span class="class">.com</span>  
+    User fulinux@sina<span class="class">.com</span>  
+    Hostname ssh<span class="class">.github</span><span class="class">.com</span>  
+    PreferredAuthentications publickey  
+    IdentityFile~/.ssh/id_rsa  
+    Port443  
+
+在此尝试连接，应该可以了。
+</code></pre><h1 id="Hexo部署到GitHub上">Hexo部署到GitHub上</h1><h2 id="Hexo部署">Hexo部署</h2><p>我们首先进入到Hexo的站点配置文件_config.yml，修改Deployment部分。</p>
+<pre><code><span class="preprocessor"># Deployment</span>
+<span class="preprocessor">## Docs: http://hexo.io/docs/deployment.html</span>
+<span class="title">deploy</span>:
+  <span class="typedef"><span class="keyword">type</span>: git</span>
+  repo: git@github.com:prozhuchen/blog.git
+  branch: gh-pages
+</code></pre><p>这里的repo是你的GitHub博客的SSH地址,branch是你想部署在该仓库的分支。如果不知道自己博客的SSH地址的小伙伴看这里：<br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/GitHub+Hexo静态博客第二站2.jpg" alt=""><br>当然了，你首先得点击<code>clone with HTTPS,SSH;</code>里面的SSH，然后框框里的就是你博客的SSH地址了。<br>然后输入：</p>
+<pre><code>hexo <span class="keyword">g</span>
+hexo <span class="literal">d</span>
+</code></pre><p>可以看见：</p>
+<pre><code>$ hexo d
+INFO  Deploying: git
+INFO  Clearing .deploy <span class="built_in">folder</span>...
+INFO  Copying <span class="built_in">files</span> <span class="built_in">from</span> public <span class="built_in">folder</span>...
+.....
+Branch master <span class="built_in">set</span> up <span class="built_in">to</span> track remote branch gh-pages <span class="built_in">from</span> git@github.com:prozhuchen/blog.git.
+Everything up-<span class="built_in">to</span>-<span class="built_in">date</span>
+INFO  Deploy done: git
+</code></pre><p>此时去看你自己的GitHub博客吧~(地址应该是username.github.io或者是.com)。接下来我们来看看如果让我们的博客变得更完美了。</p>
+<h2 id="输入hexo_d时出现的问题">输入<code>hexo d</code>时出现的问题</h2><ol>
+<li><code>ERROR Deployer not found: git</code><ol>
+<li>确定自己安装了hexo-deployer-git。如果没有,在Git Bash上输入：<code>npm install hexo-deployer-git --save</code>。</li>
+<li>deploy的type的github需要改成git。</li>
+<li>注意_config的配置写法。注意缩进，而且冒号后面要有一个空格。    </li>
+</ol>
+</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>我们开始把Hexo博客部署在GitHub上。]]>
+    
+    </summary>
+    
+      <category term="GitHub" scheme="http://prozhuchen.github.io/tags/GitHub/"/>
+    
+      <category term="Hexo" scheme="http://prozhuchen.github.io/tags/Hexo/"/>
+    
+      <category term="GitHub" scheme="http://prozhuchen.github.io/categories/GitHub/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[Hexo博客第一站：搭建本地Hexo静态博客]]></title>
+    <link href="http://prozhuchen.github.io/2015/09/30/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E7%AB%99/"/>
+    <id>http://prozhuchen.github.io/2015/09/30/Hexo博客第一站/</id>
+    <published>2015-09-30T06:06:28.000Z</published>
+    <updated>2015-09-30T10:50:51.581Z</updated>
+    <content type="html"><![CDATA[<p>首先我们先在本地搭一个静态的hexo博客。<a id="more"></a></p>
+<h1 id="Hexo的优势"><strong>Hexo的优势</strong></h1><p>Hexo是一款基于Node.js的静态博客，他的优势在于可以快速的搭建起一个个人博客，并且支持各种评论，分享等插件，最重要的是，它有很多现成的主题，你可以任意选择。</p>
+<h1 id="Hexo安装"><strong>Hexo安装</strong></h1><ol>
+<li>安装Git. <a href="http://www.git-scm.com/download/" target="_blank" rel="external">Git安装地址</a></li>
+<li>安装Node.js.  <a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js安装地址</a><br>此时你点击任意文件夹右键，应该有 <code>Git Bash here</code>。进入后输入 <code>node -v</code>和 <code>npm -v</code>，如果显示版本号则安装成功。</li>
+<li>安装Hexo.<br>在Git bash中输入 <code>npm install -g hexo</code>。</li>
+<li>Hexo初始化。</li>
+</ol>
+<p>你可以cd到你选择的目录，然后输入</p>
+<pre><code>hexo init
+npm <span class="keyword">install</span>
+</code></pre><p>或者直接输入</p>
+<pre><code>hexo init 你选择的目录
+npm <span class="keyword">install</span>
+</code></pre><p>此时在你选择的目录下,输入 <code>hexo g</code> 和 <code>hexo s</code>。</p>
+<pre><code>hexo g  <span class="comment">//生成静态网页</span>
+INFO  Files loaded <span class="keyword">in</span> <span class="number">705</span> ms
+INFO  Generated: js/script<span class="class">.js</span>
+...
+INFO  Generated: archives/<span class="number">2015</span>/<span class="number">09</span>/index<span class="class">.html</span>
+INFO  Generated: index<span class="class">.html</span>
+INFO  <span class="number">28</span> files generated <span class="keyword">in</span> <span class="number">1.95</span> s
+
+hexo s  <span class="comment">//启动服务器</span>
+INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+C to stop.</span>
+</code></pre><p>此时你打开 <a href="http://127.0.0.1:4000/" target="_blank" rel="external">http://127.0.0.1:4000</a> , 就能看到已经生成的Hexo界面啦。</p>
+<p><img src="http://7xn5ph.com1.z0.glb.clouddn.com/hexo.jpg" alt=""></p>
+<hr>
+<h1 id="注意"><strong>注意</strong></h1><p>有的时候输入 <code>hexo init</code>看到了这句话：</p>
+<pre><code>-<span class="string">bash:</span> <span class="string">hexo:</span> command not found
+</code></pre><p>说明没找到hexo指令，此时我们找到hexo的下载目录，然后在系统变量path添加就可以了。我的目录是在 <code>C:\Users\用户名\AppData\Roaming\npm\node_modules\hexo\bin</code>。大家的应该也在类似位置。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>首先我们先在本地搭一个静态的hexo博客。]]>
+    
+    </summary>
+    
+      <category term="GitHub" scheme="http://prozhuchen.github.io/tags/GitHub/"/>
+    
+      <category term="Hexo" scheme="http://prozhuchen.github.io/tags/Hexo/"/>
+    
+      <category term="GitHub" scheme="http://prozhuchen.github.io/categories/GitHub/"/>
+    
+  </entry>
+  
+</feed>
