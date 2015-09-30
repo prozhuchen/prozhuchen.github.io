@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title><![CDATA[朱琛的小屋]]></title>
   
-  <link href="/blog/atom.xml" rel="self"/>
+  <link href="/blog//blog/atom.xml" rel="self"/>
   <link href="http://prozhuchen.github.io/"/>
   <updated>2015-09-30T10:52:29.471Z</updated>
   <id>http://prozhuchen.github.io/</id>
