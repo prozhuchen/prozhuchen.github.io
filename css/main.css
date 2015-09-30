@@ -1061,7 +1061,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c35d2b;
+  background: #ff59ff;
 }
 .sidebar-nav {
   margin: 0;
@@ -1929,7 +1929,7 @@ ul li {
   display: none;
 }
 .header {
-  background: #e0fccf;
+  background: #d1fab8;
 }
 .header-inner {
   margin-bottom: 80px;
@@ -2189,7 +2189,7 @@ ul li {
 .footer {
   margin-top: 80px;
   padding: 10px 0;
-  background: #f5f5f5;
+  background: #d1fab8;
   color: #666;
 }
 .footer-inner {
