@@ -48,7 +48,7 @@
 <meta property="og:site_name" content="朱琛的小屋">
 <meta property="og:description" content="首先我们先在本地搭一个静态的hexo博客。">
 <meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/hexo.jpg">
-<meta property="og:updated_time" content="2015-09-30T10:50:51.581Z">
+<meta property="og:updated_time" content="2015-10-01T16:12:36.570Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客第一站：搭建本地Hexo静态博客">
 <meta name="twitter:description" content="首先我们先在本地搭一个静态的hexo博客。">
@@ -170,19 +170,24 @@
   
     <div class="site-search">
       
-  
-  <form class="site-search-form">
-    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-  </form>
-
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', 'yx9-swpbwqxuFPaTyCzz','2.0.0');
+  <form class="site-search-form" >
+  <input type="text" id="ts-search-input" class="menu-search-input">
+</form>
+<script>
+  var option = {
+    engineKey: 'f5bc59315bd6f883bb50'
+  };
+  (function(w,d,t,u,n,s,e){
+    s = d.createElement(t);
+    s.src = u;
+    s.async = 1;
+    w[n] = function(r){
+      w[n].opts = r;
+    };
+    e = d.getElementsByTagName(t)[0];
+    e.parentNode.insertBefore(s, e);
+  })(window,document,'script','//tinysou-cdn.b0.upaiyun.com/ts.js','_ts');
+  _ts(option);
 </script>
 
 
@@ -320,7 +325,7 @@ INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/2015/09/30/Hexo博客第二站/" rel="prev">Hexo博客第二站：部署到GitHub上</a>
+              <a href="/blog/2015/09/30/Hexo博客第二站/" rel="prev">Hexo博客第二站：部署到GitHub</a>
             
           </div>
 
@@ -413,7 +418,7 @@ INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/blog/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
