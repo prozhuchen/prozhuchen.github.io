@@ -47,18 +47,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="我们开始把Hexo博客部署在GitHub上。">
+<meta name="description" content="我们来学习在哪写文章和怎么写文章。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客第二站：部署到GitHub">
-<meta property="og:url" content="http://prozhuchen.github.io/2015/09/30/Hexo博客第二站/index.html">
+<meta property="og:title" content="Hexo博客第五站：文章配置+Markdown语法">
+<meta property="og:url" content="http://prozhuchen.github.io/2015/10/03/Hexo博客第五站/index.html">
 <meta property="og:site_name" content="朱琛的小屋">
-<meta property="og:description" content="我们开始把Hexo博客部署在GitHub上。">
-<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/GitHub+Hexo静态博客第二站1.jpg">
-<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/GitHub+Hexo静态博客第二站2.jpg">
-<meta property="og:updated_time" content="2015-10-03T06:50:13.013Z">
+<meta property="og:description" content="我们来学习在哪写文章和怎么写文章。">
+<meta property="og:updated_time" content="2015-10-03T09:48:29.583Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo博客第二站：部署到GitHub">
-<meta name="twitter:description" content="我们开始把Hexo博客部署在GitHub上。">
+<meta name="twitter:title" content="Hexo博客第五站：文章配置+Markdown语法">
+<meta name="twitter:description" content="我们来学习在哪写文章和怎么写文章。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -68,7 +66,7 @@
   };
 </script>
 
-  <title> Hexo博客第二站：部署到GitHub | 朱琛的小屋 </title>
+  <title> Hexo博客第五站：文章配置+Markdown语法 | 朱琛的小屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -217,7 +215,7 @@
           
           
             
-              Hexo博客第二站：部署到GitHub
+              Hexo博客第五站：文章配置+Markdown语法
             
           
         </h1>
@@ -226,8 +224,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-30T15:06:50+08:00" content="2015年09月30日">
-            2015年09月30日
+          <time itemprop="dateCreated" datetime="2015-10-03T15:53:11+08:00" content="2015年10月03日">
+            2015年10月03日
           </time>
         </span>
 
@@ -243,25 +241,13 @@
 
               
               
-                ， 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Hexo/GitHub/" itemprop="url" rel="index">
-                  <span itemprop="name">GitHub</span>
-                </a>
-              </span>
-
-              
-              
 
             
           </span>
         
 
         <span class="post-count">
-        &nbsp; | &nbsp;字数&nbsp; 1,210
+        &nbsp; | &nbsp;字数&nbsp; 1,242
         </span>
 
         <span id="busuanzi_container_page_pv">
@@ -273,8 +259,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/30/Hexo博客第二站/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/30/Hexo博客第二站/" itemprop="commentsCount"></span>
+              <a href="/2015/10/03/Hexo博客第五站/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/03/Hexo博客第五站/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -298,64 +284,67 @@
       
 
       
-        <span itemprop="articleBody"><p>我们开始把Hexo博客部署在GitHub上。<a id="more"></a></p>
-<p>首先声明一点，作为一个静态博客，Hexo不止能部署在Git上，只要支持Web访问的空间都可以存放Hexo静态博客。不过GitHub作为一个程序员聚居地，年轻的我们也需要靠近组织嘛。<br>在这里我们假设小伙伴都已经有了一个GitHub账号，并且有了一个GitHub博客。如果没有做的请看这里  &gt; <a href="http://blog.csdn.net/renfufei/article/details/37725057/" target="_blank" rel="external">GitHub博客搭建</a>。</p>
-<p>注意：下面的命令在Git Bash上运行。</p>
-<h1 id="GitHub生成_SSH_key">GitHub生成 SSH key</h1><h2 id="生成_SSH_key">生成 SSH key</h2><p>作为第一步，首先得让我们的电脑连上GitHub。<br>输入<code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</code>,接下来就是不断的敲回车就可以啦。</p>
-<pre><code>ssh-keygen -t rsa -b <span class="number">4096</span> -C <span class="string">"your_email@example.com"</span>
-<span class="comment"># Creates a new ssh key, using the provided email as a label</span>
-Generating public/<span class="keyword">private</span> rsa key pair.
-Enter <span class="built_in">file</span> <span class="operator">in</span> which <span class="built_in">to</span> save <span class="operator">the</span> key (/Users/you/.ssh/id_rsa): [Press enter]
-Enter passphrase (<span class="constant">empty</span> <span class="keyword">for</span> no passphrase): [Type <span class="operator">a</span> passphrase]
-Enter same passphrase again: [Type passphrase again]
-Your identification has been saved <span class="operator">in</span> /Users/you/.ssh/id_rsa.
-Your public key has been saved <span class="operator">in</span> /Users/you/.ssh/id_rsa.pub.
-The key fingerprint is:
-<span class="number">01</span>:<span class="number">0</span>f:f4:<span class="number">3</span>b:ca:<span class="number">85</span>:d6:<span class="number">17</span>:a1:<span class="number">7</span>d:f0:<span class="number">68</span>:<span class="number">9</span>d:f0:a2:db your_email@example.com
-</code></pre><p>此时在你电脑的 <code>C:\Users\用户名\.ssh\</code>这个目录下就可以找到我们需要的SSH key - id_rsa.pub了。<br>此时在你的GitHub的settings里找到SSH keys，把id_rsa.pub里面的东西添加到Add an SSH key的key里面。<br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/GitHub+Hexo静态博客第二站1.jpg" alt=""><br>然后在Git Bash里面输入<code>ssh -T git@github.com</code>:</p>
-<pre><code>$ ssh -T git@github.com
-Hi prozhuchen! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span> provide shell access.
-</code></pre><p>第一步成功！</p>
-<h2 id="输入ssh_-T_git@github-com_时出现的错误">输入<code>ssh -T git@github.com</code> 时出现的错误</h2><ol>
-<li>输入<code>ssh -T git@github.com</code>出现<code>Permission denied (publickey)</code><br>借鉴这篇博文 <a href="http://blog.csdn.net/sunnypotter/article/details/18948053" target="_blank" rel="external">git连接github失败的问题</a>。</li>
-<li>出现<code>ssh:connect tohost github.com port22:Bad file number</code><br>可以看出是端口出现了问题，22是默认的ssh端口，但一般好像是关上的，所以我们改掉端口。<br>我们在SSH key的目录下(一般是<code>C:\Users\用户名\.ssh\</code>)新建一个config文件，内容是：</li>
-</ol>
-<pre><code>    Host github<span class="class">.com</span>  
-    User fulinux@sina<span class="class">.com</span>  
-    Hostname ssh<span class="class">.github</span><span class="class">.com</span>  
-    PreferredAuthentications publickey  
-    IdentityFile~/.ssh/id_rsa  
-    Port443  
+        <span itemprop="articleBody"><p>现在我们可以尽情写自己想写的东西了。但是首先我们得学会在哪写和怎么写。</p>
+<h1 id="在哪写(Hexo_文章配置)">在哪写(Hexo 文章配置)</h1><h2 id="从别处迁移">从别处迁移</h2><p>如果我们之前在别的网站已经有了自己的博客，那当然不能直接扔掉啦，Hexo可以从RSS/Jekyll/Octopress/Wordpress迁移之前的博客（传送门 <a href="http://zespia.tw/hexo/docs/migration.html" target="_blank" rel="external">从别处迁移到Hexo</a>）。</p>
+<h2 id="自己写">自己写</h2><p>首先我们在Git Bash中输入：</p>
+<pre><code>hexo <span class="keyword">new</span> <span class="string">"article name"</span>
+</code></pre><p>然后我们在博客根目录<code>/source/_posts</code>下会看见新产生的<code>article name.md</code>。<br>如果我们想改变这个名字的格式，就可以在站点配置文件的31行左右改变<code>new_post_name</code>，下面将名字格式改成了类似这样的<code>2015-09-29-name.md</code>：</p>
+<pre><code><span class="comment"># Writing</span>
+<span class="symbol">new_post_name:</span> <span class="symbol">:year-</span><span class="symbol">:month-</span><span class="symbol">:day-</span><span class="symbol">:title</span>.md <span class="comment"># File name of new posts</span>
+<span class="symbol">default_layout:</span> post
+<span class="symbol">titlecase:</span> <span class="literal">false</span> <span class="comment"># Transform title into titlecase</span>
+<span class="symbol">external_link:</span> <span class="literal">true</span> <span class="comment"># Open external links in new tab</span>
+<span class="symbol">filename_case:</span> <span class="number">0</span>
+<span class="symbol">render_drafts:</span> <span class="literal">false</span>
+</code></pre><p>然后重新生成一篇文章，可以看到产生的是<code>2015-09-29-article name.md</code>吧。</p>
+<p>此时我们进入这篇文章，可以看见：</p>
+<pre><code>title: q                  //文章的名字
+date: 2015-10-03 15:53:11 //你生成这篇文章的时间
+<span class="header">tags:                     //文章的标签
+---</span>
+</code></pre><p>类似这样的开头属性还有：</p>
+<pre><code>updated     修改日期        文件的修改日期    
+comments    是否开启评论    <span class="function"><span class="title">true</span><span class="params">(默认)</span></span>   
+tags        文章标签          
+categories  文章分类    
+permalink   url中的名字    文件名
+description 文章摘要
+</code></pre><p>举两个例子：</p>
+<pre><code><span class="comment">//这个文章不允许别人评论，默认评论是开启的</span>
+title: Hexo博客第二站：部署到GitHub
+date: <span class="number">2015</span>-<span class="number">09</span>-<span class="number">28</span> <span class="number">20</span>:<span class="number">29</span>:<span class="number">48</span>
+comments: <span class="literal">false</span>
 
-在此尝试连接，应该可以了。
-</code></pre><h1 id="Hexo部署到GitHub上">Hexo部署到GitHub上</h1><h2 id="Hexo部署">Hexo部署</h2><p>我们首先进入到Hexo的站点配置文件_config.yml，修改Deployment部分。</p>
-<pre><code><span class="preprocessor"># Deployment</span>
-<span class="preprocessor">## Docs: http://hexo.io/docs/deployment.html</span>
-<span class="title">deploy</span>:
-  <span class="typedef"><span class="keyword">type</span>: git</span>
-  repo: git@github.com:prozhuchen/blog.git
-  branch: gh-pages
-</code></pre><p>这里的repo是你的GitHub博客的SSH地址,branch是你想部署在该仓库的分支。如果不知道自己博客的SSH地址的小伙伴看这里：<br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/GitHub+Hexo静态博客第二站2.jpg" alt=""><br>当然了，你首先得点击<code>clone with HTTPS,SSH;</code>里面的SSH，然后框框里的就是你博客的SSH地址了。<br>然后输入：</p>
-<pre><code>hexo <span class="keyword">g</span>
-hexo <span class="literal">d</span>
-</code></pre><p>可以看见：</p>
-<pre><code>$ hexo d
-INFO  Deploying: git
-INFO  Clearing .deploy <span class="built_in">folder</span>...
-INFO  Copying <span class="built_in">files</span> <span class="built_in">from</span> public <span class="built_in">folder</span>...
-.....
-Branch master <span class="built_in">set</span> up <span class="built_in">to</span> track remote branch gh-pages <span class="built_in">from</span> git@github.com:prozhuchen/blog.git.
-Everything up-<span class="built_in">to</span>-<span class="built_in">date</span>
-INFO  Deploy done: git
-</code></pre><p>此时去看你自己的GitHub博客吧~(地址应该是username.github.io或者是.com)。接下来我们来看看如果让我们的博客变得更完美了。</p>
-<h2 id="输入hexo_d时出现的问题">输入<code>hexo d</code>时出现的问题</h2><ol>
-<li><code>ERROR Deployer not found: git</code><ol>
-<li>确定自己安装了hexo-deployer-git。如果没有,在Git Bash上输入：<code>npm install hexo-deployer-git --save</code>。</li>
-<li>deploy的type的github需要改成git。</li>
-<li>注意_config的配置写法。注意缩进，而且冒号后面要有一个空格。    </li>
+<span class="comment">//这个文章有两个标签，属于两个类别</span>
+title: Hexo博客第二站：部署到GitHub
+date: <span class="number">2015</span>-<span class="number">09</span>-<span class="number">30</span> <span class="number">15</span>:<span class="number">06</span>:<span class="number">50</span>
+tags:
+- Hexo
+- GitHub
+categories:
+- Hexo
+- GitHub
+</code></pre><p>接下来我们就可以在下面写自己的文章啦，但是文章要符合Markdown语法，MarkDown语法是啥子？我们要咋写啊？</p>
+<h1 id="怎么写">怎么写</h1><blockquote>
+<p>Markdown 是一种用来写作的轻量级「标记语言」，它用简洁的语法代替排版，而不像一般我们用的字处理软件 Word 或 Pages 有大量的排版、字体设置。它使我们专心于码字，用「标记」语法，来代替常见的排版格式。</p>
+</blockquote>
+<p>网上有很多的Markdown软件，我用的是<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">作业部落</a>，感觉这个软件做的很不错。其他的也有一些人是用sublime+插件（传送门 <a href="http://www.jianshu.com/p/378338f10263" target="_blank" rel="external">sublime text 2 下的Markdown写作</a>），大家可以自己选择自己想要的。</p>
+<p>至于Markdown语法，一开始准备自己写，但是后来发现有好多内容网上已经有了，再写出来会很重复。所以基本语法我就不提了。在这里说一些我在用Markdown时的心得。</p>
+<ol>
+<li>NexT主题有一个配置选项<code>toc_list_number: true</code>，这个选项使我们的目录会自动配上顺序标号，所以我们在自己写的时候可以不用带上了，如果不习惯的话，把这个配置注释掉即可。</li>
+<li><p>在用Markdown写命令的时候，我们将命令缩进四个空格，就会出现下面的情况。</p>
+<pre><code>命令
+</code></pre></li>
 </ol>
-</li>
+<p>绝大部分时候，一个Tab就是四个空格，当然你也可以设置，例如用sublime写作时，你就可以设定一个Tab等于多少空格。</p>
+<ol>
+<li><p>在用Markdown写代码的时候，我们只要用` <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;</span><br></pre></td></tr></table></figure></p>
+<pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span>
+```
+</code></pre></li>
 </ol>
+<p>Markdown变得越来越流行，他的兼容性和可读性可以胜任各个场合，而且如果伴随着一些专业编辑器，我们的写作速度大大加快了。</p>
+<p>从现在开始，大家可以开始自己的博客创作之路了！</p>
 </span>
       
     </div>
@@ -366,13 +355,13 @@ INFO  Deploy done: git
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/01/Hexo博客第三站/" rel="prev">Hexo博客第三站：安装主题+第三方评论+网站统计</a>
+              <a href="/2015/10/03/原-各种排序代码集合笔记/" rel="prev">各种排序代码集合笔记</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/30/Hexo博客第一站/" rel="next">Hexo博客第一站：搭建本地Hexo静态博客</a>
+              <a href="/2015/10/03/Hexo博客第四站/" rel="next">Hexo博客第四站：搜索引擎+小插件+配置结构分析</a>
             
           </div>
         </div>
@@ -420,8 +409,8 @@ INFO  Deploy done: git
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/09/30/Hexo博客第二站/"
-                   data-title="Hexo博客第二站：部署到GitHub" data-url="http://prozhuchen.github.io/2015/09/30/Hexo博客第二站/">
+              <div class="ds-thread" data-thread-key="2015/10/03/Hexo博客第五站/"
+                   data-title="Hexo博客第五站：文章配置+Markdown语法" data-url="http://prozhuchen.github.io/2015/10/03/Hexo博客第五站/">
               </div>
             
           </div>
@@ -526,7 +515,7 @@ INFO  Deploy done: git
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GitHub生成_SSH_key"><span class="nav-number">1.</span> <span class="nav-text">GitHub生成 SSH key</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成_SSH_key"><span class="nav-number">1.1.</span> <span class="nav-text">生成 SSH key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入ssh_-T_git@github-com_时出现的错误"><span class="nav-number">1.2.</span> <span class="nav-text">输入ssh -T git@github.com 时出现的错误</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo部署到GitHub上"><span class="nav-number">2.</span> <span class="nav-text">Hexo部署到GitHub上</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo部署"><span class="nav-number">2.1.</span> <span class="nav-text">Hexo部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入hexo_d时出现的问题"><span class="nav-number">2.2.</span> <span class="nav-text">输入hexo d时出现的问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#在哪写(Hexo_文章配置)"><span class="nav-number">1.</span> <span class="nav-text">在哪写(Hexo 文章配置)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#从别处迁移"><span class="nav-number">1.1.</span> <span class="nav-text">从别处迁移</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自己写"><span class="nav-number">1.2.</span> <span class="nav-text">自己写</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#怎么写"><span class="nav-number">2.</span> <span class="nav-text">怎么写</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

@@ -1,0 +1,792 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="baidu-site-verification" content="JJCAJdTqr7" />
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+  <meta name="google-site-verification" content="YWM2E4LIC-VWFZDcqEng_wk-RMSCRJaWDkx07MECtvk" />
+
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="做自己喜欢的事" />
+
+
+
+  <meta name="keywords" content="Hexo,next" />
+
+
+
+  <link rel="alternate" href="/atom.xml" title="朱琛的小屋" type="application/atom+xml" />
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="上一次我们说了人脸识别算法-特征脸方法（Eigenface）及python实现，在这一次，我们来看一看LBP算法。相比于特征脸方法，LBP的识别率已经有了很大的提升。
+在这里，我们用的数据库和上次一样，都是UCI的YALE的人脸数据库。
+因为我也是一边学一边写代码，所以害怕有人说我博文是抄袭的，所以在这里说明，我这里的算法思想主要是来自点击打开链接（不过大家都是学习，应该不会这么计较吧），我主要是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[原]人脸识别算法-LBP算法及python实现">
+<meta property="og:url" content="http://prozhuchen.github.io/2015/06/08/原-人脸识别算法-LBP算法及python实现/index.html">
+<meta property="og:site_name" content="朱琛的小屋">
+<meta property="og:description" content="上一次我们说了人脸识别算法-特征脸方法（Eigenface）及python实现，在这一次，我们来看一看LBP算法。相比于特征脸方法，LBP的识别率已经有了很大的提升。
+在这里，我们用的数据库和上次一样，都是UCI的YALE的人脸数据库。
+因为我也是一边学一边写代码，所以害怕有人说我博文是抄袭的，所以在这里说明，我这里的算法思想主要是来自点击打开链接（不过大家都是学习，应该不会这么计较吧），我主要是">
+<meta property="og:image" content="http://img.blog.csdn.net/20150414193723453?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20150414194118580?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20150414194446747?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20150414195003876?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20150414201643662?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20150414200606916?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20150414201420763?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20150414201502009?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:updated_time" content="2015-10-03T08:39:33.548Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[原]人脸识别算法-LBP算法及python实现">
+<meta name="twitter:description" content="上一次我们说了人脸识别算法-特征脸方法（Eigenface）及python实现，在这一次，我们来看一看LBP算法。相比于特征脸方法，LBP的识别率已经有了很大的提升。
+在这里，我们用的数据库和上次一样，都是UCI的YALE的人脸数据库。
+因为我也是一边学一边写代码，所以害怕有人说我博文是抄袭的，所以在这里说明，我这里的算法思想主要是来自点击打开链接（不过大家都是学习，应该不会这么计较吧），我主要是">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'post'
+  };
+</script>
+
+  <title> [原]人脸识别算法-LBP算法及python实现 | 朱琛的小屋 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?c358c1f8fdfe7541e290114eb572c538";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+
+      <a href="https://github.com/prozhuchen"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/82b228a3648bf44fc1163ef44c62fcc60081495e/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png"></a>
+      
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">朱琛的小屋</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu menu-left">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            <i class="menu-item-icon icon-next-categories"></i> <br />
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            <i class="menu-item-icon icon-next-guestbook"></i> <br />
+            留言
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <form class="site-search-form">
+    <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+  </form>
+
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', '6xgfVsdG12u_D_A_2Try','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              [原]人脸识别算法-LBP算法及python实现
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-06-08T20:12:40+08:00" content="2015年06月08日">
+            2015年06月08日
+          </time>
+        </span>
+
+        
+
+        <span class="post-count">
+        &nbsp; | &nbsp;字数&nbsp; 5,015
+        </span>
+
+        <span id="busuanzi_container_page_pv">
+        &nbsp; | &nbsp; 热度&nbsp; <span id="busuanzi_value_page_pv"></span>°C
+        </span>
+
+
+        
+          
+            <span class="post-comments-count">
+              &nbsp; | &nbsp;
+              <a href="/2015/06/08/原-人脸识别算法-LBP算法及python实现/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/08/原-人脸识别算法-LBP算法及python实现/" itemprop="commentsCount"></span>
+              </a>
+            </span>
+          
+        
+      </div>
+
+     
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><p><span style="font-family:'Microsoft YaHei'; font-size:14px">上一次我们说了<a href="http://blog.csdn.net/u010006643/article/details/44978755" target="_blank" rel="external">人脸识别算法-特征脸方法（Eigenface）及python实现</a>，在这一次，我们来看一看LBP算法。<span style="color:rgb(51,51,51); line-height:26px">相比于特征脸方法，LBP的识别率已经有了很大的提升。</span></span></p>
+<p><span style="color:rgb(51,51,51)"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>在这里，我们用的数据库和上次一样，都是UCI的<span style="line-height:19.0909080505371px">YALE的人脸数据库。</span></span></span></p>
+<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>因为我也是一边学一边写代码，所以害怕有人说我博文是抄袭的，所以在这里说明，我这里的算法思想主要是来自<a href="http://blog.csdn.net/feirose/article/details/39552977" target="_blank" rel="external">点击打开链接</a>（不过大家都是学习，应该不会这么计较吧），我主要是从实现的角度来说明一下在实现遇见的问题以及方法。</span></span></span></p>
+<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>LBP算法介绍：</span></span></span></p>
+<h3 id="1-圆形LBP算子"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="line-height:19.0909080505371px"><span style="color:rgb(255,102,102)">1.</span></span><span style="color:rgb(51,51,51); line-height:19.0909080505371px">圆形LBP算子</span></span></h3><p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>在这个算法一开始的时候，大家使用的是最普通的八邻域算子。</span></span></span></p>
+<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150414193723453?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></span></span></p>
+<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>八邻域的像素&#20540;大于中心点&#20540;的标注1，反之标注0.这样我们就会得到一个八位数。这时我们从左上角开始算最高位，最后左边的为最低位，在这个图中就是00010011，换算十进制就是19，我们就把这个&#20540;作为中心点的LBP算子&#20540;。</span></span></span></p>
+<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>但是随着算法的发展，大家发现这个算子太过死板，<span style="line-height:26px">不能满足不同尺寸和频率纹理的需要。为了适应不同尺度的纹理特征，并达到灰度和旋转不变性的要求，Ojala等对<br> LBP 算子进行了改进，将 3×3邻域扩展到任意邻域，并用圆形邻域代替了正方形邻域。</span></span></span></span></p>
+<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="line-height:26px"><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150414194118580?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></span></span></span></p>
+<p><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="line-height:26px"><span style="white-space:pre"></span></span></span></span><span style="color:rgb(51,51,51); line-height:26px; white-space:pre">为什么</span><span style="color:rgb(51,51,51); line-height:26px">说圆形算子比八邻域算子要更好呢？从直观的角度来说，我们看下面的图</span></span></p>
+<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="line-height:26px"><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150414194446747?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></span></span></span></p>
+<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="line-height:26px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre">看</span>第一个图是不是很像脸部的右下巴部分，第二图像头部右上方额头？（好吧，如果不像的话，就自己感受一下吧，，个人感觉）</span></span></span></span></p>
+<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="line-height:26px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>这时我们假设在半径为R的圆形邻域内有P个采样点的算子，上面的图是在R = 2，P=8. 此时我们算每个采样点的坐标：</span></span></span></span></p>
+<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="line-height:26px"><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150414195003876?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">、</span></span></span></span></span></p>
+<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>xp 是p点的x坐标，yp是y坐标，p的取&#20540;范围（0，P-1）（俗称0,1,2,3,4,5,6,7）。 但此时我们这样得到的不一定是整数，<span style="line-height:26px">所以可以通过双线性插&#20540;来得到该采样点的像素&#20540;。（这个双线性插&#20540;没太明白，不过python的<br> scipy工具包里有，我的代码里是直接round函数取整的，大家可以自己加上。）</span></span></span></span></p>
+<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="line-height:26px"></span></span></span></span></p>
+<p></p>
+<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="line-height:26px">此时我们发现，这个圆形的算子很坑爹啊，万一图片一旋转，同一个点的LBP&#20540;就会改变了，很不合理啊，所以大神们用了一种很简单的方法实现了旋转不变性。</span></span></span></span></p>
+<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="line-height:26px"><img src="http://img.blog.csdn.net/20150414201643662?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></span></span></p>
+<p></p>
+<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="line-height:26px">如上图所示，原本一开始我们算的这个点的LBP&#20540;是11100001 = 225，这时候我们开始旋转，可以看到每一个情况都旋转到了，我们取这些情况中的最小&#20540;，也就是15，作为这个点的LBP&#20540;，这样不管图片怎么旋转，这个点的LBP&#20540;都会是15，也就是旋转不变性。</span></span></span></span></p>
+<h3 id="2-LBP等价模式"><span style="line-height:19.0909080505371px; white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="color:rgb(255,102,102)">2.</span><span style="color:rgb(51,0,51)"><span style="color:rgb(51,51,51); line-height:26px">LBP等价模式</span></span></span></span></h3><p><span style="line-height:19.0909080505371px; white-space:pre"><span style="color:rgb(51,0,51)"><span style="color:rgb(51,51,51); line-height:26px"></span></span></span></p>
+<p><span style="background-color:inherit"><span style="background-color:inherit"><span style="color:rgb(51,0,51); background-color:inherit"><span style="color:rgb(51,51,51); background-color:inherit"><span style="font-family:'Microsoft YaHei'; font-size:14px">这一点的原理是我最没明白的，等到我看透Face<br> Recognition with Lo cal Binary Patterns这篇论文的时候我会加上这一点内容，现在先把人家博文上的解释加上。</span></span></span></span></span></p>
+<p><span style="background-color:inherit"><span style="background-color:inherit"><span style="color:rgb(255,0,0); background-color:inherit"><span style="font-family:'Microsoft YaHei'; font-size:14px">一个LBP算子可以产生不同的二进制模式，对于半径为R的圆形区域内含有P个采样点的LBP算子将会产生2^P种模式。很显然，随着邻域集内采样点数的增加，二进制模式的种类是急剧增加的。例如：5×5邻域内20个采样点，有220＝1,048,576种二进制模式。如此多的二&#20540;模式无论对于纹理的提取还是对于纹理的识别、分类及信息的存取都是不利的。同时，过多的模式种类对于纹理的表达是不利的。例如，将LBP算子用于纹理分类或人脸识别时，常采用LBP模式的统计直方图来表达图像的信息，而较多的模式种类将使得数据量过大，且直方图过于稀疏。因此，需要对原始的LBP模式进行降维，使得数据量减少的情况下能最好的代表图像的信息。</span></span></span></span></p>
+<p>为了解决二进制模式过多的问题，提高统计性，Ojala提出了采用一种“等价模式”（Uniform Pattern）来对LBP算子的模式种类进行降维。Ojala等认为，在实际图像中，绝大多数LBP模式最多只包含两次从1到0或从0到1的跳变。因此，Ojala将“等价模式”定义为：当某个LBP所对应的循环二进制数从0到1或从1到0最多有两次跳变时，该LBP所对应的二进制就称为一个等价模式类。如00000000（0次跳变），00000111（只含一次从0到1的跳变），10001111（先由1跳到0，再由0跳到1，共两次跳变）都是等价模式类。除等价模式类以外的模式都归为另一类，称为混合模式类，例如10010111（共四次跳变）。</p>
+<p><span style="color:rgb(255,0,0); background-color:inherit"><span style="font-family:'Microsoft YaHei'; font-size:14px">通过这样的改进，二进制模式的种类大大减少，而不会丢失任何信息。模式数量由原来的2^P种减少为 P ( P-1)&#43;2种，其中P表示邻域集内的采样点数。对于3×3邻域内8个采样点来说，二进制模式由原始的256种减少为58种，这使得特征向量的维数更少，并且可以减少高频噪声带来的影响。</span></span></p>
+<div style="widows:auto; line-height:21px"><span style="font-family:'Microsoft YaHei'; font-size:14px">&nbsp; &nbsp; 这里我不明白的点是：</span></div><br><div style="widows:auto; line-height:21px"><span style="font-family:'Microsoft YaHei'; font-size:14px">&nbsp; &nbsp; 1. 这个等价模式类还好，但是根据这个说法整个不就是两种模式了吗，一种是等价模式，一种是混合模式，那又怎么会出现 P ( P-1)&#43;2种模式呢？说白了还是这个式子是怎么推出来的不清楚。</span></div><br><div style="widows:auto; line-height:21px"><span style="font-family:'Microsoft YaHei'; font-size:14px">&nbsp; &nbsp; 2. 这个模式的减少意思是这个LBP&#20540;从2^P种减少到P ( P-1)&#43;2种吗？换句话说，00000000，00000111的模式一样，那影响他的LBP&#20540;吗？</span></div><br><div style="widows:auto; line-height:21px"><span style="font-family:'Microsoft YaHei'; font-size:14px">&nbsp; &nbsp; 因为这些疑问，所以在我代码中也没有这部分内容，请见谅。</span></div>
+
+<p><span style="font-family:'Microsoft YaHei'; font-size:14px"></span></p>
+<p><span style="white-space:pre"></span></p>
+<h3 id="3-&nbsp;LBP特征匹配"><span style="font-family:'Microsoft YaHei'; font-size:14px">3.&nbsp;<span style="color:rgb(51,51,51); line-height:26px">LBP特征匹配</span></span></h3><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="color:rgb(51,51,51); line-height:26px"><span style="white-space:pre">如果将以上得到的LBP&#20540;直接用于人脸识别，其实和不提取LBP特征没什么区别，会造成计算量准确率等一系列问题。将一副人脸图像分为7x7的子区</span></span></span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="color:rgb(51,51,51); line-height:26px"><span style="white-space:pre"><br><br></span></span></span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="color:rgb(51,51,51); line-height:26px"><span style="white-space:pre">域（如下图），并在子区域内根据LBP&#20540;统计其直方图，以直方图作为其判别特征。这样做的好处是在一定范围内避免图像没完全对准的情况，</span></span></span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="color:rgb(51,51,51); line-height:26px"><span style="white-space:pre">同时也对LBP特征做了降维处理。</span></span></span></div><br><div style="text-align:center"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"><img src="http://img.blog.csdn.net/20150414200606916?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre">其实</span>在上面提到的那篇论文里，分区的意义还在于我们可以根据不同的子区域给予不同的权重，比如说我们认为鼻子的权重大于边缘子区域对于整个图片的权重。权重的意思也就是这个部分对于匹配时整个图片的意义。</span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>我们根据LBP&#20540;统计直方图，上面提到的LBP&#20540;有2^8=256种，其实也就是一个灰度图的直方图统计过程。只要我们把LBP&#20540;看做一个新的像素&#20540;。</span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>在我的代码中<span style="color:rgb(51,51,51); line-height:26px">判别其相&#20284;性的方法是，假设已知人脸直方图为</span><span style="color:rgb(51,51,51); line-height:26px">M，训练人脸的直方图是N1，N2，，，Ni<br> 我计算他们每个子区域内的直方图的差，再取平方获得最后的相&#20284;&#20540;，对比所有的相&#20284;&#20540;，取最小的。（这样很简单。。）</span></span></div><br><div><span style="font-family:'Microsoft YaHei'"><span style="font-size:14px"><span style="color:rgb(51,51,51); line-height:26px"><span style="white-space:pre"></span>真正判断相&#20284;性的方法有：</span></span></span></div><br><div><span style="color:rgb(51,51,51); line-height:26px; white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150414201420763?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></div><br><div><span style="color:rgb(51,51,51); line-height:26px; white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150414201502009?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="color:rgb(51,51,51); line-height:26px; white-space:pre">大家可以</span>去google一下，然后自己实现。</span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><br><br></span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><br><br></span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px">代码（这里说一句，虽然一般都是说LBP算法对于光照不敏感，但是大家看实验结果，带light的准确率都很低，，应该是我的代码问题，希望有大神如果愿意的话能告诉我哪里的问题）：</span><pre name="code" class="python">#coding:utf-8<br>#——————————————–<br>#   作用：LBP人脸识别算法实现<br>#   日期：2015年4月11日<br>#   算法链接：<a href="http://blog.csdn.net/feirose/article/details/39552977" target="_blank" rel="external">http://blog.csdn.net/feirose/article/details/39552977</a><br>#           <a href="http://blog.csdn.net/zouxy09/article/details/7929531" target="_blank" rel="external">http://blog.csdn.net/zouxy09/article/details/7929531</a><br>#   实验结果：accuracy of centerlight is 0.333333<br>#             accuracy of glasses is 0.933333<br>#             accuracy of happy is 0.933333<br>#             accuracy of leftlight is 0.266667<br>#             accuracy of noglasses is 0.933333<br>#             accuracy of rightlight is 0.133333<br>#             accuracy of sad is 0.933333<br>#             accuracy of sleepy is 0.933333<br>#             accuracy of surprised is 0.866667<br>#             accuracy of wink is 0.800000<br>#   执行时间：494.759438799s<br>#——————————————–<br>from numpy import <em><br>from numpy import linalg as la<br>import cv2<br>import os<br>import math<br><br># 为了让LBP具有旋转不变性，将二进制串进行旋转。<br># 假设一开始得到的LBP特征为10010000，那么将这个二进制特征，<br># 按照顺时针方向旋转，可以转化为00001001的形式，这样得到的LBP值是最小的。<br># 无论图像怎么旋转，对点提取的二进制特征的最小值是不变的，<br># 用最小值作为提取的LBP特征，这样LBP就是旋转不变的了。<br>def minBinary(pixel):<br>    length = len(pixel)<br>    zero = &#39;&#39;<br>    for i in range(length)[::-1]:<br>        if pixel[i] == &#39;0&#39;:<br>            pixel = pixel[:i]<br>            zero += &#39;0&#39;<br>        else:<br>            return zero + pixel<br>    if len(pixel) == 0:<br>        return &#39;0&#39;<br><br># 加载图像<br>def loadImageSet(add):<br>    FaceMat = mat(zeros((15,98</em>116)))<br>    j =0<br>    for i in os.listdir(add):<br>        if i.split(&#39;.&#39;)[1] == &#39;noglasses&#39;:<br>            try:<br>                img = cv2.imread(add+i,0)<br>                # cv2.imwrite(str(i)+&#39;.jpg&#39;,img)<br>            except:<br>                print &#39;load %s failed&#39;%i<br>            FaceMat[j,:] = mat(img).flatten()<br>            j += 1<br>    return FaceMat<br><br># 算法主过程<br>def LBP(FaceMat,R = 2,P = 8):<br>    Region8_x=[-1,0,1,1,1,0,-1,-1]<br>    Region8_y=[-1,-1,-1,0,1,1,1,0]<br>    pi = math.pi<br>    LBPoperator = mat(zeros(shape(FaceMat)))<br>    for i in range(shape(FaceMat)[1]):<br>        # 对每一个图像进行处理<br>        face = FaceMat[:,i].reshape(116,98)<br>        W,H = shape(face)<br>        tempface = mat(zeros((W,H)))<br>        for x in xrange(R,W-R):<br>            for y in xrange(R,H-R):<br>                repixel = &#39;&#39;<br>                pixel=int(face[x,y])<br>                #　圆形LBP算子<br>                for p in [2,1,0,7,6,5,4,3]:<br>                    p = float(p)<br>                    xp = x + R<em> cos(2</em>pi<em>(p/P))<br>                    yp = y - R</em> sin(2<em>pi</em>(p/P))<br>                    if face[xp,yp]&gt;pixel:<br>                        repixel += &#39;1&#39;<br>                    else:<br>                        repixel += &#39;0&#39;<br>                # minBinary保持LBP算子旋转不变<br>                tempface[x,y] = int(minBinary(repixel),base=2)<br>        LBPoperator[:,i] = tempface.flatten().T<br>        # cv2.imwrite(str(i)+&#39;hh.jpg&#39;,array(tempface,uint8))<br>    return LBPoperator<br><br>    # judgeImg:未知判断图像<br>    # LBPoperator:实验图像的LBP算子<br>    # exHistograms:实验图像的直方图分布<br>def judgeFace(judgeImg,LBPoperator,exHistograms):<br>    judgeImg = judgeImg.T<br>    ImgLBPope = LBP(judgeImg)<br>    #  把图片分为7<em>4份 , calHistogram返回的直方图矩阵有28个小矩阵内的直方图<br>    judgeHistogram = calHistogram(ImgLBPope)<br>    minIndex = 0<br>    minVals = inf<br><br>    for  i in range(shape(LBPoperator)[1]):<br>        exHistogram = exHistograms[:,i]<br>        diff = (array(exHistogram-judgeHistogram)**2).sum()<br>        if diff&lt;minVals:<br>            minIndex = i<br>            minVals = diff<br>    return minIndex<br><br># 统计直方图<br>def calHistogram(ImgLBPope):<br>    Img = ImgLBPope.reshape(116,98)<br>    W,H = shape(Img)<br>    # 把图片分为7</em>4份<br>    Histogram = mat(zeros((256,7<em>4)))<br>    maskx,masky = W/4,H/7<br>    for i in range(4):<br>        for j in range(7):<br>            # 使用掩膜opencv来获得子矩阵直方图<br>            mask = zeros(shape(Img), uint8)<br>            mask[i</em>maskx: (i+1)<em>maskx,j</em>masky :(j+1)<em>masky] = 255<br>            hist = cv2.calcHist([array(Img,uint8)],[0],mask,[ 256],[0,256])<br>            Histogram[:,(i+1)</em>(j+1)-1] = mat(hist).flatten().T<br>    return Histogram.flatten().T<br><br>def runLBP():<br>    # 加载图像<br>    FaceMat = loadImageSet(&#39;D:\python/face recongnition\YALE\YALE\unpadded/&#39;).T<br><br>    LBPoperator = LBP(FaceMat) # 获得实验图像LBP算子<br><br>    # 获得实验图像的直方图分布，这里计算是为了可以多次使用<br>    exHistograms = mat(zeros((256<em>4</em>7,shape(LBPoperator)[1])))<br>    for i in range(shape(LBPoperator)[1]):<br>        exHistogram = calHistogram(LBPoperator[:,i])<br>        exHistograms[:,i] = exHistogram<br><br>    #　下面的代码都是根据我的这个数据库来的，就是为了验证算法准确性，如果大家改了实例，请更改下面的代码<br>    nameList = [&#39;01&#39;,&#39;02&#39;,&#39;03&#39;,&#39;04&#39;,&#39;05&#39;,&#39;06&#39;,&#39;07&#39;,&#39;08&#39;,&#39;09&#39;,&#39;10&#39;,&#39;11&#39;,&#39;12&#39;,&#39;13&#39;,&#39;14&#39;,&#39;15&#39;]<br>    characteristic = [&#39;centerlight&#39;,&#39;glasses&#39;,&#39;happy&#39;,&#39;normal&#39;,&#39;leftlight&#39;,&#39;noglasses&#39;,&#39;rightlight&#39;,&#39;sad&#39;,&#39;sleepy&#39;,&#39;surprised&#39;,&#39;wink&#39;]<br>    for c in characteristic:<br>        count = 0<br>        for i in range(len(nameList)):<br>            # 这里的loadname就是我们要识别的未知人脸图，我们通过15张未知人脸找出的对应训练人脸进行对比来求出正确率<br>            loadname = &#39;D:\python/face recongnition\YALE\YALE\unpadded\subject&#39;+nameList[i]+&#39;.&#39;+c+&#39;.pgm&#39;<br>            judgeImg = cv2.imread(loadname,0)<br>            if judgeFace(mat(judgeImg).flatten(),LBPoperator,exHistograms)+1 == int(nameList[i]):<br>                count += 1<br>        print &#39;accuracy of %s is %f&#39;%(c, float(count)/len(nameList))  # 求出正确率<br><br>if <strong>name</strong> == &#39;<strong>main</strong>&#39;:<br>    # 测试这个算法的运行时间<br>    from timeit import Timer<br>    t1=Timer(&quot;runLBP()&quot;,&quot;from <strong>main</strong> import runLBP&quot;)<br>    print t1.timeit(1)<br>    </pre></div><br><div><br><br></div>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/08/原-人脸识别算法-特征脸方法（Eigenface）及python实现/" rel="prev">[原]人脸识别算法-特征脸方法（Eigenface）及python实现</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+              <div class="ds-thread" data-thread-key="2015/06/08/原-人脸识别算法-LBP算法及python实现/"
+                   data-title="[原]人脸识别算法-LBP算法及python实现" data-url="http://prozhuchen.github.io/2015/06/08/原-人脸识别算法-LBP算法及python实现/">
+              </div>
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/default_avatar.jpg" alt="朱琛" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">朱琛</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">做自己喜欢的事</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+          
+          <div class="site-state-item site-state-categories">
+            <a href="/categories">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">分类</span>
+              </a>
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="menu-item-icon icon-next-feed"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/zhu-chen-71-40" target="_blank">知乎</a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/prozhuchen" target="_blank">GitHub</a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-圆形LBP算子"><span class="nav-number">1.</span> <span class="nav-text">1.圆形LBP算子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-LBP等价模式"><span class="nav-number">2.</span> <span class="nav-text">2.LBP等价模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3- LBP特征匹配"><span class="nav-number">3.</span> <span class="nav-text">3. LBP特征匹配</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">朱琛</span>
+
+</div>
+
+<div>
+ <span id="busuanzi_container_site_pv" style='display:none'>
+    本站总访问量<span id="busuanzi_value_site_pv"></span>次&nbsp;&nbsp;
+</span>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"prozhuchen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+    
+     
+
+    
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
