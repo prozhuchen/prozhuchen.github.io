@@ -39,7 +39,7 @@
     <link href="http://prozhuchen.github.io/2015/10/03/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%BA%94%E7%AB%99/"/>
     <id>http://prozhuchen.github.io/2015/10/03/Hexo博客第五站/</id>
     <published>2015-10-03T07:53:11.000Z</published>
-    <updated>2015-10-03T09:48:29.583Z</updated>
+    <updated>2015-10-03T09:51:10.172Z</updated>
     <content type="html"><![CDATA[<p>现在我们可以尽情写自己想写的东西了。但是首先我们得学会在哪写和怎么写。</p>
 <h1 id="在哪写(Hexo_文章配置)">在哪写(Hexo 文章配置)</h1><h2 id="从别处迁移">从别处迁移</h2><p>如果我们之前在别的网站已经有了自己的博客，那当然不能直接扔掉啦，Hexo可以从RSS/Jekyll/Octopress/Wordpress迁移之前的博客（传送门 <a href="http://zespia.tw/hexo/docs/migration.html" target="_blank" rel="external">从别处迁移到Hexo</a>）。</p>
 <h2 id="自己写">自己写</h2><p>首先我们在Git Bash中输入：</p>
@@ -94,7 +94,7 @@ categories:
 </ol>
 <p>绝大部分时候，一个Tab就是四个空格，当然你也可以设置，例如用sublime写作时，你就可以设定一个Tab等于多少空格。</p>
 <ol>
-<li><p>在用Markdown写代码的时候，我们只要用` <figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;</span><br></pre></td></tr></table></figure></p>
+<li><p>在用Markdown写代码的时候，我们只要用<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;</span><br></pre></td></tr></table></figure></p>
 <pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span>
 ```
 </code></pre></li>
