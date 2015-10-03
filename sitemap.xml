@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://prozhuchen.github.io/404.html</loc>
+    <lastmod>2015-10-03T05:47:21.995Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://prozhuchen.github.io/2015/10/01/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%89%E7%AB%991/</loc>
     <lastmod>2015-10-03T05:31:39.578Z</lastmod>
   </url>
@@ -19,11 +24,6 @@
   <url>
     <loc>http://prozhuchen.github.io/guestbook/index.html</loc>
     <lastmod>2015-09-29T13:35:05.370Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://prozhuchen.github.io/404.html</loc>
-    <lastmod>2015-09-29T13:11:26.294Z</lastmod>
   </url>
   
   <url>
