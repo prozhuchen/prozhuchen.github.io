@@ -54,7 +54,7 @@
 <meta property="og:site_name" content="朱琛的小屋">
 <meta property="og:description" content="首先我们先在本地搭一个静态的hexo博客。">
 <meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/hexo.jpg">
-<meta property="og:updated_time" content="2015-10-03T07:09:16.712Z">
+<meta property="og:updated_time" content="2015-10-03T08:05:21.188Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客第一站：搭建本地Hexo静态博客">
 <meta name="twitter:description" content="首先我们先在本地搭一个静态的hexo博客。">
@@ -248,7 +248,7 @@
         
 
         <span class="post-count">
-        &nbsp; | &nbsp;字数&nbsp; 563
+        &nbsp; | &nbsp;字数&nbsp; 779
         </span>
 
         <span id="busuanzi_container_page_pv">
@@ -312,6 +312,12 @@ hexo s  <span class="comment">//启动服务器</span>
 INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+C to stop.</span>
 </code></pre><p>此时你打开 <a href="http://127.0.0.1:4000/" target="_blank" rel="external">http://127.0.0.1:4000</a> , 就能看到已经生成的Hexo界面啦。</p>
 <p><img src="http://7xn5ph.com1.z0.glb.clouddn.com/hexo.jpg" alt=""></p>
+<p>#Hexo常用命令<br>这里先说一下Hexo常用的命令，接下来的文章也会提醒一些的。</p>
+<pre><code>$ hexo <span class="keyword">new</span> [layout] &lt;title&gt; <span class="preprocessor">#建立新文章，默认在_posts下，layout=<span class="string">"draft"</span>时发布的是草稿</span>
+</code></pre><p>$ hexo publish <filename>   #将_drafts下的文件放到_posts下，也就是发布草稿<br>    $ hexo generate             #生成静态网页<br>$ hexo server               #启动预览服务器，开启-d选项时可以预览草稿<br>    $ hexo deploy               #发布到远程服务器，开启–generate选项可以在deploy前自动generate</filename></p>
+<p>另外这些命令都有简化命令，接下来我使用简化命令多一些。</p>
+<pre><code><span class="variable">$ </span>hexo n  <span class="comment"># == hexo new</span>
+</code></pre><p>$ hexo p  # == hexo publish<br>    $ hexo g  # == hexo generate<br>$ hexo s  # == hexo server<br>    $ hexo d  # == hexo deploy</p>
 <hr>
 <h1 id="注意"><strong>注意</strong></h1><p>有的时候输入 <code>hexo init</code>看到了这句话：</p>
 <pre><code>-<span class="string">bash:</span> <span class="string">hexo:</span> command not found
@@ -419,7 +425,7 @@ INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
