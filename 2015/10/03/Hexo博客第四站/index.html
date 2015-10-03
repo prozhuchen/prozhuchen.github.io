@@ -47,17 +47,17 @@
   <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞">
+<meta name="description" content="接着我们上次来继续加加加东西。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo博客第四站：搜索引擎+小插件+配置结构分析">
 <meta property="og:url" content="http://prozhuchen.github.io/2015/10/03/Hexo博客第四站/index.html">
 <meta property="og:site_name" content="朱琛的小屋">
-<meta property="og:description" content="生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞">
+<meta property="og:description" content="接着我们上次来继续加加加东西。">
 <meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E5%9B%9B%E7%AB%991.jpg">
-<meta property="og:updated_time" content="2015-10-03T08:01:59.805Z">
+<meta property="og:updated_time" content="2015-10-03T08:08:13.072Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客第四站：搜索引擎+小插件+配置结构分析">
-<meta name="twitter:description" content="生命在于折腾，又把博客折腾到Hexo了。给Hexo点赞">
+<meta name="twitter:description" content="接着我们上次来继续加加加东西。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -248,7 +248,7 @@
         
 
         <span class="post-count">
-        &nbsp; | &nbsp;字数&nbsp; 2,398
+        &nbsp; | &nbsp;字数&nbsp; 2,420
         </span>
 
         <span id="busuanzi_container_page_pv">
@@ -285,18 +285,17 @@
       
 
       
-        <span itemprop="articleBody"><p>接着我们上次来继续加加加东西。<a id="more"></a></p>
+        <span itemprop="articleBody"><p>接着我们上次来继续加加加东西。</p>
 <p>此时说明一下，大家可能看到我的博客和你们NexT主题显示的不一样，这是因为NexT主题包含两种主题，我们在主题配置文件中的40行左右可以看见：</p>
 <pre><code><span class="preprocessor"># Schemes</span>
 <span class="label">scheme:</span> Mist  <span class="preprocessor">#这一列默认是注释掉的，如果把这个取消注释，就会变成我的博客的主题样式。</span>
-</code></pre><p>#搜索引擎</p>
-<p>NexT主题支持了两种搜索引擎：Swiftype和微搜索。一个是国外的，一个是国内的。微搜索做的还不错，但是我搜索的时候总觉得有些延迟；至于Swiftype，真的真的很好用，良心厂家强力推荐。<br>有人说注册以后是30天试用，这个没关系，网站给的是30天高级账户的使用（那种有可以建立多个搜索引擎、多账户共同管理、一个引擎index多个域名的功能的账户），30天到期后你可选择花钱继续用这个高级账户（土豪自便），或者选择降级成为免费的账户类型，也就是我现在用的那种，所以，不用担心。<br>Swiftype网站的配置，网上其他好多的都是说的老版Swiftype的配置，比较落后了，这里提供给大家一位博主的博客，说的很详细。传送门　<a href="http://www.jerryfu.net/post/search-engine-for-hexo-with-swiftype-v2.html" target="_blank" rel="external">利用swiftype为hexo添加站内搜索</a>。<br>至于主题上的配置，我们只要在你的站点配置文件（不是主题配置文件）上加上这样一句话即可。</p>
+</code></pre><h1 id="搜索引擎">搜索引擎</h1><p>NexT主题支持了两种搜索引擎：Swiftype和微搜索。一个是国外的，一个是国内的。微搜索做的还不错，但是我搜索的时候总觉得有些延迟；至于Swiftype，真的真的很好用，良心厂家强力推荐。<br>有人说注册以后是30天试用，这个没关系，网站给的是30天高级账户的使用（那种有可以建立多个搜索引擎、多账户共同管理、一个引擎index多个域名的功能的账户），30天到期后你可选择花钱继续用这个高级账户（土豪自便），或者选择降级成为免费的账户类型，也就是我现在用的那种，所以，不用担心。<br>Swiftype网站的配置，网上其他好多的都是说的老版Swiftype的配置，比较落后了，这里提供给大家一位博主的博客，说的很详细。传送门　<a href="http://www.jerryfu.net/post/search-engine-for-hexo-with-swiftype-v2.html" target="_blank" rel="external">利用swiftype为hexo添加站内搜索</a>。<br>至于主题上的配置，我们只要在你的站点配置文件（不是主题配置文件）上加上这样一句话即可。</p>
 <pre><code># <span class="keyword">Swiftype </span>Search Key
 <span class="keyword">swiftype_key: </span>你的<span class="keyword">swiftype_key</span>
 </code></pre><p>swiftype_key：在你Swiftype网站配置完后，我们看到了一个JS文件。</p>
 <p><img src="http://7xn5ph.com1.z0.glb.clouddn.com/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E5%9B%9B%E7%AB%991.jpg" alt=""><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">  (<span class="function"><span class="keyword">function</span>(<span class="params">w,d,t,u,n,s,e</span>)</span>&#123;w[<span class="string">'SwiftypeObject'</span>]=n;w[n]=w[n]||<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  (w[n].q=w[n].q||[]).push(<span class="built_in">arguments</span>);&#125;;s=d.createElement(t);</span><br><span class="line">  e=d.getElementsByTagName(t)[<span class="number">0</span>];s.async=<span class="number">1</span>;s.src=u;e.parentNode.insertBefore(s,e);</span><br><span class="line">  &#125;)(<span class="built_in">window</span>,<span class="built_in">document</span>,<span class="string">'script'</span>,<span class="string">'//s.swiftypecdn.com/install/v2/st.js'</span>,<span class="string">'_st'</span>);</span><br><span class="line"></span><br><span class="line">  _st(<span class="string">'install'</span>,<span class="string">'yx9-swpbwqxuFPaTyCzz'</span>,<span class="string">'2.0.0'</span>);<span class="comment">//yx9-swpbwqxuFPaTyCzz 就是 swiftype_key，不同的人不一样。</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <hr>
-<p>#安装插件RSS与 sitemap<br>Sitemap:</p>
+<h1 id="安装插件RSS与_sitemap">安装插件RSS与 sitemap</h1><p>Sitemap:</p>
 <blockquote>
 <p>Sitemap 可方便网站管理员通知搜索引擎他们网站上有哪些可供抓取的网页。最简单的 Sitemap 形式，就是XML文件，在其中列出网站中的网址以及关于每个网址的其他元数据（上次更新的时间、更改的频率以及相对于网站上其他网址的重要程度为何等），以便搜索引擎可以更加智能地抓取网站。</p>
 </blockquote>
@@ -320,7 +319,7 @@ npm <span class="keyword">install</span> hexo-generator-sitemap <span class="com
   <span class="attribute">path</span>: atom.xml
 </code></pre><p>上面的path说明了博客生成后的位置在根目录下，也是你访问网址是你的根地址+path。<br>此时你访问<code>http://127.0.0.1:4000/atom.xml</code>就能看到RSS的内容啦，sitemap访问同理。 如果想向google提交自己的sitemap，请看这个博客。传送门 <a href="http://fionat.github.io/blog/2013/10/23/sitemap/" target="_blank" rel="external">如何向google提交sitemap（详细）</a> ，过一天左右，你就能在google搜索到自己的新博客啦。</p>
 <hr>
-<p>#加入”关于我” 和DIY界面<br>一开始我们的主页里面只有主页，归档和标签三个标签。我们可以加一些自己DIY的界面。<br>我们在Git Bash中输入这样一句命令。</p>
+<h1 id="加入”关于我”_和DIY界面">加入”关于我” 和DIY界面</h1><p>一开始我们的主页里面只有主页，归档和标签三个标签。我们可以加一些自己DIY的界面。<br>我们在Git Bash中输入这样一句命令。</p>
 <pre><code>hexo <span class="keyword">new</span> page <span class="string">"about"</span>
 </code></pre><p>这时我们进入博客根目录下的<code>source</code>可以发现多了一个<code>about</code>文件夹，里面有一个<code>index.md</code>,此时我们进入主题配置文件（就是在主题目录下的_config.yml），对第五行进行更改。</p>
 <pre><code><span class="attribute">menu</span>:
@@ -576,7 +575,7 @@ toc_list_number: <span class="literal">true</span>   #自动在目录里加入�
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#主题配置文件结构分析"><span class="nav-number">1.</span> <span class="nav-text">主题配置文件结构分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搜索引擎"><span class="nav-number">1.</span> <span class="nav-text">搜索引擎</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装插件RSS与_sitemap"><span class="nav-number">2.</span> <span class="nav-text">安装插件RSS与 sitemap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#加入”关于我”_和DIY界面"><span class="nav-number">3.</span> <span class="nav-text">加入”关于我” 和DIY界面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题配置文件结构分析"><span class="nav-number">4.</span> <span class="nav-text">主题配置文件结构分析</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

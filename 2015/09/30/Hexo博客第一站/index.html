@@ -54,7 +54,7 @@
 <meta property="og:site_name" content="朱琛的小屋">
 <meta property="og:description" content="首先我们先在本地搭一个静态的hexo博客。">
 <meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/hexo.jpg">
-<meta property="og:updated_time" content="2015-10-03T08:05:21.188Z">
+<meta property="og:updated_time" content="2015-10-03T08:08:42.100Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客第一站：搭建本地Hexo静态博客">
 <meta name="twitter:description" content="首先我们先在本地搭一个静态的hexo博客。">
@@ -248,7 +248,7 @@
         
 
         <span class="post-count">
-        &nbsp; | &nbsp;字数&nbsp; 779
+        &nbsp; | &nbsp;字数&nbsp; 837
         </span>
 
         <span id="busuanzi_container_page_pv">
@@ -312,13 +312,19 @@ hexo s  <span class="comment">//启动服务器</span>
 INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+C to stop.</span>
 </code></pre><p>此时你打开 <a href="http://127.0.0.1:4000/" target="_blank" rel="external">http://127.0.0.1:4000</a> , 就能看到已经生成的Hexo界面啦。</p>
 <p><img src="http://7xn5ph.com1.z0.glb.clouddn.com/hexo.jpg" alt=""></p>
-<p>#Hexo常用命令<br>这里先说一下Hexo常用的命令，接下来的文章也会提醒一些的。</p>
-<pre><code>$ hexo <span class="keyword">new</span> [layout] &lt;title&gt; <span class="preprocessor">#建立新文章，默认在_posts下，layout=<span class="string">"draft"</span>时发布的是草稿</span>
-</code></pre><p>$ hexo publish <filename>   #将_drafts下的文件放到_posts下，也就是发布草稿<br>    $ hexo generate             #生成静态网页<br>$ hexo server               #启动预览服务器，开启-d选项时可以预览草稿<br>    $ hexo deploy               #发布到远程服务器，开启–generate选项可以在deploy前自动generate</filename></p>
-<p>另外这些命令都有简化命令，接下来我使用简化命令多一些。</p>
+<h1 id="Hexo常用命令">Hexo常用命令</h1><p>这里先说一下Hexo常用的命令，接下来的文章也会提醒一些的。</p>
+<pre><code><span class="variable">$ </span>hexo new [layout] &lt;title&gt; <span class="comment">#建立新文章，默认在_posts下，layout="draft"时发布的是草稿</span>
+<span class="variable">$ </span>hexo publish &lt;filename&gt;   <span class="comment">#将_drafts下的文件放到_posts下，也就是发布草稿</span>
+<span class="variable">$ </span>hexo generate             <span class="comment">#生成静态网页</span>
+<span class="variable">$ </span>hexo server               <span class="comment">#启动预览服务器，开启-d选项时可以预览草稿</span>
+<span class="variable">$ </span>hexo deploy               <span class="comment">#发布到远程服务器，开启--generate选项可以在deploy前自动generate</span>
+</code></pre><p>另外这些命令都有简化命令，接下来我使用简化命令多一些。</p>
 <pre><code><span class="variable">$ </span>hexo n  <span class="comment"># == hexo new</span>
-</code></pre><p>$ hexo p  # == hexo publish<br>    $ hexo g  # == hexo generate<br>$ hexo s  # == hexo server<br>    $ hexo d  # == hexo deploy</p>
-<hr>
+<span class="variable">$ </span>hexo p  <span class="comment"># == hexo publish </span>
+<span class="variable">$ </span>hexo g  <span class="comment"># == hexo generate</span>
+<span class="variable">$ </span>hexo s  <span class="comment"># == hexo server</span>
+<span class="variable">$ </span>hexo d  <span class="comment"># == hexo deploy</span>
+</code></pre><hr>
 <h1 id="注意"><strong>注意</strong></h1><p>有的时候输入 <code>hexo init</code>看到了这句话：</p>
 <pre><code>-<span class="string">bash:</span> <span class="string">hexo:</span> command not found
 </code></pre><p>说明没找到hexo指令，此时我们找到hexo的下载目录，然后在系统变量path添加就可以了。我的目录是在 <code>C:\Users\用户名\AppData\Roaming\npm\node_modules\hexo\bin</code>。大家的应该也在类似位置。</p>
@@ -490,7 +496,7 @@ INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo的优势"><span class="nav-number">1.</span> <span class="nav-text">Hexo的优势</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo安装"><span class="nav-number">2.</span> <span class="nav-text">Hexo安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意"><span class="nav-number">3.</span> <span class="nav-text">注意</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo的优势"><span class="nav-number">1.</span> <span class="nav-text">Hexo的优势</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo安装"><span class="nav-number">2.</span> <span class="nav-text">Hexo安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo常用命令"><span class="nav-number">3.</span> <span class="nav-text">Hexo常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意"><span class="nav-number">4.</span> <span class="nav-text">注意</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
