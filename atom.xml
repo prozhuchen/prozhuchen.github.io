@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://prozhuchen.github.io/"/>
-  <updated>2015-10-02T02:43:09.572Z</updated>
+  <updated>2015-10-03T05:31:39.578Z</updated>
   <id>http://prozhuchen.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://prozhuchen.github.io/2015/10/01/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%89%E7%AB%991/"/>
     <id>http://prozhuchen.github.io/2015/10/01/Hexo博客第三站1/</id>
     <published>2015-10-01T15:14:50.000Z</published>
-    <updated>2015-10-02T02:43:09.572Z</updated>
+    <updated>2015-10-03T05:31:39.578Z</updated>
     <content type="html"><![CDATA[<p>接着我们开始丰富我们的博客。<a id="more"></a></p>
 <p>再次提示：</p>
 <ol>
@@ -27,9 +27,9 @@
 <li>下文提到的目录地址都是面对NexT主题的，不过其他主题的索引也都大同小异。</li>
 </ol>
 <h1 id="hexo博客结构">hexo博客结构</h1><p>在这里，我们先来看看hexo自动生成的博客的主要结构。</p>
-<pre><code>├─scaffolds      <span class="comment">//每篇博客页面模板所在地</span>
+<pre><code>├─scaffolds      <span class="comment">//每篇帖子模板所在地</span>
 ├─source         
-│  └─_posts      <span class="comment">//这里放着我们写的博客 里面初始化一篇hello-world.md</span>
+│  └─_posts      <span class="comment">//这里放着我们写的帖子 里面初始化一篇hello-world.md</span>
 └─themes         <span class="comment">//hexo博客主题所在地</span>
     └─landscape  <span class="comment">//初始化主题默认为landscape</span>
 ├─node_modules   <span class="comment">//hexo的驱动文件所在地</span>
