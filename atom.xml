@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://prozhuchen.github.io/"/>
-  <updated>2015-10-03T06:50:15.805Z</updated>
+  <updated>2015-10-03T07:09:25.680Z</updated>
   <id>http://prozhuchen.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://prozhuchen.github.io/2015/10/03/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E5%9B%9B%E7%AB%99/"/>
     <id>http://prozhuchen.github.io/2015/10/03/Hexo博客第四站/</id>
     <published>2015-10-03T06:46:38.000Z</published>
-    <updated>2015-10-03T06:50:15.805Z</updated>
+    <updated>2015-10-03T07:09:25.680Z</updated>
     <content type="html"><![CDATA[<p>接着我们上次来继续加加加东西。<a id="more"></a></p>
 <p>此时说明一下，大家可能看到我的博客和你们NexT主题显示的不一样，这是因为NexT主题包含两种主题，我们在主题配置文件中的40行左右可以看见：</p>
 <pre><code><span class="preprocessor"># Schemes</span>
@@ -151,8 +151,6 @@ toc_list_number: <span class="literal">true</span>   #自动在目录里加入�
     
       <category term="Hexo" scheme="http://prozhuchen.github.io/categories/Hexo/"/>
     
-      <category term="GitHub" scheme="http://prozhuchen.github.io/categories/Hexo/GitHub/"/>
-    
   </entry>
   
   <entry>
@@ -160,7 +158,7 @@ toc_list_number: <span class="literal">true</span>   #自动在目录里加入�
     <link href="http://prozhuchen.github.io/2015/10/01/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%89%E7%AB%99/"/>
     <id>http://prozhuchen.github.io/2015/10/01/Hexo博客第三站/</id>
     <published>2015-10-01T15:14:50.000Z</published>
-    <updated>2015-10-03T06:50:21.425Z</updated>
+    <updated>2015-10-03T07:09:22.699Z</updated>
     <content type="html"><![CDATA[<p>接着我们开始丰富我们的博客。<a id="more"></a></p>
 <p>再次提示：</p>
 <ol>
@@ -210,8 +208,6 @@ hexo <span class="literal">s</span>
       <category term="Hexo" scheme="http://prozhuchen.github.io/tags/Hexo/"/>
     
       <category term="Hexo" scheme="http://prozhuchen.github.io/categories/Hexo/"/>
-    
-      <category term="GitHub" scheme="http://prozhuchen.github.io/categories/Hexo/GitHub/"/>
     
   </entry>
   
@@ -300,7 +296,7 @@ INFO  Deploy done: git
     <link href="http://prozhuchen.github.io/2015/09/30/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E7%AB%99/"/>
     <id>http://prozhuchen.github.io/2015/09/30/Hexo博客第一站/</id>
     <published>2015-09-30T06:06:28.000Z</published>
-    <updated>2015-10-03T06:50:10.778Z</updated>
+    <updated>2015-10-03T07:09:16.712Z</updated>
     <content type="html"><![CDATA[<p>首先我们先在本地搭一个静态的hexo博客。<a id="more"></a></p>
 <h1 id="Hexo的优势"><strong>Hexo的优势</strong></h1><p>Hexo是一款基于Node.js的静态博客，他的优势在于可以快速的搭建起一个个人博客，并且支持各种评论，分享等插件，最重要的是，它有很多现成的主题，你可以任意选择。</p>
 <h1 id="Hexo安装"><strong>Hexo安装</strong></h1><ol>
@@ -343,8 +339,6 @@ INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+
       <category term="Hexo" scheme="http://prozhuchen.github.io/tags/Hexo/"/>
     
       <category term="Hexo" scheme="http://prozhuchen.github.io/categories/Hexo/"/>
-    
-      <category term="GitHub" scheme="http://prozhuchen.github.io/categories/Hexo/GitHub/"/>
     
   </entry>
   
