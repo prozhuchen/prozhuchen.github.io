@@ -45,18 +45,29 @@
   <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="我们开始把Hexo博客部署在GitHub上。">
+<meta name="description" content="接着我们上次来继续加加加东西。
+此时说明一下，大家可能看到我的博客和你们NexT主题显示的不一样，这是因为NexT主题包含两种主题，我们在主题配置文件中的40行左右可以看见：
+# Schemes
+scheme: Mist  #这一列默认是注释掉的，如果把这个取消注释，就会变成我的博客的主题样式。
+#　搜索引擎NexT主题支持了两种搜索引擎：Swiftype和微搜索。一个是国外的，一个是国内的。微搜">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客第二站：部署到GitHub">
-<meta property="og:url" content="http://prozhuchen.github.io/2015/09/30/Hexo博客第二站/index.html">
+<meta property="og:title" content="Hexo博客第四站：搜索引擎+小插件+配置结构分析">
+<meta property="og:url" content="http://prozhuchen.github.io/2015/10/03/Hexo博客第四站/index.html">
 <meta property="og:site_name" content="朱琛的小屋">
-<meta property="og:description" content="我们开始把Hexo博客部署在GitHub上。">
-<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/GitHub+Hexo静态博客第二站1.jpg">
-<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/GitHub+Hexo静态博客第二站2.jpg">
-<meta property="og:updated_time" content="2015-10-03T06:47:52.585Z">
+<meta property="og:description" content="接着我们上次来继续加加加东西。
+此时说明一下，大家可能看到我的博客和你们NexT主题显示的不一样，这是因为NexT主题包含两种主题，我们在主题配置文件中的40行左右可以看见：
+# Schemes
+scheme: Mist  #这一列默认是注释掉的，如果把这个取消注释，就会变成我的博客的主题样式。
+#　搜索引擎NexT主题支持了两种搜索引擎：Swiftype和微搜索。一个是国外的，一个是国内的。微搜">
+<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E5%9B%9B%E7%AB%991.jpg">
+<meta property="og:updated_time" content="2015-10-03T06:47:54.644Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo博客第二站：部署到GitHub">
-<meta name="twitter:description" content="我们开始把Hexo博客部署在GitHub上。">
+<meta name="twitter:title" content="Hexo博客第四站：搜索引擎+小插件+配置结构分析">
+<meta name="twitter:description" content="接着我们上次来继续加加加东西。
+此时说明一下，大家可能看到我的博客和你们NexT主题显示的不一样，这是因为NexT主题包含两种主题，我们在主题配置文件中的40行左右可以看见：
+# Schemes
+scheme: Mist  #这一列默认是注释掉的，如果把这个取消注释，就会变成我的博客的主题样式。
+#　搜索引擎NexT主题支持了两种搜索引擎：Swiftype和微搜索。一个是国外的，一个是国内的。微搜">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -66,7 +77,7 @@
   };
 </script>
 
-  <title> Hexo博客第二站：部署到GitHub | 朱琛的小屋 </title>
+  <title> Hexo博客第四站：搜索引擎+小插件+配置结构分析 | 朱琛的小屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -215,7 +226,7 @@
           
           
             
-              Hexo博客第二站：部署到GitHub
+              Hexo博客第四站：搜索引擎+小插件+配置结构分析
             
           
         </h1>
@@ -224,8 +235,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-30T15:06:50+08:00" content="2015年09月30日">
-            2015年09月30日
+          <time itemprop="dateCreated" datetime="2015-10-03T14:46:38+08:00" content="2015年10月03日">
+            2015年10月03日
           </time>
         </span>
 
@@ -247,7 +258,7 @@
         
 
         <span class="post-count">
-        &nbsp; | &nbsp;字数&nbsp; 1,210
+        &nbsp; | &nbsp;字数&nbsp; 2,401
         </span>
 
         <span id="busuanzi_container_page_pv">
@@ -259,8 +270,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/30/Hexo博客第二站/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/30/Hexo博客第二站/" itemprop="commentsCount"></span>
+              <a href="/2015/10/03/Hexo博客第四站/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/03/Hexo博客第四站/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -284,64 +295,125 @@
       
 
       
-        <span itemprop="articleBody"><p>我们开始把Hexo博客部署在GitHub上。<a id="more"></a></p>
-<p>首先声明一点，作为一个静态博客，Hexo不止能部署在Git上，只要支持Web访问的空间都可以存放Hexo静态博客。不过GitHub作为一个程序员聚居地，年轻的我们也需要靠近组织嘛。<br>在这里我们假设小伙伴都已经有了一个GitHub账号，并且有了一个GitHub博客。如果没有做的请看这里  &gt; <a href="http://blog.csdn.net/renfufei/article/details/37725057/" target="_blank" rel="external">GitHub博客搭建</a>。</p>
-<p>注意：下面的命令在Git Bash上运行。</p>
-<h1 id="GitHub生成_SSH_key">GitHub生成 SSH key</h1><h2 id="生成_SSH_key">生成 SSH key</h2><p>作为第一步，首先得让我们的电脑连上GitHub。<br>输入<code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</code>,接下来就是不断的敲回车就可以啦。</p>
-<pre><code>ssh-keygen -t rsa -b <span class="number">4096</span> -C <span class="string">"your_email@example.com"</span>
-<span class="comment"># Creates a new ssh key, using the provided email as a label</span>
-Generating public/<span class="keyword">private</span> rsa key pair.
-Enter <span class="built_in">file</span> <span class="operator">in</span> which <span class="built_in">to</span> save <span class="operator">the</span> key (/Users/you/.ssh/id_rsa): [Press enter]
-Enter passphrase (<span class="constant">empty</span> <span class="keyword">for</span> no passphrase): [Type <span class="operator">a</span> passphrase]
-Enter same passphrase again: [Type passphrase again]
-Your identification has been saved <span class="operator">in</span> /Users/you/.ssh/id_rsa.
-Your public key has been saved <span class="operator">in</span> /Users/you/.ssh/id_rsa.pub.
-The key fingerprint is:
-<span class="number">01</span>:<span class="number">0</span>f:f4:<span class="number">3</span>b:ca:<span class="number">85</span>:d6:<span class="number">17</span>:a1:<span class="number">7</span>d:f0:<span class="number">68</span>:<span class="number">9</span>d:f0:a2:db your_email@example.com
-</code></pre><p>此时在你电脑的 <code>C:\Users\用户名\.ssh\</code>这个目录下就可以找到我们需要的SSH key - id_rsa.pub了。<br>此时在你的GitHub的settings里找到SSH keys，把id_rsa.pub里面的东西添加到Add an SSH key的key里面。<br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/GitHub+Hexo静态博客第二站1.jpg" alt=""><br>然后在Git Bash里面输入<code>ssh -T git@github.com</code>:</p>
-<pre><code>$ ssh -T git@github.com
-Hi prozhuchen! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span> provide shell access.
-</code></pre><p>第一步成功！</p>
-<h2 id="输入ssh_-T_git@github-com_时出现的错误">输入<code>ssh -T git@github.com</code> 时出现的错误</h2><ol>
-<li>输入<code>ssh -T git@github.com</code>出现<code>Permission denied (publickey)</code><br>借鉴这篇博文 <a href="http://blog.csdn.net/sunnypotter/article/details/18948053" target="_blank" rel="external">git连接github失败的问题</a>。</li>
-<li>出现<code>ssh:connect tohost github.com port22:Bad file number</code><br>可以看出是端口出现了问题，22是默认的ssh端口，但一般好像是关上的，所以我们改掉端口。<br>我们在SSH key的目录下(一般是<code>C:\Users\用户名\.ssh\</code>)新建一个config文件，内容是：</li>
-</ol>
-<pre><code>    Host github<span class="class">.com</span>  
-    User fulinux@sina<span class="class">.com</span>  
-    Hostname ssh<span class="class">.github</span><span class="class">.com</span>  
-    PreferredAuthentications publickey  
-    IdentityFile~/.ssh/id_rsa  
-    Port443  
+        <span itemprop="articleBody"><p>接着我们上次来继续加加加东西。</p>
+<p>此时说明一下，大家可能看到我的博客和你们NexT主题显示的不一样，这是因为NexT主题包含两种主题，我们在主题配置文件中的40行左右可以看见：</p>
+<pre><code><span class="preprocessor"># Schemes</span>
+<span class="label">scheme:</span> Mist  <span class="preprocessor">#这一列默认是注释掉的，如果把这个取消注释，就会变成我的博客的主题样式。</span>
+</code></pre><p>#　搜索引擎<br>NexT主题支持了两种搜索引擎：Swiftype和微搜索。一个是国外的，一个是国内的。微搜索做的还不错，但是我搜索的时候总觉得有些延迟；至于Swiftype，真的真的很好用，良心厂家强力推荐。<br>有人说注册以后是30天试用，这个没关系，网站给的是30天高级账户的使用（那种有可以建立多个搜索引擎、多账户共同管理、一个引擎index多个域名的功能的账户），30天到期后你可选择花钱继续用这个高级账户（土豪自便），或者选择降级成为免费的账户类型，也就是我现在用的那种，所以，不用担心。<br>Swiftype网站的配置，网上其他好多的都是说的老版Swiftype的配置，比较落后了，这里提供给大家一位博主的博客，说的很详细。传送门　<a href="http://www.jerryfu.net/post/search-engine-for-hexo-with-swiftype-v2.html" target="_blank" rel="external">利用swiftype为hexo添加站内搜索</a>。<br>至于主题上的配置，我们只要在你的站点配置文件（不是主题配置文件）上加上这样一句话即可。</p>
+<pre><code># <span class="keyword">Swiftype </span>Search Key
+<span class="keyword">swiftype_key: </span>你的<span class="keyword">swiftype_key</span>
+</code></pre><p>swiftype_key：在你Swiftype网站配置完后，我们看到了一个JS文件。</p>
+<p><img src="http://7xn5ph.com1.z0.glb.clouddn.com/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E5%9B%9B%E7%AB%991.jpg" alt=""><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span>&gt;</span><span class="javascript"></span><br><span class="line">  (<span class="function"><span class="keyword">function</span>(<span class="params">w,d,t,u,n,s,e</span>)</span>&#123;w[<span class="string">'SwiftypeObject'</span>]=n;w[n]=w[n]||<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  (w[n].q=w[n].q||[]).push(<span class="built_in">arguments</span>);&#125;;s=d.createElement(t);</span><br><span class="line">  e=d.getElementsByTagName(t)[<span class="number">0</span>];s.async=<span class="number">1</span>;s.src=u;e.parentNode.insertBefore(s,e);</span><br><span class="line">  &#125;)(<span class="built_in">window</span>,<span class="built_in">document</span>,<span class="string">'script'</span>,<span class="string">'//s.swiftypecdn.com/install/v2/st.js'</span>,<span class="string">'_st'</span>);</span><br><span class="line"></span><br><span class="line">  _st(<span class="string">'install'</span>,<span class="string">'yx9-swpbwqxuFPaTyCzz'</span>,<span class="string">'2.0.0'</span>);<span class="comment">//yx9-swpbwqxuFPaTyCzz 就是 swiftype_key，不同的人不一样。</span></span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="安装插件RSS与_sitemap">安装插件RSS与 sitemap</h1><p>Sitemap:</p>
+<blockquote>
+<p>Sitemap 可方便网站管理员通知搜索引擎他们网站上有哪些可供抓取的网页。最简单的 Sitemap 形式，就是XML文件，在其中列出网站中的网址以及关于每个网址的其他元数据（上次更新的时间、更改的频率以及相对于网站上其他网址的重要程度为何等），以便搜索引擎可以更加智能地抓取网站。</p>
+</blockquote>
+<p>这个Sitemap还是很有用的，例如本来你在google上搜索自己的新帖子是很难搜索到的，但是你向google提交sitemap后，自己的帖子变得容易搜索到多了。</p>
+<p>RSS:</p>
+<blockquote>
+<p>RSS（Really Simple Syndication，简易信息聚合）是一种描述和同步网站内容的格式。你可以认为是一种定制个性化推送信息的服务。它能解决你漫无目的浏览网页的问题。它不会过时，信息越是过剩，它的意义也越加彰显。</p>
+</blockquote>
+<p>首先我们安装前人写好的插件。</p>
+<pre><code>npm <span class="operator"><span class="keyword">install</span> hexo-generator-feed <span class="comment">--save</span>
+npm <span class="keyword">install</span> hexo-generator-sitemap <span class="comment">--save</span></span>
+</code></pre><p>然后在站点配置文件上输入下面的语句：</p>
+<pre><code><span class="attribute">plugins</span>:
+- hexo-generator-feed
+- hexo-generator-sitemap
 
-在此尝试连接，应该可以了。
-</code></pre><h1 id="Hexo部署到GitHub上">Hexo部署到GitHub上</h1><h2 id="Hexo部署">Hexo部署</h2><p>我们首先进入到Hexo的站点配置文件_config.yml，修改Deployment部分。</p>
-<pre><code><span class="preprocessor"># Deployment</span>
-<span class="preprocessor">## Docs: http://hexo.io/docs/deployment.html</span>
-<span class="title">deploy</span>:
-  <span class="typedef"><span class="keyword">type</span>: git</span>
-  repo: git@github.com:prozhuchen/blog.git
-  branch: gh-pages
-</code></pre><p>这里的repo是你的GitHub博客的SSH地址,branch是你想部署在该仓库的分支。如果不知道自己博客的SSH地址的小伙伴看这里：<br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/GitHub+Hexo静态博客第二站2.jpg" alt=""><br>当然了，你首先得点击<code>clone with HTTPS,SSH;</code>里面的SSH，然后框框里的就是你博客的SSH地址了。<br>然后输入：</p>
-<pre><code>hexo <span class="keyword">g</span>
-hexo <span class="literal">d</span>
-</code></pre><p>可以看见：</p>
-<pre><code>$ hexo d
-INFO  Deploying: git
-INFO  Clearing .deploy <span class="built_in">folder</span>...
-INFO  Copying <span class="built_in">files</span> <span class="built_in">from</span> public <span class="built_in">folder</span>...
-.....
-Branch master <span class="built_in">set</span> up <span class="built_in">to</span> track remote branch gh-pages <span class="built_in">from</span> git@github.com:prozhuchen/blog.git.
-Everything up-<span class="built_in">to</span>-<span class="built_in">date</span>
-INFO  Deploy done: git
-</code></pre><p>此时去看你自己的GitHub博客吧~(地址应该是username.github.io或者是.com)。接下来我们来看看如果让我们的博客变得更完美了。</p>
-<h2 id="输入hexo_d时出现的问题">输入<code>hexo d</code>时出现的问题</h2><ol>
-<li><code>ERROR Deployer not found: git</code><ol>
-<li>确定自己安装了hexo-deployer-git。如果没有,在Git Bash上输入：<code>npm install hexo-deployer-git --save</code>。</li>
-<li>deploy的type的github需要改成git。</li>
-<li>注意_config的配置写法。注意缩进，而且冒号后面要有一个空格。    </li>
-</ol>
-</li>
-</ol>
+<span class="attribute">sitemap</span>:
+  <span class="attribute">path</span>: sitemap.xml
+
+<span class="attribute">feed</span>:
+  <span class="attribute">path</span>: atom.xml
+</code></pre><p>上面的path说明了博客生成后的位置在根目录下，也是你访问网址是你的根地址+path。<br>此时你访问<code>http://127.0.0.1:4000/atom.xml</code>就能看到RSS的内容啦，sitemap访问同理。 如果想向google提交自己的sitemap，请看这个博客。传送门 <a href="http://fionat.github.io/blog/2013/10/23/sitemap/" target="_blank" rel="external">如何向google提交sitemap（详细）</a> ，过一天左右，你就能在google搜索到自己的新博客啦。</p>
+<hr>
+<p>#　加入”关于我” 和DIY界面<br>一开始我们的主页里面只有主页，归档和标签三个标签。我们可以加一些自己DIY的界面。<br>我们在Git Bash中输入这样一句命令。</p>
+<pre><code>hexo <span class="keyword">new</span> page <span class="string">"about"</span>
+</code></pre><p>这时我们进入博客根目录下的<code>source</code>可以发现多了一个<code>about</code>文件夹，里面有一个<code>index.md</code>,此时我们进入主题配置文件（就是在主题目录下的_config.yml），对第五行进行更改。</p>
+<pre><code><span class="attribute">menu</span>:
+  <span class="attribute">home</span>: /
+  #<span class="attribute">categories</span>: /categories
+  <span class="attribute">about</span>: /about
+  <span class="attribute">archives</span>: /archives
+  <span class="attribute">tags</span>: /tags
+  #<span class="attribute">commonweal</span>: /<span class="number">404</span>.html
+</code></pre><p>此时再重新生成可以看见我们的页面多了一个关于的标签啦。<br>如果我们想加入一些新的标签，例如我上面出现的留言呢，可以再次这么敲命令：</p>
+<pre><code>hexo <span class="keyword">new</span> page <span class="string">"guestbook"</span>
+</code></pre><p>然后在主题配置文件进行更改，加一句 <code>guestbook: guestbook</code>。</p>
+<pre><code><span class="attribute">menu</span>:
+  <span class="attribute">home</span>: /
+  #<span class="attribute">categories</span>: /categories
+  <span class="attribute">about</span>: /about
+  <span class="attribute">archives</span>: /archives
+  <span class="attribute">tags</span>: /tags
+  <span class="attribute">guestbook</span>: guestbook
+  #<span class="attribute">commonweal</span>: /<span class="number">404</span>.html
+</code></pre><p>此时我们重新生成发现页面上多出来的是guestbook，而不是我们想要的留言。这时候我们在<code>/themes/hexo-theme-next/languages/zh-Hans.yml</code>的目录下（这里默认你使用的是简体中文，若是其他语言更改相应的yml就行），在memu下加一句即可。</p>
+<pre><code><span class="attribute">guestbook</span>: <span class="string">留言</span>
+</code></pre><p>此时再重新生成可以看见我们的页面多了一个留言的标签啦。如果你想要其他的DIY标签，勇敢的去做吧！</p>
+<h1 id="主题配置文件结构分析">主题配置文件结构分析</h1><p>主题配置文件就是在主题目录下的_config.yml，这里对我们常用的配置进行一下讲解。</p>
+<pre><code><span class="preprocessor"># when running hexo in a subdirectory (e.g. domain.tld/blog), remove leading slashes ( "/archives" -&gt; "archives" )</span>
+menu:                         # 这是你主页最上面出现的标签
+  home: /blog/
+  archives: /blog/archives
+  categories: /blog/categories
+  tags: /blog/tags
+  guestbook: /blog/guestbook
+  # about: /blog/about
+  # commonweal: /blog/<span class="number">404.</span>html
+
+<span class="preprocessor"># Place your favicon.ico to /source directory.</span>
+favicon: images/favicon.ico   #这是我们网站的图标
+
+<span class="preprocessor"># Set default keywords (Use a comma to separate)</span>
+keywords: <span class="string">"Hexo,next"</span>        
+
+<span class="preprocessor"># Set rss to false to disable feed link.</span>
+<span class="preprocessor"># Leave rss as empty to use site's feed link.</span>
+<span class="preprocessor"># Set rss to specific value if you have burned your feed already.</span>
+rss: /blog/atom.xml           #这是我们RSS的地址
+
+<span class="preprocessor"># Icon fonts</span>
+<span class="preprocessor"># Place your font into next/source/fonts, specify directory-name and font-name here</span>
+<span class="preprocessor"># Avialable: default | linecons | fifty-shades | feather</span>
+<span class="preprocessor">#icon_font: default           #这是我们图标字体的样式</span>
+<span class="preprocessor"># icon_font: fifty-shades</span>
+icon_font: feather
+<span class="preprocessor">#icon_font: linecons</span>
+
+<span class="preprocessor"># Code Highlight theme</span>
+<span class="preprocessor"># Available value: normal | night | night eighties | night blue | night bright</span>
+<span class="preprocessor"># https://github.com/chriskempson/tomorrow-theme</span>
+highlight_theme: night eighties    #这是我们代码高亮的样式，你可以自己改变来看看每一种样式。
+
+
+<span class="preprocessor"># MathJax Support</span>
+mathjax: <span class="literal">true</span>          #显示数学公式的功能，默认是空，如果打开就设为<span class="literal">true</span>
+
+
+
+<span class="preprocessor"># Schemes</span>
+scheme: Mist    #NexT主题有两种主题，这里默认是注释掉的，取消注释的话就是我博客的样式。
+
+
+<span class="preprocessor"># Sidebar, available value:</span>
+<span class="preprocessor">#  - post    expand on posts automatically. Default.</span>
+<span class="preprocessor">#  - always  expand for all pages automatically</span>
+<span class="preprocessor">#  - hide    expand only when click on the sidebar toggle icon.</span>
+sidebar: post     #这个是侧边栏的显示模式，默认是在阅读帖子的时候自动打开。
+<span class="preprocessor">#sidebar: always</span>
+<span class="preprocessor">#sidebar: hide</span>
+
+
+<span class="preprocessor"># Automatically scroll page to section which is under &lt;!-- more --&gt; mark.</span>
+scroll_to_more: <span class="literal">true</span>    #启动摘取一部分作为摘要，剩余的在阅读全文里。
+
+
+<span class="preprocessor"># Automatically add list number to toc.</span>
+toc_list_number: <span class="literal">true</span>   #自动在目录里加入列表数字
+</code></pre><p>到现在基本的东西我们都算是有啦，现在可以准备开始写博客了。</p>
 </span>
       
     </div>
@@ -352,13 +424,11 @@ INFO  Deploy done: git
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/01/Hexo博客第三站/" rel="prev">Hexo博客第三站：安装主题+第三方评论+网站统计</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/30/Hexo博客第一站/" rel="next">Hexo博客第一站：搭建本地Hexo静态博客</a>
+              <a href="/2015/10/01/Hexo博客第三站/" rel="next">Hexo博客第三站：安装主题+第三方评论+网站统计</a>
             
           </div>
         </div>
@@ -406,8 +476,8 @@ INFO  Deploy done: git
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/09/30/Hexo博客第二站/"
-                   data-title="Hexo博客第二站：部署到GitHub" data-url="http://prozhuchen.github.io/2015/09/30/Hexo博客第二站/">
+              <div class="ds-thread" data-thread-key="2015/10/03/Hexo博客第四站/"
+                   data-title="Hexo博客第四站：搜索引擎+小插件+配置结构分析" data-url="http://prozhuchen.github.io/2015/10/03/Hexo博客第四站/">
               </div>
             
           </div>
@@ -512,7 +582,7 @@ INFO  Deploy done: git
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GitHub生成_SSH_key"><span class="nav-number">1.</span> <span class="nav-text">GitHub生成 SSH key</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成_SSH_key"><span class="nav-number">1.1.</span> <span class="nav-text">生成 SSH key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入ssh_-T_git@github-com_时出现的错误"><span class="nav-number">1.2.</span> <span class="nav-text">输入ssh -T git@github.com 时出现的错误</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo部署到GitHub上"><span class="nav-number">2.</span> <span class="nav-text">Hexo部署到GitHub上</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo部署"><span class="nav-number">2.1.</span> <span class="nav-text">Hexo部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入hexo_d时出现的问题"><span class="nav-number">2.2.</span> <span class="nav-text">输入hexo d时出现的问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装插件RSS与_sitemap"><span class="nav-number">1.</span> <span class="nav-text">安装插件RSS与 sitemap</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题配置文件结构分析"><span class="nav-number">2.</span> <span class="nav-text">主题配置文件结构分析</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
