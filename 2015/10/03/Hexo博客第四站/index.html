@@ -36,7 +36,7 @@
 
 
 
-  <meta name="keywords" content="GitHub,Hexo," />
+  <meta name="keywords" content="Hexo," />
 
 
 
@@ -54,7 +54,7 @@
 <meta property="og:site_name" content="朱琛的小屋">
 <meta property="og:description" content="接着我们上次来继续加加加东西。">
 <meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E5%9B%9B%E7%AB%991.jpg">
-<meta property="og:updated_time" content="2015-10-03T08:08:13.072Z">
+<meta property="og:updated_time" content="2015-10-04T06:58:42.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo博客第四站：搜索引擎+小插件+配置结构分析">
 <meta name="twitter:description" content="接着我们上次来继续加加加东西。">
@@ -271,8 +271,6 @@
      
         <div class="post-tags">
           
-            <a href="/tags/GitHub/" rel="tag">#GitHub</a>
-          
             <a href="/tags/Hexo/" rel="tag">#Hexo</a>
           
         </div>
@@ -319,7 +317,7 @@ npm <span class="keyword">install</span> hexo-generator-sitemap <span class="com
   <span class="attribute">path</span>: atom.xml
 </code></pre><p>上面的path说明了博客生成后的位置在根目录下，也是你访问网址是你的根地址+path。<br>此时你访问<code>http://127.0.0.1:4000/atom.xml</code>就能看到RSS的内容啦，sitemap访问同理。 如果想向google提交自己的sitemap，请看这个博客。传送门 <a href="http://fionat.github.io/blog/2013/10/23/sitemap/" target="_blank" rel="external">如何向google提交sitemap（详细）</a> ，过一天左右，你就能在google搜索到自己的新博客啦。</p>
 <hr>
-<h1 id="加入”关于我”_和DIY界面">加入”关于我” 和DIY界面</h1><p>一开始我们的主页里面只有主页，归档和标签三个标签。我们可以加一些自己DIY的界面。<br>我们在Git Bash中输入这样一句命令。</p>
+<h1 id="加入”关于我”_和DIY界面">加入”关于我” 和DIY界面</h1><p>一开始我们的主页里面只有主页，归档和标签三个栏目。我们可以加一些自己DIY的界面。<br>我们在Git Bash中输入这样一句命令。</p>
 <pre><code>hexo <span class="keyword">new</span> page <span class="string">"about"</span>
 </code></pre><p>这时我们进入博客根目录下的<code>source</code>可以发现多了一个<code>about</code>文件夹，里面有一个<code>index.md</code>,此时我们进入主题配置文件（就是在主题目录下的_config.yml），对第五行进行更改。</p>
 <pre><code><span class="attribute">menu</span>:
@@ -329,7 +327,7 @@ npm <span class="keyword">install</span> hexo-generator-sitemap <span class="com
   <span class="attribute">archives</span>: /archives
   <span class="attribute">tags</span>: /tags
   #<span class="attribute">commonweal</span>: /<span class="number">404</span>.html
-</code></pre><p>此时再重新生成可以看见我们的页面多了一个关于的标签啦。<br>如果我们想加入一些新的标签，例如我上面出现的留言呢，可以再次这么敲命令：</p>
+</code></pre><p>此时再重新生成可以看见我们的页面多了一个关于的栏目啦。<br>如果我们想加入一些新的栏目，例如我上面出现的留言呢，可以再次这么敲命令：</p>
 <pre><code>hexo <span class="keyword">new</span> page <span class="string">"guestbook"</span>
 </code></pre><p>然后在主题配置文件进行更改，加一句 <code>guestbook: guestbook</code>。</p>
 <pre><code><span class="attribute">menu</span>:
@@ -342,11 +340,11 @@ npm <span class="keyword">install</span> hexo-generator-sitemap <span class="com
   #<span class="attribute">commonweal</span>: /<span class="number">404</span>.html
 </code></pre><p>此时我们重新生成发现页面上多出来的是guestbook，而不是我们想要的留言。这时候我们在<code>/themes/hexo-theme-next/languages/zh-Hans.yml</code>的目录下（这里默认你使用的是简体中文，若是其他语言更改相应的yml就行），在memu下加一句即可。</p>
 <pre><code><span class="attribute">guestbook</span>: <span class="string">留言</span>
-</code></pre><p>此时再重新生成可以看见我们的页面多了一个留言的标签啦。如果你想要其他的DIY标签，勇敢的去做吧！</p>
+</code></pre><p>此时再重新生成可以看见我们的页面多了一个留言的栏目啦。如果你想要其他的DIY栏目，勇敢的去做吧！</p>
 <hr>
 <h1 id="主题配置文件结构分析">主题配置文件结构分析</h1><p>主题配置文件就是在主题目录下的_config.yml，这里对我们常用的配置进行一下讲解。</p>
 <pre><code><span class="preprocessor"># when running hexo in a subdirectory (e.g. domain.tld/blog), remove leading slashes ( "/archives" -&gt; "archives" )</span>
-menu:                         # 这是你主页最上面出现的标签
+menu:                         # 这是你主页最上面出现的栏目
   home: /blog/
   archives: /blog/archives
   categories: /blog/categories
@@ -510,7 +508,7 @@ toc_list_number: <span class="literal">true</span>   #自动在目录里加入�
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">7</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -564,6 +562,13 @@ toc_list_number: <span class="literal">true</span>   #自动在目录里加入�
         
 
         <div class="links-of-author motion-element">
+          
+            <p class="site-author-name">友情链接</p>
+            
+              <span class="links-of-author-item">
+              <a href="http://blog.csdn.net/u010006643" target="_blank">我的CSDN博客</a>
+              </span>
+            
           
         </div>
 

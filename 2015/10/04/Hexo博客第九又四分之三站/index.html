@@ -36,7 +36,7 @@
 
 
 
-  <meta name="keywords" content="GitHub,Hexo," />
+  <meta name="keywords" content="Hexo," />
 
 
 
@@ -47,18 +47,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="我们开始把Hexo博客部署在GitHub上。">
+<meta name="description" content="README + 404页面 + 图床 + 社交与友情链接">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客第二站：部署到GitHub">
-<meta property="og:url" content="http://prozhuchen.github.io/2015/09/30/Hexo博客第二站/index.html">
+<meta property="og:title" content="Hexo博客第九又四分之三站：剩下的小东西">
+<meta property="og:url" content="http://prozhuchen.github.io/2015/10/04/Hexo博客第九又四分之三站/index.html">
 <meta property="og:site_name" content="朱琛的小屋">
-<meta property="og:description" content="我们开始把Hexo博客部署在GitHub上。">
-<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/GitHub+Hexo静态博客第二站1.jpg">
-<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/GitHub+Hexo静态博客第二站2.jpg">
-<meta property="og:updated_time" content="2015-10-03T06:50:13.013Z">
+<meta property="og:description" content="README + 404页面 + 图床 + 社交与友情链接">
+<meta property="og:updated_time" content="2015-10-04T06:58:36.373Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo博客第二站：部署到GitHub">
-<meta name="twitter:description" content="我们开始把Hexo博客部署在GitHub上。">
+<meta name="twitter:title" content="Hexo博客第九又四分之三站：剩下的小东西">
+<meta name="twitter:description" content="README + 404页面 + 图床 + 社交与友情链接">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -68,7 +66,7 @@
   };
 </script>
 
-  <title> Hexo博客第二站：部署到GitHub | 朱琛的小屋 </title>
+  <title> Hexo博客第九又四分之三站：剩下的小东西 | 朱琛的小屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -217,7 +215,7 @@
           
           
             
-              Hexo博客第二站：部署到GitHub
+              Hexo博客第九又四分之三站：剩下的小东西
             
           
         </h1>
@@ -226,8 +224,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-30T15:06:50+08:00" content="2015年09月30日">
-            2015年09月30日
+          <time itemprop="dateCreated" datetime="2015-10-04T14:55:10+08:00" content="2015年10月04日">
+            2015年10月04日
           </time>
         </span>
 
@@ -243,25 +241,13 @@
 
               
               
-                ， 
-              
-
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Hexo/GitHub/" itemprop="url" rel="index">
-                  <span itemprop="name">GitHub</span>
-                </a>
-              </span>
-
-              
-              
 
             
           </span>
         
 
         <span class="post-count">
-        &nbsp; | &nbsp;字数&nbsp; 1,210
+        &nbsp; | &nbsp;字数&nbsp; 1,098
         </span>
 
         <span id="busuanzi_container_page_pv">
@@ -273,8 +259,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/30/Hexo博客第二站/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/30/Hexo博客第二站/" itemprop="commentsCount"></span>
+              <a href="/2015/10/04/Hexo博客第九又四分之三站/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/Hexo博客第九又四分之三站/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -283,8 +269,6 @@
 
      
         <div class="post-tags">
-          
-            <a href="/tags/GitHub/" rel="tag">#GitHub</a>
           
             <a href="/tags/Hexo/" rel="tag">#Hexo</a>
           
@@ -298,64 +282,31 @@
       
 
       
-        <span itemprop="articleBody"><p>我们开始把Hexo博客部署在GitHub上。<a id="more"></a></p>
-<p>首先声明一点，作为一个静态博客，Hexo不止能部署在Git上，只要支持Web访问的空间都可以存放Hexo静态博客。不过GitHub作为一个程序员聚居地，年轻的我们也需要靠近组织嘛。<br>在这里我们假设小伙伴都已经有了一个GitHub账号，并且有了一个GitHub博客。如果没有做的请看这里  &gt; <a href="http://blog.csdn.net/renfufei/article/details/37725057/" target="_blank" rel="external">GitHub博客搭建</a>。</p>
-<p>注意：下面的命令在Git Bash上运行。</p>
-<h1 id="GitHub生成_SSH_key">GitHub生成 SSH key</h1><h2 id="生成_SSH_key">生成 SSH key</h2><p>作为第一步，首先得让我们的电脑连上GitHub。<br>输入<code>ssh-keygen -t rsa -b 4096 -C &quot;your_email@example.com&quot;</code>,接下来就是不断的敲回车就可以啦。</p>
-<pre><code>ssh-keygen -t rsa -b <span class="number">4096</span> -C <span class="string">"your_email@example.com"</span>
-<span class="comment"># Creates a new ssh key, using the provided email as a label</span>
-Generating public/<span class="keyword">private</span> rsa key pair.
-Enter <span class="built_in">file</span> <span class="operator">in</span> which <span class="built_in">to</span> save <span class="operator">the</span> key (/Users/you/.ssh/id_rsa): [Press enter]
-Enter passphrase (<span class="constant">empty</span> <span class="keyword">for</span> no passphrase): [Type <span class="operator">a</span> passphrase]
-Enter same passphrase again: [Type passphrase again]
-Your identification has been saved <span class="operator">in</span> /Users/you/.ssh/id_rsa.
-Your public key has been saved <span class="operator">in</span> /Users/you/.ssh/id_rsa.pub.
-The key fingerprint is:
-<span class="number">01</span>:<span class="number">0</span>f:f4:<span class="number">3</span>b:ca:<span class="number">85</span>:d6:<span class="number">17</span>:a1:<span class="number">7</span>d:f0:<span class="number">68</span>:<span class="number">9</span>d:f0:a2:db your_email@example.com
-</code></pre><p>此时在你电脑的 <code>C:\Users\用户名\.ssh\</code>这个目录下就可以找到我们需要的SSH key - id_rsa.pub了。<br>此时在你的GitHub的settings里找到SSH keys，把id_rsa.pub里面的东西添加到Add an SSH key的key里面。<br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/GitHub+Hexo静态博客第二站1.jpg" alt=""><br>然后在Git Bash里面输入<code>ssh -T git@github.com</code>:</p>
-<pre><code>$ ssh -T git@github.com
-Hi prozhuchen! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span> provide shell access.
-</code></pre><p>第一步成功！</p>
-<h2 id="输入ssh_-T_git@github-com_时出现的错误">输入<code>ssh -T git@github.com</code> 时出现的错误</h2><ol>
-<li>输入<code>ssh -T git@github.com</code>出现<code>Permission denied (publickey)</code><br>借鉴这篇博文 <a href="http://blog.csdn.net/sunnypotter/article/details/18948053" target="_blank" rel="external">git连接github失败的问题</a>。</li>
-<li>出现<code>ssh:connect tohost github.com port22:Bad file number</code><br>可以看出是端口出现了问题，22是默认的ssh端口，但一般好像是关上的，所以我们改掉端口。<br>我们在SSH key的目录下(一般是<code>C:\Users\用户名\.ssh\</code>)新建一个config文件，内容是：</li>
-</ol>
-<pre><code>    Host github<span class="class">.com</span>  
-    User fulinux@sina<span class="class">.com</span>  
-    Hostname ssh<span class="class">.github</span><span class="class">.com</span>  
-    PreferredAuthentications publickey  
-    IdentityFile~/.ssh/id_rsa  
-    Port443  
+        <span itemprop="articleBody"><p>最后看了看还是有点小东西没说，但是前面都已经写完结尾了啊啊啊，所以在此补了个九又四分之三站(不知道深意的请百度哈利波特站台….)，有缘分的小伙伴进来看一看有木有你能用上的。</p>
+<h1 id="Hexo_+_README">Hexo + README</h1><p>每次进入GitHub的gh-pages分支都提醒写README，烦死了，我们在根目录下的<code>source</code>下面新建一个README文件，写上对自己博客的描述啥的，再次生成部署就会发现README已经传上去了。</p>
+<h1 id="Hexo_+_404">Hexo + 404</h1><p>GitHub本身给我们配置了404页面，如果是做自己的404页面，你可以像上面一样，在<code>source</code>里面加上404.html，但是注意，自定义的404页面仅对绑定顶级域名的项目才起作用，GitHub默认分配的二级域名是不起作用的，使用hexo server在本机调试也是不起作用的。例如，如果一开始你的域名是XXX.github.io,你就可以在XXX.github.io/404.html看到你的404页面，但是如果你的域名是XXX.github.io/blog，那么你就无法看到自己的404了。<br>现如今，很多人都把自己的404页面当做公益项目的传播，为社会做点自己的贡献，例如这样子：<a href="http://prozhuchen.github.io/404.html">404页面</a>。下面是几个公益404的地址。</p>
+<ul>
+<li><a href="http://www.qq.com/404/" target="_blank" rel="external">腾讯公益404</a></li>
+<li><a href="http://yibo.iyiyun.com/Index/web404" target="_blank" rel="external">404公益_益云(公益互联网)社会创新中心</a></li>
+<li><a href="http://404page.missingkids.org.tw/" target="_blank" rel="external">失蹤兒童少年資料管理中心404</a></li>
+</ul>
+<h1 id="hexo_+_图床">hexo + 图床</h1><p>我们的博客部署在GitHub上虽然有很多好处，但是有一个问题，他的个人空间只有100M！如果光是普通文件也就差不多够了，但是有图片可怎么办呐。所以我们可以把图片放在图床上，然后用外链地址来引用图片，问题解决。<br>我用的图床是七牛，他的体验用户是1G，标准用户是10G，而且免费的，应该够绝大多数个人博客的使用了。这里是七牛的地址 <a href="https://portal.qiniu.com/signup?code=3lpoc69h8k502" target="_blank" rel="external">七牛</a>。这里说一下七牛的简单使用。<br>我们首先注册（想成为标准用户得通过个人验证），完成后新建一个空间，名字任意。<br>此时我们进入空间，选择内容管理，然后上传图片，点击该图片后右边会出现图片的缩略图和外链地址，我们复制该外链地址，即图片的访问地址到自己的文章里，就可以看到图片啦。</p>
+<h1 id="hexo_+_社交连接，友情链接">hexo + 社交连接，友情链接</h1><p>我们在站点配置文件中，加入如下的语句，随便加，别客气！</p>
+<pre><code><span class="comment"># 社交链接，将在侧栏中显示</span>
+<span class="symbol">social:</span>
+  知乎<span class="symbol">:</span> <span class="symbol">http:</span>/<span class="regexp">/www.zhihu.com/people</span><span class="regexp">/zhu-chen-71-40
+  GitHub: https:/</span><span class="regexp">/github.com/prozhuchen</span>
+  <span class="comment"># Twitter: your-twitter-url</span>
+  <span class="comment"># Weibo: your-weibo-url</span>
+  <span class="comment"># DouBan: your-douban-url</span>
+  <span class="comment"># ZhiHu: your-zhihu-url</span>
+  <span class="comment"># 等等</span>
 
-在此尝试连接，应该可以了。
-</code></pre><h1 id="Hexo部署到GitHub上">Hexo部署到GitHub上</h1><h2 id="Hexo部署">Hexo部署</h2><p>我们首先进入到Hexo的站点配置文件_config.yml，修改Deployment部分。</p>
-<pre><code><span class="preprocessor"># Deployment</span>
-<span class="preprocessor">## Docs: http://hexo.io/docs/deployment.html</span>
-<span class="title">deploy</span>:
-  <span class="typedef"><span class="keyword">type</span>: git</span>
-  repo: git@github.com:prozhuchen/blog.git
-  branch: gh-pages
-</code></pre><p>这里的repo是你的GitHub博客的SSH地址,branch是你想部署在该仓库的分支。如果不知道自己博客的SSH地址的小伙伴看这里：<br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/GitHub+Hexo静态博客第二站2.jpg" alt=""><br>当然了，你首先得点击<code>clone with HTTPS,SSH;</code>里面的SSH，然后框框里的就是你博客的SSH地址了。<br>然后输入：</p>
-<pre><code>hexo <span class="keyword">g</span>
-hexo <span class="literal">d</span>
-</code></pre><p>可以看见：</p>
-<pre><code>$ hexo d
-INFO  Deploying: git
-INFO  Clearing .deploy <span class="built_in">folder</span>...
-INFO  Copying <span class="built_in">files</span> <span class="built_in">from</span> public <span class="built_in">folder</span>...
-.....
-Branch master <span class="built_in">set</span> up <span class="built_in">to</span> track remote branch gh-pages <span class="built_in">from</span> git@github.com:prozhuchen/blog.git.
-Everything up-<span class="built_in">to</span>-<span class="built_in">date</span>
-INFO  Deploy done: git
-</code></pre><p>此时去看你自己的GitHub博客吧~(地址应该是username.github.io或者是.com)。接下来我们来看看如果让我们的博客变得更完美了。</p>
-<h2 id="输入hexo_d时出现的问题">输入<code>hexo d</code>时出现的问题</h2><ol>
-<li><code>ERROR Deployer not found: git</code><ol>
-<li>确定自己安装了hexo-deployer-git。如果没有,在Git Bash上输入：<code>npm install hexo-deployer-git --save</code>。</li>
-<li>deploy的type的github需要改成git。</li>
-<li>注意_config的配置写法。注意缩进，而且冒号后面要有一个空格。    </li>
-</ol>
-</li>
-</ol>
+<span class="comment">#友情链接，将在侧栏中显示</span>
+<span class="symbol">links_title:</span> 友情链接
+<span class="symbol">links:</span>
+  我的<span class="constant">CSDN</span>博客<span class="symbol">:</span> <span class="symbol">http:</span>/<span class="regexp">/blog.csdn.net/u</span>010006643
+</code></pre><h1 id="结束啦">结束啦</h1><p>首先感谢网上大神们的博客，很牛，也解决了自己的很多问题，可惜好多博文没有记住…..如果您发现了我引用了你的博客，而且需要我进行说明，我将会尽快说明，在此感谢大神们博客的帮助。<br>经过这几天的整理，总算把自己挖空了。请小伙伴们如果发现错误在下面留言告诉我，我将不胜感激。有疑问的话我也会尽力给大家解决。希望大家能愉快的交流与学习&lt;(￣ˇ￣)/。</p>
 </span>
       
     </div>
@@ -366,13 +317,11 @@ INFO  Deploy done: git
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/01/Hexo博客第三站/" rel="prev">Hexo博客第三站：安装主题+第三方评论+网站统计</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/30/Hexo博客第一站/" rel="next">Hexo博客第一站：搭建本地Hexo静态博客</a>
+              <a href="/2015/10/03/原-各种排序代码集合笔记/" rel="next">各种排序代码集合笔记</a>
             
           </div>
         </div>
@@ -420,8 +369,8 @@ INFO  Deploy done: git
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/09/30/Hexo博客第二站/"
-                   data-title="Hexo博客第二站：部署到GitHub" data-url="http://prozhuchen.github.io/2015/09/30/Hexo博客第二站/">
+              <div class="ds-thread" data-thread-key="2015/10/04/Hexo博客第九又四分之三站/"
+                   data-title="Hexo博客第九又四分之三站：剩下的小东西" data-url="http://prozhuchen.github.io/2015/10/04/Hexo博客第九又四分之三站/">
               </div>
             
           </div>
@@ -533,7 +482,7 @@ INFO  Deploy done: git
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GitHub生成_SSH_key"><span class="nav-number">1.</span> <span class="nav-text">GitHub生成 SSH key</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#生成_SSH_key"><span class="nav-number">1.1.</span> <span class="nav-text">生成 SSH key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入ssh_-T_git@github-com_时出现的错误"><span class="nav-number">1.2.</span> <span class="nav-text">输入ssh -T git@github.com 时出现的错误</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo部署到GitHub上"><span class="nav-number">2.</span> <span class="nav-text">Hexo部署到GitHub上</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo部署"><span class="nav-number">2.1.</span> <span class="nav-text">Hexo部署</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入hexo_d时出现的问题"><span class="nav-number">2.2.</span> <span class="nav-text">输入hexo d时出现的问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo_+_README"><span class="nav-number">1.</span> <span class="nav-text">Hexo + README</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo_+_404"><span class="nav-number">2.</span> <span class="nav-text">Hexo + 404</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo_+_图床"><span class="nav-number">3.</span> <span class="nav-text">hexo + 图床</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo_+_社交连接，友情链接"><span class="nav-number">4.</span> <span class="nav-text">hexo + 社交连接，友情链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结束啦"><span class="nav-number">5.</span> <span class="nav-text">结束啦</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://prozhuchen.github.io/"/>
-  <updated>2015-10-03T08:38:48.143Z</updated>
+  <updated>2015-10-04T06:58:36.373Z</updated>
   <id>http://prozhuchen.github.io/</id>
   
   <author>
@@ -13,6 +13,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Hexo博客第九又四分之三站：剩下的小东西]]></title>
+    <link href="http://prozhuchen.github.io/2015/10/04/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B9%9D%E5%8F%88%E5%9B%9B%E5%88%86%E4%B9%8B%E4%B8%89%E7%AB%99/"/>
+    <id>http://prozhuchen.github.io/2015/10/04/Hexo博客第九又四分之三站/</id>
+    <published>2015-10-04T06:55:10.000Z</published>
+    <updated>2015-10-04T06:58:36.373Z</updated>
+    <content type="html"><![CDATA[<p>最后看了看还是有点小东西没说，但是前面都已经写完结尾了啊啊啊，所以在此补了个九又四分之三站(不知道深意的请百度哈利波特站台….)，有缘分的小伙伴进来看一看有木有你能用上的。</p>
+<h1 id="Hexo_+_README">Hexo + README</h1><p>每次进入GitHub的gh-pages分支都提醒写README，烦死了，我们在根目录下的<code>source</code>下面新建一个README文件，写上对自己博客的描述啥的，再次生成部署就会发现README已经传上去了。</p>
+<h1 id="Hexo_+_404">Hexo + 404</h1><p>GitHub本身给我们配置了404页面，如果是做自己的404页面，你可以像上面一样，在<code>source</code>里面加上404.html，但是注意，自定义的404页面仅对绑定顶级域名的项目才起作用，GitHub默认分配的二级域名是不起作用的，使用hexo server在本机调试也是不起作用的。例如，如果一开始你的域名是XXX.github.io,你就可以在XXX.github.io/404.html看到你的404页面，但是如果你的域名是XXX.github.io/blog，那么你就无法看到自己的404了。<br>现如今，很多人都把自己的404页面当做公益项目的传播，为社会做点自己的贡献，例如这样子：<a href="http://prozhuchen.github.io/404.html">404页面</a>。下面是几个公益404的地址。</p>
+<ul>
+<li><a href="http://www.qq.com/404/" target="_blank" rel="external">腾讯公益404</a></li>
+<li><a href="http://yibo.iyiyun.com/Index/web404" target="_blank" rel="external">404公益_益云(公益互联网)社会创新中心</a></li>
+<li><a href="http://404page.missingkids.org.tw/" target="_blank" rel="external">失蹤兒童少年資料管理中心404</a></li>
+</ul>
+<h1 id="hexo_+_图床">hexo + 图床</h1><p>我们的博客部署在GitHub上虽然有很多好处，但是有一个问题，他的个人空间只有100M！如果光是普通文件也就差不多够了，但是有图片可怎么办呐。所以我们可以把图片放在图床上，然后用外链地址来引用图片，问题解决。<br>我用的图床是七牛，他的体验用户是1G，标准用户是10G，而且免费的，应该够绝大多数个人博客的使用了。这里是七牛的地址 <a href="https://portal.qiniu.com/signup?code=3lpoc69h8k502" target="_blank" rel="external">七牛</a>。这里说一下七牛的简单使用。<br>我们首先注册（想成为标准用户得通过个人验证），完成后新建一个空间，名字任意。<br>此时我们进入空间，选择内容管理，然后上传图片，点击该图片后右边会出现图片的缩略图和外链地址，我们复制该外链地址，即图片的访问地址到自己的文章里，就可以看到图片啦。</p>
+<h1 id="hexo_+_社交连接，友情链接">hexo + 社交连接，友情链接</h1><p>我们在站点配置文件中，加入如下的语句，随便加，别客气！</p>
+<pre><code><span class="comment"># 社交链接，将在侧栏中显示</span>
+<span class="symbol">social:</span>
+  知乎<span class="symbol">:</span> <span class="symbol">http:</span>/<span class="regexp">/www.zhihu.com/people</span><span class="regexp">/zhu-chen-71-40
+  GitHub: https:/</span><span class="regexp">/github.com/prozhuchen</span>
+  <span class="comment"># Twitter: your-twitter-url</span>
+  <span class="comment"># Weibo: your-weibo-url</span>
+  <span class="comment"># DouBan: your-douban-url</span>
+  <span class="comment"># ZhiHu: your-zhihu-url</span>
+  <span class="comment"># 等等</span>
+
+<span class="comment">#友情链接，将在侧栏中显示</span>
+<span class="symbol">links_title:</span> 友情链接
+<span class="symbol">links:</span>
+  我的<span class="constant">CSDN</span>博客<span class="symbol">:</span> <span class="symbol">http:</span>/<span class="regexp">/blog.csdn.net/u</span>010006643
+</code></pre><h1 id="结束啦">结束啦</h1><p>首先感谢网上大神们的博客，很牛，也解决了自己的很多问题，可惜好多博文没有记住…..如果您发现了我引用了你的博客，而且需要我进行说明，我将会尽快说明，在此感谢大神们博客的帮助。<br>经过这几天的整理，总算把自己挖空了。请小伙伴们如果发现错误在下面留言告诉我，我将不胜感激。有疑问的话我也会尽力给大家解决。希望大家能愉快的交流与学习&lt;(￣ˇ￣)/。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[README + 404页面 + 图床 + 社交与友情链接]]>
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://prozhuchen.github.io/tags/Hexo/"/>
+    
+      <category term="Hexo" scheme="http://prozhuchen.github.io/categories/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[各种排序代码集合笔记]]></title>
@@ -39,7 +82,7 @@
     <link href="http://prozhuchen.github.io/2015/10/03/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%BA%94%E7%AB%99/"/>
     <id>http://prozhuchen.github.io/2015/10/03/Hexo博客第五站/</id>
     <published>2015-10-03T07:53:11.000Z</published>
-    <updated>2015-10-03T09:51:10.172Z</updated>
+    <updated>2015-10-04T06:58:56.023Z</updated>
     <content type="html"><![CDATA[<p>现在我们可以尽情写自己想写的东西了。但是首先我们得学会在哪写和怎么写。</p>
 <h1 id="在哪写(Hexo_文章配置)">在哪写(Hexo 文章配置)</h1><h2 id="从别处迁移">从别处迁移</h2><p>如果我们之前在别的网站已经有了自己的博客，那当然不能直接扔掉啦，Hexo可以从RSS/Jekyll/Octopress/Wordpress迁移之前的博客（传送门 <a href="http://zespia.tw/hexo/docs/migration.html" target="_blank" rel="external">从别处迁移到Hexo</a>）。</p>
 <h2 id="自己写">自己写</h2><p>首先我们在Git Bash中输入：</p>
@@ -81,7 +124,7 @@ categories:
 - Hexo
 - GitHub
 </code></pre><p>接下来我们就可以在下面写自己的文章啦，但是文章要符合Markdown语法，MarkDown语法是啥子？我们要咋写啊？</p>
-<h1 id="怎么写">怎么写</h1><blockquote>
+<h1 id="怎么写（Markdown）">怎么写（Markdown）</h1><blockquote>
 <p>Markdown 是一种用来写作的轻量级「标记语言」，它用简洁的语法代替排版，而不像一般我们用的字处理软件 Word 或 Pages 有大量的排版、字体设置。它使我们专心于码字，用「标记」语法，来代替常见的排版格式。</p>
 </blockquote>
 <p>网上有很多的Markdown软件，我用的是<a href="https://www.zybuluo.com/mdeditor" target="_blank" rel="external">作业部落</a>，感觉这个软件做的很不错。其他的也有一些人是用sublime+插件（传送门 <a href="http://www.jianshu.com/p/378338f10263" target="_blank" rel="external">sublime text 2 下的Markdown写作</a>），大家可以自己选择自己想要的。</p>
@@ -107,8 +150,6 @@ categories:
     
     </summary>
     
-      <category term="GitHub" scheme="http://prozhuchen.github.io/tags/GitHub/"/>
-    
       <category term="Hexo" scheme="http://prozhuchen.github.io/tags/Hexo/"/>
     
       <category term="Hexo" scheme="http://prozhuchen.github.io/categories/Hexo/"/>
@@ -120,7 +161,7 @@ categories:
     <link href="http://prozhuchen.github.io/2015/10/03/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E5%9B%9B%E7%AB%99/"/>
     <id>http://prozhuchen.github.io/2015/10/03/Hexo博客第四站/</id>
     <published>2015-10-03T06:46:38.000Z</published>
-    <updated>2015-10-03T08:08:13.072Z</updated>
+    <updated>2015-10-04T06:58:42.891Z</updated>
     <content type="html"><![CDATA[<p>接着我们上次来继续加加加东西。</p>
 <p>此时说明一下，大家可能看到我的博客和你们NexT主题显示的不一样，这是因为NexT主题包含两种主题，我们在主题配置文件中的40行左右可以看见：</p>
 <pre><code><span class="preprocessor"># Schemes</span>
@@ -155,7 +196,7 @@ npm <span class="keyword">install</span> hexo-generator-sitemap <span class="com
   <span class="attribute">path</span>: atom.xml
 </code></pre><p>上面的path说明了博客生成后的位置在根目录下，也是你访问网址是你的根地址+path。<br>此时你访问<code>http://127.0.0.1:4000/atom.xml</code>就能看到RSS的内容啦，sitemap访问同理。 如果想向google提交自己的sitemap，请看这个博客。传送门 <a href="http://fionat.github.io/blog/2013/10/23/sitemap/" target="_blank" rel="external">如何向google提交sitemap（详细）</a> ，过一天左右，你就能在google搜索到自己的新博客啦。</p>
 <hr>
-<h1 id="加入”关于我”_和DIY界面">加入”关于我” 和DIY界面</h1><p>一开始我们的主页里面只有主页，归档和标签三个标签。我们可以加一些自己DIY的界面。<br>我们在Git Bash中输入这样一句命令。</p>
+<h1 id="加入”关于我”_和DIY界面">加入”关于我” 和DIY界面</h1><p>一开始我们的主页里面只有主页，归档和标签三个栏目。我们可以加一些自己DIY的界面。<br>我们在Git Bash中输入这样一句命令。</p>
 <pre><code>hexo <span class="keyword">new</span> page <span class="string">"about"</span>
 </code></pre><p>这时我们进入博客根目录下的<code>source</code>可以发现多了一个<code>about</code>文件夹，里面有一个<code>index.md</code>,此时我们进入主题配置文件（就是在主题目录下的_config.yml），对第五行进行更改。</p>
 <pre><code><span class="attribute">menu</span>:
@@ -165,7 +206,7 @@ npm <span class="keyword">install</span> hexo-generator-sitemap <span class="com
   <span class="attribute">archives</span>: /archives
   <span class="attribute">tags</span>: /tags
   #<span class="attribute">commonweal</span>: /<span class="number">404</span>.html
-</code></pre><p>此时再重新生成可以看见我们的页面多了一个关于的标签啦。<br>如果我们想加入一些新的标签，例如我上面出现的留言呢，可以再次这么敲命令：</p>
+</code></pre><p>此时再重新生成可以看见我们的页面多了一个关于的栏目啦。<br>如果我们想加入一些新的栏目，例如我上面出现的留言呢，可以再次这么敲命令：</p>
 <pre><code>hexo <span class="keyword">new</span> page <span class="string">"guestbook"</span>
 </code></pre><p>然后在主题配置文件进行更改，加一句 <code>guestbook: guestbook</code>。</p>
 <pre><code><span class="attribute">menu</span>:
@@ -178,11 +219,11 @@ npm <span class="keyword">install</span> hexo-generator-sitemap <span class="com
   #<span class="attribute">commonweal</span>: /<span class="number">404</span>.html
 </code></pre><p>此时我们重新生成发现页面上多出来的是guestbook，而不是我们想要的留言。这时候我们在<code>/themes/hexo-theme-next/languages/zh-Hans.yml</code>的目录下（这里默认你使用的是简体中文，若是其他语言更改相应的yml就行），在memu下加一句即可。</p>
 <pre><code><span class="attribute">guestbook</span>: <span class="string">留言</span>
-</code></pre><p>此时再重新生成可以看见我们的页面多了一个留言的标签啦。如果你想要其他的DIY标签，勇敢的去做吧！</p>
+</code></pre><p>此时再重新生成可以看见我们的页面多了一个留言的栏目啦。如果你想要其他的DIY栏目，勇敢的去做吧！</p>
 <hr>
 <h1 id="主题配置文件结构分析">主题配置文件结构分析</h1><p>主题配置文件就是在主题目录下的_config.yml，这里对我们常用的配置进行一下讲解。</p>
 <pre><code><span class="preprocessor"># when running hexo in a subdirectory (e.g. domain.tld/blog), remove leading slashes ( "/archives" -&gt; "archives" )</span>
-menu:                         # 这是你主页最上面出现的标签
+menu:                         # 这是你主页最上面出现的栏目
   home: /blog/
   archives: /blog/archives
   categories: /blog/categories
@@ -247,8 +288,6 @@ toc_list_number: <span class="literal">true</span>   #自动在目录里加入�
     
     </summary>
     
-      <category term="GitHub" scheme="http://prozhuchen.github.io/tags/GitHub/"/>
-    
       <category term="Hexo" scheme="http://prozhuchen.github.io/tags/Hexo/"/>
     
       <category term="Hexo" scheme="http://prozhuchen.github.io/categories/Hexo/"/>
@@ -260,7 +299,7 @@ toc_list_number: <span class="literal">true</span>   #自动在目录里加入�
     <link href="http://prozhuchen.github.io/2015/10/01/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%89%E7%AB%99/"/>
     <id>http://prozhuchen.github.io/2015/10/01/Hexo博客第三站/</id>
     <published>2015-10-01T15:14:50.000Z</published>
-    <updated>2015-10-03T07:09:22.699Z</updated>
+    <updated>2015-10-04T06:58:58.799Z</updated>
     <content type="html"><![CDATA[<p>接着我们开始丰富我们的博客。<a id="more"></a></p>
 <p>再次提示：</p>
 <ol>
@@ -304,8 +343,6 @@ hexo <span class="literal">s</span>
     <![CDATA[<p>接着我们开始丰富我们的博客。]]>
     
     </summary>
-    
-      <category term="GitHub" scheme="http://prozhuchen.github.io/tags/GitHub/"/>
     
       <category term="Hexo" scheme="http://prozhuchen.github.io/tags/Hexo/"/>
     
@@ -398,7 +435,7 @@ INFO  Deploy done: git
     <link href="http://prozhuchen.github.io/2015/09/30/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E7%AB%99/"/>
     <id>http://prozhuchen.github.io/2015/09/30/Hexo博客第一站/</id>
     <published>2015-09-30T06:06:28.000Z</published>
-    <updated>2015-10-03T08:09:55.554Z</updated>
+    <updated>2015-10-04T06:59:09.243Z</updated>
     <content type="html"><![CDATA[<p>首先我们先在本地搭一个静态的hexo博客。<a id="more"></a></p>
 <h1 id="Hexo的优势"><strong>Hexo的优势</strong></h1><p>Hexo是一款基于Node.js的静态博客，他的优势在于可以快速的搭建起一个个人博客，并且支持各种评论，分享等插件，最重要的是，它有很多现成的主题，你可以任意选择。</p>
 <h1 id="Hexo安装"><strong>Hexo安装</strong></h1><ol>
@@ -448,188 +485,9 @@ INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+
     
     </summary>
     
-      <category term="GitHub" scheme="http://prozhuchen.github.io/tags/GitHub/"/>
-    
       <category term="Hexo" scheme="http://prozhuchen.github.io/tags/Hexo/"/>
     
       <category term="Hexo" scheme="http://prozhuchen.github.io/categories/Hexo/"/>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[[原]人脸识别算法-特征脸方法（Eigenface）及python实现]]></title>
-    <link href="http://prozhuchen.github.io/2015/06/08/%E5%8E%9F-%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E7%AE%97%E6%B3%95-%E7%89%B9%E5%BE%81%E8%84%B8%E6%96%B9%E6%B3%95%EF%BC%88Eigenface%EF%BC%89%E5%8F%8Apython%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://prozhuchen.github.io/2015/06/08/原-人脸识别算法-特征脸方法（Eigenface）及python实现/</id>
-    <published>2015-06-08T12:15:20.000Z</published>
-    <updated>2015-10-03T08:39:44.908Z</updated>
-    <content type="html"><![CDATA[<p><span style="font-family:'Microsoft YaHei'; font-size:14px; background-color:inherit">这几天无聊，正好想起来以前谁说有同学做人脸识别，感觉好高大上，所以找来一些基础的人脸识别算法来自己实现一下，正好锻炼一下numpy的使用。</span></p>
-<p><span style="color:rgb(51,51,51); background-color:inherit"><span style="font-family:'Microsoft YaHei'; font-size:14px; background-color:inherit">特征脸方法基本是将人脸识别推向真正可用的第一种方法，了解一下还是很有必要的。特征脸用到的理论基础PCA我在这里就不说了，百度一大堆，</span></span><span style="font-family:'Microsoft YaHei'; font-size:14px; color:rgb(51,51,51); line-height:1.5">主要讲一下实现步骤和自己在用python实现是发现的问题。这里我所使用的训练图片是YALE的人脸数据库</span><a href="http://cvc.yale.edu/projects/yalefaces/yalefaces.html" target="_blank" rel="external">点击打开链接</a><span style="font-family:'Microsoft YaHei'; font-size:14px; color:rgb(51,51,51); line-height:1.5">，这里面有15位志愿者的165张图片,包含光照,表情和姿态的变化。（我们做实验的时候就会发现，特征脸算法对光照敏感。）在unpadded文件夹下。每张图片的尺寸是98*116。</span></p>
-<p><span style="white-space:pre"><span style="color:rgb(51,51,51); line-height:26px"></span></span></p>
-<p><span style="white-space:pre"><span style="color:rgb(51,51,51); line-height:26px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150410141325667?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></span></p>
-<p></p>
-<p><span style="white-space:pre"><span style="color:rgb(51,51,51); line-height:26px"><span style="font-family:'Microsoft YaHei'; font-size:14px"></span></span></span></p>
-<p></p>
-<p><span style="white-space:pre"><span style="color:rgb(51,51,51); line-height:26px"><span style="font-family:'Microsoft YaHei'; font-size:14px">特征脸实现步骤（大家如果英语好可以看看这个<a href="http://openbio.sourceforge.net/resources/eigenfaces/eigenfaces-html/facesOptions.html" target="_blank" rel="external">点击打开链接</a>）：</span></span></span></p>
-<p><span style="font-family:'Microsoft YaHei'"><span style="white-space:pre"><span style="line-height:26px"><span style="font-size:18px; color:rgb(255,102,102)">1.</span><span style="color:rgb(51,51,51); font-size:14px"></span></span><span style="font-size:14px">获取包含M张人脸图像的集合<img src="http://img.blog.csdn.net/20150410162934184?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span><span style="font-size:14px; white-space:pre">。我们这里使用15张xxx.normal.pgm来作为人脸训练图像，所以这里M=15.我们把导入的图像拉平，</span></span></p>
-<p><span style="font-family:'Microsoft YaHei'; font-size:14px; white-space:pre">本来是98<em>116的矩阵，我们拉平也就是一个11368</em>1的矩阵，然后M张放在一个大矩阵下，该矩阵为11368*15。</span></p>
-<p><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'"><span style="font-size:18px; color:rgb(255,0,0)">2.</span><span style="font-size:14px">我们计算平均图像<img src="http://img.blog.csdn.net/20150410162957666?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span><span style="font-size:14px">，并获得偏差矩阵<img src="http://img.blog.csdn.net/20150410163113634?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span><span style="font-size:14px">。</span><span style="font-size:14px">为11368*15.平均图像也就把每一行的15个元素平均计算，</span></span></span></p>
-<p><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px">这样最后的平均图像就是一个我们所谓的大众脸。然后每张人脸都减去这个平均图像，最后得到。</span></span></p>
-<p><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"></span></span></p>
-<p></p>
-<p><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150410162925717?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></p>
-<p></p>
-<p><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150410142234179?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></p>
-<p><span style="font-family:'Microsoft YaHei'"><span style="font-size:18px; color:rgb(255,0,0)">3.</span><span style="font-size:14px">求得</span><span style="font-size:14px">的协方差矩阵</span><span style="font-size:14px">。并计算</span><span style="font-size:14px">的特征&#20540;和特征向量。这是标准的PCA算法流程。但是在这里一个很大的问题就是，协方差矩阵的维度会大到无法计算，例如我们这个</span><span style="font-size:14px; white-space:pre">11368<em>15的矩阵，它的协方差矩阵是11368</em>11368，这个计算量非常大，而且储存也很困难，所以有大神推导出了下面的方法：</span></span></p>
-<p><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre">设&nbsp;</span><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre"><strong>T</strong></span><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre">&nbsp;是预处理图像的矩阵，每一列对应一个减去均&#20540;图像之后的图像。则，协方差矩阵为&nbsp;</span><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre"><strong>S</strong></span><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre">&nbsp;=&nbsp;</span><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre"><strong>TT</strong></span><sup style="color:rgb(37,37,37); white-space:pre; line-height:1">T</sup><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre">&nbsp;，并且对&nbsp;</span><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre"><strong>S</strong></span><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre">&nbsp;的特征&#20540;分解为</span></span></p>
-<p><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"></span></span></p>
-<dl style="margin-top:0.2em; margin-bottom:0.5em; color:rgb(37,37,37); line-height:22.3999996185303px"><br><dd style="line-height:1.5em; margin-left:1.6em; margin-bottom:0.1em; margin-right:0px"><br><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span><img src="http://upload.wikimedia.org/math/0/8/9/089510bbf395a5643ac323c3f340ad61.png" alt="\mathbf{Sv}_i = \mathbf{T}\mathbf{T}^T\mathbf{v}_i = \lambda_i \mathbf{v}_i"></span></dd></dl>
-
-<p><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>然而，&nbsp;<strong>TT</strong><sup style="line-height:1">T</sup>&nbsp;是一个非常大的矩阵。因此，如果转而使用如下的特征&#20540;分解</span></p>
-<dl style="margin-top:0.2em; margin-bottom:0.5em; color:rgb(37,37,37); line-height:22.3999996185303px"><br><dd style="line-height:1.5em; margin-left:1.6em; margin-bottom:0.1em; margin-right:0px"><br><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span><img src="http://upload.wikimedia.org/math/f/8/d/f8d1a3dcb5e14217cdfb237aabf1d618.png" alt="\mathbf{T}^T\mathbf{T}\mathbf{u}_i = \lambda_i \mathbf{u}_i"></span></dd></dl>
-
-<p><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>此时，我们发现如果在等式两边乘以<strong>T</strong>，可得到</span></p>
-<dl style="margin-top:0.2em; margin-bottom:0.5em; color:rgb(37,37,37); line-height:22.3999996185303px"><br><dd style="line-height:1.5em; margin-left:1.6em; margin-bottom:0.1em; margin-right:0px"><br><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span><img src="http://upload.wikimedia.org/math/6/d/b/6db92de9c64aab9ca466601c62098cee.png" alt="\mathbf{T}\mathbf{T}^T\mathbf{T}\mathbf{u}_i = \lambda_i \mathbf{T}\mathbf{u}_i"></span></dd></dl>
-
-<p><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>这就意味着，如果&nbsp;<strong>u</strong><sub style="line-height:1">i</sub>&nbsp;是&nbsp;<strong>T</strong><sup style="line-height:1">T</sup><strong>T</strong>的一个特征向量，则&nbsp;<strong>v</strong><sub style="line-height:1">i</sub>&nbsp;=&nbsp;<strong>Tu</strong><sub style="line-height:1">i</sub>&nbsp;是&nbsp;<strong>S</strong>&nbsp;的一个特征向量。</span></p>
-<p><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>看懂上面这一些需要一些线性代数知识，这里的T 就是上面的偏差矩阵， 反正到最后我们得<span style="line-height:22.3999996185303px; white-space:pre"><strong>T</strong></span><sup style="white-space:pre; line-height:1">T</sup><span style="line-height:22.3999996185303px; white-space:pre"><strong>T</strong></span><span style="line-height:22.3999996185303px; white-space:pre">的一个特征向量，再用T与之相乘就是协方差矩阵的特征向量<img src="http://img.blog.csdn.net/20150410163122889?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">。而此时我们求的特征向量是11368*15的矩阵，</span></span></p>
-<p><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="line-height:22.3999996185303px; white-space:pre">每一行（11368<em>1）如果变成图像大小矩阵（<span style="color:rgb(51,51,51); line-height:26px">98</span></em>116</span>）的话，都可以看做是一个新人脸，被称为特征脸。这里展现我试验中的其中一部分。</span></p>
-<p><span style="line-height:22.3999996185303px; white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150410163312912?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></p>
-<p></p>
-<p><span style="line-height:22.3999996185303px; white-space:pre"><span style="font-family:'Microsoft YaHei'"><span style="font-size:18px; color:rgb(255,0,0)">4.</span><span style="color:rgb(37,37,37)"></span><span style="color:rgb(37,37,37); font-size:14px">主成分分析。在求得的特征向量</span><span style="color:rgb(37,37,37); font-size:14px">和特征&#20540;中，越大的特征&#20540;对于我们区分越重要，也就是我们说的主成分，我们只需要那些大的特征&#20540;对应的特征向量，</span></span></span></p>
-<p><span style="line-height:22.3999996185303px; white-space:pre"><span style="font-family:'Microsoft YaHei'"><span style="color:rgb(37,37,37); font-size:14px">而那些十分小甚至为0的特征&#20540;对于我们来说，对应的特征向量几乎没有意义。在这里我们通过一个阈&#20540;selecthr来控制，当排序后的特征&#20540;的一部分相加</span></span></span></p>
-<p><span style="line-height:22.3999996185303px; white-space:pre"><span style="font-family:'Microsoft YaHei'"><span style="color:rgb(37,37,37); font-size:14px">大于该阈&#20540;时，我们选择这部分特征&#20540;对应的特征向量，此时我们剩下的矩阵是11368*M’,M’根据情况在变化。 这样我们不仅减少了计算量，而且保留</span></span></span></p>
-<p><span style="line-height:22.3999996185303px; white-space:pre"><span style="font-family:'Microsoft YaHei'"><span style="color:rgb(37,37,37); font-size:14px">了主成分，减少了噪声的干扰。</span></span></span></p>
-<p><span style="line-height:22.3999996185303px; white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"></span></span></p>
-<p><span style="font-family:'Microsoft YaHei'"><span style="font-size:18px; color:rgb(255,0,0)">5.</span><span style="font-size:14px">这一步就是开始进行人脸识别了。此时我们导入一个新的人脸</span><span style="font-size:14px">，我们使用上面主成分分析后得到的特征向量</span><span style="line-height:22.3999996185303px"><img src="http://img.blog.csdn.net/20150410163122889?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span><span style="font-size:14px">，来求得一个每一个特征向量对于导入人脸的权重向量<img src="http://img.blog.csdn.net/20150410163609817?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span><span style="font-size:14px">。</span></span></p>
-<p><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150410163315240?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></p>
-<p></p>
-<p><span style="font-family:'Microsoft YaHei'; font-size:14px">这里的<img src="http://img.blog.csdn.net/20150410163436310?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">就是上面第2步求得的平均图像。&nbsp;特征向量其实就是训练集合的图像与均&#20540;图像在该方向上的偏差，通过未知人脸在特征向量的投影，我们就可以知道未知人脸与平均图像在不同方向上的差距。此时我们用上面第2步我们求得的偏差矩阵的每一行做这样的处理，每一行都会得到一个<span style="white-space:pre"></span>权重向量。我们利用求得<img src="http://img.blog.csdn.net/20150410163558319?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">与<img src="http://img.blog.csdn.net/20150410163535703?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">的欧式距离来判断未知人脸与第k张训练人脸之间的差距。</span></p>
-<p><img src="http://img.blog.csdn.net/20150410163428326?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span></span></p>
-<p><span style="font-family:'Microsoft YaHei'; font-size:14px">在这里因为我假设我要识别的未知人肯定是训练集合里有的，所以我通过比较<img src="http://img.blog.csdn.net/20150410163616434?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">，选择最小的k就是这个人脸对应的训练集合的脸。实际上，一般都是设定距离阈&#20540;，当距离小于阈&#20540;时说明要判别的脸和训练集内的第k个脸是同一个人的。当遍历所有训练集都大于阈&#20540;时，根据距离&#20540;的大小又可分为是新的人脸或者不是人脸的两种情况。根据训练集的不同，阈&#20540;设定并不是固定的。</span></p>
-<p><span style="font-family:'Microsoft YaHei'; font-size:14px"></span></p>
-<p></p>
-<p><span style="font-family:'Microsoft YaHei'; font-size:14px">最后附上python代码，这里的&nbsp;ReconginitionVector函数就是求得特征向量的函数，就是按照上面说的顺序写下来的，judgeFace函数用来识别人脸。（大家可以借鉴一下，如果发现有什么不对的欢迎讨论）：</span></p>
-<pre name="code" class="python">#coding:utf-8
-from numpy import *
-from numpy import linalg as la
-import cv2
-import os
-
-def loadImageSet(add):
-    FaceMat = mat(zeros((15,98*116)))
-    j =0
-    for i in os.listdir(add):
-        if i.split(&#39;.&#39;)[1] == &#39;normal&#39;:
-            try:
-                img = cv2.imread(add+i,0)
-            except:
-                print &#39;load %s failed&#39;%i
-            FaceMat[j,:] = mat(img).flatten()
-            j += 1
-    return FaceMat
-
-def ReconginitionVector(selecthr = 0.8):
-    # step1: load the face image data ,get the matrix consists of all image
-    FaceMat = loadImageSet(&#39;D:\python/face recongnition\YALE\YALE\unpadded/&#39;).T
-    # step2: average the FaceMat
-    avgImg = mean(FaceMat,1)
-    # step3: calculate the difference of avgimg and all image data(FaceMat)
-    diffTrain = FaceMat-avgImg
-    #step4: calculate eigenvector of covariance matrix (because covariance matrix will cause memory error)
-    eigvals,eigVects = linalg.eig(mat(diffTrain.T*diffTrain))
-    eigSortIndex = argsort(-eigvals)
-    for i in xrange(shape(FaceMat)[1]):
-        if (eigvals[eigSortIndex[:i]]/eigvals.sum()).sum() &gt;= selecthr:
-            eigSortIndex = eigSortIndex[:i]
-            break
-    covVects = diffTrain * eigVects[:,eigSortIndex] # covVects is the eigenvector of covariance matrix
-    # avgImg 是均值图像，covVects是协方差矩阵的特征向量，diffTrain是偏差矩阵
-    return avgImg,covVects,diffTrain
-
-def judgeFace(judgeImg,FaceVector,avgImg,diffTrain):
-    diff = judgeImg.T - avgImg
-    weiVec = FaceVector.T* diff
-    res = 0
-    resVal = inf
-    for i in range(15):
-        TrainVec = FaceVector.T*diffTrain[:,i]
-        if  (array(weiVec-TrainVec)**2).sum() &lt; resVal:
-            res =  i
-            resVal = (array(weiVec-TrainVec)**2).sum()
-    return res+1
-
-if __name__ == &#39;__main__&#39;:
-
-    avgImg,FaceVector,diffTrain = ReconginitionVector(selecthr = 0.9)
-    nameList = [&#39;01&#39;,&#39;02&#39;,&#39;03&#39;,&#39;04&#39;,&#39;05&#39;,&#39;06&#39;,&#39;07&#39;,&#39;08&#39;,&#39;09&#39;,&#39;10&#39;,&#39;11&#39;,&#39;12&#39;,&#39;13&#39;,&#39;14&#39;,&#39;15&#39;]
-    characteristic = [&#39;centerlight&#39;,&#39;glasses&#39;,&#39;happy&#39;,&#39;leftlight&#39;,&#39;noglasses&#39;,&#39;rightlight&#39;,&#39;sad&#39;,&#39;sleepy&#39;,&#39;surprised&#39;,&#39;wink&#39;]
-
-    for c in characteristic:
-
-        count = 0
-        for i in range(len(nameList)):
-
-            # 这里的loadname就是我们要识别的未知人脸图，我们通过15张未知人脸找出的对应训练人脸进行对比来求出正确率
-            loadname = &#39;D:\python/face recongnition\YALE\YALE\unpadded\subject&#39;+nameList[i]+&#39;.&#39;+c+&#39;.pgm&#39;
-            judgeImg = cv2.imread(loadname,0)
-            if judgeFace(mat(judgeImg).flatten(),FaceVector,avgImg,diffTrain) == int(nameList[i]):
-                count += 1
-        print &#39;accuracy of %s is %f&#39;%(c, float(count)/len(nameList))  # 求出正确率
-</pre>
-
-<p><span style="font-family:'Microsoft YaHei'; font-size:14px"></span></p>
-<p></p>
-<p><span style="white-space:pre"></span></p>
-<div style="top:0px"><br><br><span style="font-family:'Microsoft YaHei'; font-size:14px; background-color:inherit">这几天无聊，正好想起来以前谁说有同学做人脸识别，感觉好高大上，所以找来一些基础的人脸识别算法来自己实现一下，正好锻炼一下numpy的使用。</span><br><br><span style="color:rgb(51,51,51); background-color:inherit"><span style="font-family:'Microsoft YaHei'; font-size:14px; background-color:inherit">特征脸方法基本是将人脸识别推向真正可用的第一种方法，了解一下还是很有必要的。特征脸用到的理论基础PCA我在这里就不说了，百度一大堆，</span></span><span style="font-family:'Microsoft YaHei'; font-size:14px; color:rgb(51,51,51); line-height:1.5">主要讲一下实现步骤和自己在用python实现是发现的问题。这里我所使用的训练图片是YALE的人脸数据库</span><a href="http://cvc.yale.edu/projects/yalefaces/yalefaces.html" target="_blank" rel="external">点击打开链接</a><span style="font-family:'Microsoft YaHei'; font-size:14px; color:rgb(51,51,51); line-height:1.5">，这里面有15位志愿者的165张图片,包含光照,表情和姿态的变化。（我们做实验的时候就会发现，特征脸算法对光照敏感。）在unpadded文件夹下。每张图片的尺寸是98<em>116。</em></span><br><br><span style="white-space:pre"><span style="color:rgb(51,51,51); line-height:26px"></span></span><br><br><span style="white-space:pre"><span style="color:rgb(51,51,51); line-height:26px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150410141325667?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><br></span></span></span><br><br><span style="white-space:pre"><span style="color:rgb(51,51,51); line-height:26px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><br><br></span></span></span><br><br><span style="white-space:pre"><span style="color:rgb(51,51,51); line-height:26px"><span style="font-family:'Microsoft YaHei'; font-size:14px">特征脸实现步骤（大家如果英语好可以看看这个<a href="http://openbio.sourceforge.net/resources/eigenfaces/eigenfaces-html/facesOptions.html" target="_blank" rel="external">点击打开链接</a>）：</span></span></span><br><br><span style="font-family:'Microsoft YaHei'"><span style="white-space:pre"><span style="line-height:26px"><span style="font-size:18px; color:rgb(255,102,102)">1.</span><span style="color:rgb(51,51,51); font-size:14px"></span></span><span style="font-size:14px">获取包含M张人脸图像的集合<img src="http://img.blog.csdn.net/20150410162934184?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span><span style="font-size:14px; white-space:pre">。我们这里使用15张xxx.normal.pgm来作为人脸训练图像，所以这里M=15.我们把导入的图像拉平，</span></span><br><br><span style="font-family:'Microsoft YaHei'; font-size:14px; white-space:pre">本来是98116的矩阵，我们拉平也就是一个11368<em>1的矩阵，然后M张放在一个大矩阵下，该矩阵为11368</em>15。</span><br><br><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'"><span style="font-size:18px; color:rgb(255,0,0)">2.</span><span style="font-size:14px">我们计算平均图像<img src="http://img.blog.csdn.net/20150410162957666?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span><span style="font-size:14px">，并获得偏差矩阵<img src="http://img.blog.csdn.net/20150410163113634?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span><span style="font-size:14px">。</span><span style="font-size:14px">为11368<em>15.平均图像也就把每一行的15个元素平均计算，</em></span></span></span><br><br><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px">这样最后的平均图像就是一个我们所谓的大众脸。然后每张人脸都减去这个平均图像，最后得到。</span></span><br><br><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><br><br></span></span><br><br><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150410162925717?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><br></span></span><br><br><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150410142234179?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span><br><br><span style="font-family:'Microsoft YaHei'"><span style="font-size:18px; color:rgb(255,0,0)">3.</span><span style="font-size:14px">求得</span><span style="font-size:14px">的协方差矩阵</span><span style="font-size:14px">。并计算</span><span style="font-size:14px">的特征&#20540;和特征向量。这是标准的PCA算法流程。但是在这里一个很大的问题就是，协方差矩阵的维度会大到无法计算，例如我们这个</span><span style="font-size:14px; white-space:pre">1136815的矩阵，它的协方差矩阵是11368<em>11368，这个计算量非常大，而且储存也很困难，所以有大神推导出了下面的方法：</em></span></span><br><br><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre">设&nbsp;</span><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre"><strong>T</strong></span><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre">&nbsp;是预处理图像的矩阵，每一列对应一个减去均&#20540;图像之后的图像。则，协方差矩阵为&nbsp;</span><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre"><strong>S</strong></span><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre">&nbsp;=&nbsp;</span><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre"><strong>TT</strong></span><sup style="color:rgb(37,37,37); white-space:pre; line-height:1">T</sup><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre">&nbsp;，并且对&nbsp;</span><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre"><strong>S</strong></span><span style="color:rgb(37,37,37); line-height:22.3999996185303px; white-space:pre">&nbsp;的特征&#20540;分解为</span></span><br><br><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"></span></span><br><br><dl style="margin-top:0.2em; margin-bottom:0.5em; color:rgb(37,37,37); line-height:22.3999996185303px"><br><dd style="line-height:1.5em; margin-left:1.6em; margin-bottom:0.1em; margin-right:0px"><br><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span><img src="http://upload.wikimedia.org/math/0/8/9/089510bbf395a5643ac323c3f340ad61.png" alt="\mathbf{Sv}_i = \mathbf{T}\mathbf{T}^T\mathbf{v}_i = \lambda_i \mathbf{v}_i"></span></dd></dl><br><br><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>然而，&nbsp;<strong>TT</strong><sup style="line-height:1">T</sup>&nbsp;是一个非常大的矩阵。因此，如果转而使用如下的特征&#20540;分解</span><br><br><dl style="margin-top:0.2em; margin-bottom:0.5em; color:rgb(37,37,37); line-height:22.3999996185303px"><br><dd style="line-height:1.5em; margin-left:1.6em; margin-bottom:0.1em; margin-right:0px"><br><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span><img src="http://upload.wikimedia.org/math/f/8/d/f8d1a3dcb5e14217cdfb237aabf1d618.png" alt="\mathbf{T}^T\mathbf{T}\mathbf{u}_i = \lambda_i \mathbf{u}_i"></span></dd></dl><br><br><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>此时，我们发现如果在等式两边乘以<strong>T</strong>，可得到</span><br><br><dl style="margin-top:0.2em; margin-bottom:0.5em; color:rgb(37,37,37); line-height:22.3999996185303px"><br><dd style="line-height:1.5em; margin-left:1.6em; margin-bottom:0.1em; margin-right:0px"><br><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span><img src="http://upload.wikimedia.org/math/6/d/b/6db92de9c64aab9ca466601c62098cee.png" alt="\mathbf{T}\mathbf{T}^T\mathbf{T}\mathbf{u}_i = \lambda_i \mathbf{T}\mathbf{u}_i"></span></dd></dl><br><br><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>这就意味着，如果&nbsp;<strong>u</strong><sub style="line-height:1">i</sub>&nbsp;是&nbsp;<strong>T</strong><sup style="line-height:1">T</sup><strong>T</strong>的一个特征向量，则&nbsp;<strong>v</strong><sub style="line-height:1">i</sub>&nbsp;=&nbsp;<strong>Tu</strong><sub style="line-height:1">i</sub>&nbsp;是&nbsp;<strong>S</strong>&nbsp;的一个特征向量。</span><br><br><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>看懂上面这一些需要一些线性代数知识，这里的T 就是上面的偏差矩阵， 反正到最后我们得<span style="line-height:22.3999996185303px; white-space:pre"><strong>T</strong></span><sup style="white-space:pre; line-height:1">T</sup><span style="line-height:22.3999996185303px; white-space:pre"><strong>T</strong></span><span style="line-height:22.3999996185303px; white-space:pre">的一个特征向量，再用T与之相乘就是协方差矩阵的特征向量<img src="http://img.blog.csdn.net/20150410163122889?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">。而此时我们求的特征向量是1136815的矩阵，</span></span><br><br><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="line-height:22.3999996185303px; white-space:pre">每一行（11368<em>1）如果变成图像大小矩阵（<span style="color:rgb(51,51,51); line-height:26px">98</span></em>116</span>）的话，都可以看做是一个新人脸，被称为特征脸。这里展现我试验中的其中一部分。</span><br><br><span style="line-height:22.3999996185303px; white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150410163312912?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><br></span></span><br><br><span style="line-height:22.3999996185303px; white-space:pre"><span style="font-family:'Microsoft YaHei'"><span style="font-size:18px; color:rgb(255,0,0)">4.</span><span style="color:rgb(37,37,37)"></span><span style="color:rgb(37,37,37); font-size:14px">主成分分析。在求得的特征向量</span><span style="color:rgb(37,37,37); font-size:14px">和特征&#20540;中，越大的特征&#20540;对于我们区分越重要，也就是我们说的主成分，我们只需要那些大的特征&#20540;对应的特征向量，</span></span></span><br><br><span style="line-height:22.3999996185303px; white-space:pre"><span style="font-family:'Microsoft YaHei'"><span style="color:rgb(37,37,37); font-size:14px">而那些十分小甚至为0的特征&#20540;对于我们来说，对应的特征向量几乎没有意义。在这里我们通过一个阈&#20540;selecthr来控制，当排序后的特征&#20540;的一部分相加</span></span></span><br><br><span style="line-height:22.3999996185303px; white-space:pre"><span style="font-family:'Microsoft YaHei'"><span style="color:rgb(37,37,37); font-size:14px">大于该阈&#20540;时，我们选择这部分特征&#20540;对应的特征向量，此时我们剩下的矩阵是11368<em>M’,M’根据情况在变化。 这样我们不仅减少了计算量，而且保留</em></span></span></span><br><br><span style="line-height:22.3999996185303px; white-space:pre"><span style="font-family:'Microsoft YaHei'"><span style="color:rgb(37,37,37); font-size:14px">了主成分，减少了噪声的干扰。</span></span></span><br><br><span style="line-height:22.3999996185303px; white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"></span></span><br><br><span style="font-family:'Microsoft YaHei'"><span style="font-size:18px; color:rgb(255,0,0)">5.</span><span style="font-size:14px">这一步就是开始进行人脸识别了。此时我们导入一个新的人脸</span><span style="font-size:14px">，我们使用上面主成分分析后得到的特征向量</span><span style="line-height:22.3999996185303px"><img src="http://img.blog.csdn.net/20150410163122889?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span><span style="font-size:14px">，来求得一个每一个特征向量对于导入人脸的权重向量<img src="http://img.blog.csdn.net/20150410163609817?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span><span style="font-size:14px">。</span></span><br><br><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150410163315240?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><br><br></span><br><br><span style="font-family:'Microsoft YaHei'; font-size:14px">这里的<img src="http://img.blog.csdn.net/20150410163436310?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">就是上面第2步求得的平均图像。&nbsp;特征向量其实就是训练集合的图像与均&#20540;图像在该方向上的偏差，通过未知人脸在特征向量的投影，我们就可以知道未知人脸与平均图像在不同方向上的差距。此时我们用上面第2步我们求得的偏差矩阵的每一行做这样的处理，每一行都会得到一个<span style="white-space:pre"></span>权重向量。我们利用求得<img src="http://img.blog.csdn.net/20150410163558319?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">与<img src="http://img.blog.csdn.net/20150410163535703?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">的欧式距离来判断未知人脸与第k张训练人脸之间的差距。</span><br><br><img src="http://img.blog.csdn.net/20150410163428326?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span></span><br><br><span style="font-family:'Microsoft YaHei'; font-size:14px">在这里因为我假设我要识别的未知人肯定是训练集合里有的，所以我通过比较<img src="http://img.blog.csdn.net/20150410163616434?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">，选择最小的k就是这个人脸对应的训练集合的脸。实际上，一般都是设定距离阈&#20540;，当距离小于阈&#20540;时说明要判别的脸和训练集内的第k个脸是同一个人的。当遍历所有训练集都大于阈&#20540;时，根据距离&#20540;的大小又可分为是新的人脸或者不是人脸的两种情况。根据训练集的不同，阈&#20540;设定并不是固定的。</span><br><br><span style="font-family:'Microsoft YaHei'; font-size:14px"><br><br></span><br><br><span style="font-family:'Microsoft YaHei'; font-size:14px">最后附上python代码，这里的&nbsp;ReconginitionVector函数就是求得特征向量的函数，就是按照上面说的顺序写下来的，judgeFace函数用来识别人脸。（大家可以借鉴一下，如果发现有什么不对的欢迎讨论）：</span><br><br><pre name="code" class="python">#coding:utf-8<br>from numpy import <br>from numpy import linalg as la<br>import cv2<br>import os<br><br>def loadImageSet(add):<br>    FaceMat = mat(zeros((15,98<em>116)))<br>    j =0<br>    for i in os.listdir(add):<br>        if i.split(&#39;.&#39;)[1] == &#39;normal&#39;:<br>            try:<br>                img = cv2.imread(add+i,0)<br>            except:<br>                print &#39;load %s failed&#39;%i<br>            FaceMat[j,:] = mat(img).flatten()<br>            j += 1<br>    return FaceMat<br><br>def ReconginitionVector(selecthr = 0.8):<br>    # step1: load the face image data ,get the matrix consists of all image<br>    FaceMat = loadImageSet(&#39;D:\python/face recongnition\YALE\YALE\unpadded/&#39;).T<br>    # step2: average the FaceMat<br>    avgImg = mean(FaceMat,1)<br>    # step3: calculate the difference of avgimg and all image data(FaceMat)<br>    diffTrain = FaceMat-avgImg<br>    #step4: calculate eigenvector of covariance matrix (because covariance matrix will cause memory error)<br>    eigvals,eigVects = linalg.eig(mat(diffTrain.T</em>diffTrain))<br>    eigSortIndex = argsort(-eigvals)<br>    for i in xrange(shape(FaceMat)[1]):<br>        if (eigvals[eigSortIndex[:i]]/eigvals.sum()).sum() &gt;= selecthr:<br>            eigSortIndex = eigSortIndex[:i]<br>            break<br>    covVects = diffTrain <em> eigVects[:,eigSortIndex] # covVects is the eigenvector of covariance matrix<br>    # avgImg 是均值图像，covVects是协方差矩阵的特征向量，diffTrain是偏差矩阵<br>    return avgImg,covVects,diffTrain<br><br>def judgeFace(judgeImg,FaceVector,avgImg,diffTrain):<br>    diff = judgeImg.T - avgImg<br>    weiVec = FaceVector.T</em> diff<br>    res = 0<br>    resVal = inf<br>    for i in range(15):<br>        TrainVec = FaceVector.T<em>diffTrain[:,i]<br>        if  (array(weiVec-TrainVec)<em>*2).sum() &lt; resVal:<br>            res =  i<br>            resVal = (array(weiVec-TrainVec)</em></em>2).sum()<br>    return res+1<br><br>if <strong>name</strong> == &#39;<strong>main</strong>&#39;:<br><br>    avgImg,FaceVector,diffTrain = ReconginitionVector(selecthr = 0.9)<br>    nameList = [&#39;01&#39;,&#39;02&#39;,&#39;03&#39;,&#39;04&#39;,&#39;05&#39;,&#39;06&#39;,&#39;07&#39;,&#39;08&#39;,&#39;09&#39;,&#39;10&#39;,&#39;11&#39;,&#39;12&#39;,&#39;13&#39;,&#39;14&#39;,&#39;15&#39;]<br>    characteristic = [&#39;centerlight&#39;,&#39;glasses&#39;,&#39;happy&#39;,&#39;leftlight&#39;,&#39;noglasses&#39;,&#39;rightlight&#39;,&#39;sad&#39;,&#39;sleepy&#39;,&#39;surprised&#39;,&#39;wink&#39;]<br><br>    for c in characteristic:<br><br>        count = 0<br>        for i in range(len(nameList)):<br><br>            # 这里的loadname就是我们要识别的未知人脸图，我们通过15张未知人脸找出的对应训练人脸进行对比来求出正确率<br>            loadname = &#39;D:\python/face recongnition\YALE\YALE\unpadded\subject&#39;+nameList[i]+&#39;.&#39;+c+&#39;.pgm&#39;<br>            judgeImg = cv2.imread(loadname,0)<br>            if judgeFace(mat(judgeImg).flatten(),FaceVector,avgImg,diffTrain) == int(nameList[i]):<br>                count += 1<br>        print &#39;accuracy of %s is %f&#39;%(c, float(count)/len(nameList))  # 求出正确率<br></pre><br><br><span style="font-family:'Microsoft YaHei'; font-size:14px"><br><br></span><br><br><span style="white-space:pre"></span><br><br></div>
-
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><span style="font-family:'Microsoft YaHei'; font-size:14px; background-color:inherit">这几天无聊，正好想起来以前谁说有同学做人脸识别，感觉好高大上，所以找来一些基础的人脸识别算法来自己实现]]>
-    </summary>
-    
-  </entry>
-  
-  <entry>
-    <title><![CDATA[[原]人脸识别算法-LBP算法及python实现]]></title>
-    <link href="http://prozhuchen.github.io/2015/06/08/%E5%8E%9F-%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB%E7%AE%97%E6%B3%95-LBP%E7%AE%97%E6%B3%95%E5%8F%8Apython%E5%AE%9E%E7%8E%B0/"/>
-    <id>http://prozhuchen.github.io/2015/06/08/原-人脸识别算法-LBP算法及python实现/</id>
-    <published>2015-06-08T12:12:40.000Z</published>
-    <updated>2015-10-03T08:39:33.548Z</updated>
-    <content type="html"><![CDATA[<p><span style="font-family:'Microsoft YaHei'; font-size:14px">上一次我们说了<a href="http://blog.csdn.net/u010006643/article/details/44978755" target="_blank" rel="external">人脸识别算法-特征脸方法（Eigenface）及python实现</a>，在这一次，我们来看一看LBP算法。<span style="color:rgb(51,51,51); line-height:26px">相比于特征脸方法，LBP的识别率已经有了很大的提升。</span></span></p>
-<p><span style="color:rgb(51,51,51)"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>在这里，我们用的数据库和上次一样，都是UCI的<span style="line-height:19.0909080505371px">YALE的人脸数据库。</span></span></span></p>
-<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>因为我也是一边学一边写代码，所以害怕有人说我博文是抄袭的，所以在这里说明，我这里的算法思想主要是来自<a href="http://blog.csdn.net/feirose/article/details/39552977" target="_blank" rel="external">点击打开链接</a>（不过大家都是学习，应该不会这么计较吧），我主要是从实现的角度来说明一下在实现遇见的问题以及方法。</span></span></span></p>
-<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>LBP算法介绍：</span></span></span></p>
-<h3 id="1-圆形LBP算子"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="line-height:19.0909080505371px"><span style="color:rgb(255,102,102)">1.</span></span><span style="color:rgb(51,51,51); line-height:19.0909080505371px">圆形LBP算子</span></span></h3><p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>在这个算法一开始的时候，大家使用的是最普通的八邻域算子。</span></span></span></p>
-<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150414193723453?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></span></span></p>
-<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>八邻域的像素&#20540;大于中心点&#20540;的标注1，反之标注0.这样我们就会得到一个八位数。这时我们从左上角开始算最高位，最后左边的为最低位，在这个图中就是00010011，换算十进制就是19，我们就把这个&#20540;作为中心点的LBP算子&#20540;。</span></span></span></p>
-<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>但是随着算法的发展，大家发现这个算子太过死板，<span style="line-height:26px">不能满足不同尺寸和频率纹理的需要。为了适应不同尺度的纹理特征，并达到灰度和旋转不变性的要求，Ojala等对<br> LBP 算子进行了改进，将 3×3邻域扩展到任意邻域，并用圆形邻域代替了正方形邻域。</span></span></span></span></p>
-<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="line-height:26px"><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150414194118580?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></span></span></span></p>
-<p><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="line-height:26px"><span style="white-space:pre"></span></span></span></span><span style="color:rgb(51,51,51); line-height:26px; white-space:pre">为什么</span><span style="color:rgb(51,51,51); line-height:26px">说圆形算子比八邻域算子要更好呢？从直观的角度来说，我们看下面的图</span></span></p>
-<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="line-height:26px"><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150414194446747?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></span></span></span></p>
-<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="line-height:26px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre">看</span>第一个图是不是很像脸部的右下巴部分，第二图像头部右上方额头？（好吧，如果不像的话，就自己感受一下吧，，个人感觉）</span></span></span></span></p>
-<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="line-height:26px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>这时我们假设在半径为R的圆形邻域内有P个采样点的算子，上面的图是在R = 2，P=8. 此时我们算每个采样点的坐标：</span></span></span></span></p>
-<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="line-height:26px"><span style="white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150414195003876?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="">、</span></span></span></span></span></p>
-<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>xp 是p点的x坐标，yp是y坐标，p的取&#20540;范围（0，P-1）（俗称0,1,2,3,4,5,6,7）。 但此时我们这样得到的不一定是整数，<span style="line-height:26px">所以可以通过双线性插&#20540;来得到该采样点的像素&#20540;。（这个双线性插&#20540;没太明白，不过python的<br> scipy工具包里有，我的代码里是直接round函数取整的，大家可以自己加上。）</span></span></span></span></p>
-<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="line-height:26px"></span></span></span></span></p>
-<p></p>
-<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="line-height:26px">此时我们发现，这个圆形的算子很坑爹啊，万一图片一旋转，同一个点的LBP&#20540;就会改变了，很不合理啊，所以大神们用了一种很简单的方法实现了旋转不变性。</span></span></span></span></p>
-<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="line-height:26px"><img src="http://img.blog.csdn.net/20150414201643662?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></span></span></p>
-<p></p>
-<p><span style="color:rgb(51,51,51)"><span style="line-height:19.0909080505371px"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="line-height:26px">如上图所示，原本一开始我们算的这个点的LBP&#20540;是11100001 = 225，这时候我们开始旋转，可以看到每一个情况都旋转到了，我们取这些情况中的最小&#20540;，也就是15，作为这个点的LBP&#20540;，这样不管图片怎么旋转，这个点的LBP&#20540;都会是15，也就是旋转不变性。</span></span></span></span></p>
-<h3 id="2-LBP等价模式"><span style="line-height:19.0909080505371px; white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="color:rgb(255,102,102)">2.</span><span style="color:rgb(51,0,51)"><span style="color:rgb(51,51,51); line-height:26px">LBP等价模式</span></span></span></span></h3><p><span style="line-height:19.0909080505371px; white-space:pre"><span style="color:rgb(51,0,51)"><span style="color:rgb(51,51,51); line-height:26px"></span></span></span></p>
-<p><span style="background-color:inherit"><span style="background-color:inherit"><span style="color:rgb(51,0,51); background-color:inherit"><span style="color:rgb(51,51,51); background-color:inherit"><span style="font-family:'Microsoft YaHei'; font-size:14px">这一点的原理是我最没明白的，等到我看透Face<br> Recognition with Lo cal Binary Patterns这篇论文的时候我会加上这一点内容，现在先把人家博文上的解释加上。</span></span></span></span></span></p>
-<p><span style="background-color:inherit"><span style="background-color:inherit"><span style="color:rgb(255,0,0); background-color:inherit"><span style="font-family:'Microsoft YaHei'; font-size:14px">一个LBP算子可以产生不同的二进制模式，对于半径为R的圆形区域内含有P个采样点的LBP算子将会产生2^P种模式。很显然，随着邻域集内采样点数的增加，二进制模式的种类是急剧增加的。例如：5×5邻域内20个采样点，有220＝1,048,576种二进制模式。如此多的二&#20540;模式无论对于纹理的提取还是对于纹理的识别、分类及信息的存取都是不利的。同时，过多的模式种类对于纹理的表达是不利的。例如，将LBP算子用于纹理分类或人脸识别时，常采用LBP模式的统计直方图来表达图像的信息，而较多的模式种类将使得数据量过大，且直方图过于稀疏。因此，需要对原始的LBP模式进行降维，使得数据量减少的情况下能最好的代表图像的信息。</span></span></span></span></p>
-<p>为了解决二进制模式过多的问题，提高统计性，Ojala提出了采用一种“等价模式”（Uniform Pattern）来对LBP算子的模式种类进行降维。Ojala等认为，在实际图像中，绝大多数LBP模式最多只包含两次从1到0或从0到1的跳变。因此，Ojala将“等价模式”定义为：当某个LBP所对应的循环二进制数从0到1或从1到0最多有两次跳变时，该LBP所对应的二进制就称为一个等价模式类。如00000000（0次跳变），00000111（只含一次从0到1的跳变），10001111（先由1跳到0，再由0跳到1，共两次跳变）都是等价模式类。除等价模式类以外的模式都归为另一类，称为混合模式类，例如10010111（共四次跳变）。</p>
-<p><span style="color:rgb(255,0,0); background-color:inherit"><span style="font-family:'Microsoft YaHei'; font-size:14px">通过这样的改进，二进制模式的种类大大减少，而不会丢失任何信息。模式数量由原来的2^P种减少为 P ( P-1)&#43;2种，其中P表示邻域集内的采样点数。对于3×3邻域内8个采样点来说，二进制模式由原始的256种减少为58种，这使得特征向量的维数更少，并且可以减少高频噪声带来的影响。</span></span></p>
-<div style="widows:auto; line-height:21px"><span style="font-family:'Microsoft YaHei'; font-size:14px">&nbsp; &nbsp; 这里我不明白的点是：</span></div><br><div style="widows:auto; line-height:21px"><span style="font-family:'Microsoft YaHei'; font-size:14px">&nbsp; &nbsp; 1. 这个等价模式类还好，但是根据这个说法整个不就是两种模式了吗，一种是等价模式，一种是混合模式，那又怎么会出现 P ( P-1)&#43;2种模式呢？说白了还是这个式子是怎么推出来的不清楚。</span></div><br><div style="widows:auto; line-height:21px"><span style="font-family:'Microsoft YaHei'; font-size:14px">&nbsp; &nbsp; 2. 这个模式的减少意思是这个LBP&#20540;从2^P种减少到P ( P-1)&#43;2种吗？换句话说，00000000，00000111的模式一样，那影响他的LBP&#20540;吗？</span></div><br><div style="widows:auto; line-height:21px"><span style="font-family:'Microsoft YaHei'; font-size:14px">&nbsp; &nbsp; 因为这些疑问，所以在我代码中也没有这部分内容，请见谅。</span></div>
-
-<p><span style="font-family:'Microsoft YaHei'; font-size:14px"></span></p>
-<p><span style="white-space:pre"></span></p>
-<h3 id="3-&nbsp;LBP特征匹配"><span style="font-family:'Microsoft YaHei'; font-size:14px">3.&nbsp;<span style="color:rgb(51,51,51); line-height:26px">LBP特征匹配</span></span></h3><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="color:rgb(51,51,51); line-height:26px"><span style="white-space:pre">如果将以上得到的LBP&#20540;直接用于人脸识别，其实和不提取LBP特征没什么区别，会造成计算量准确率等一系列问题。将一副人脸图像分为7x7的子区</span></span></span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="color:rgb(51,51,51); line-height:26px"><span style="white-space:pre"><br><br></span></span></span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="color:rgb(51,51,51); line-height:26px"><span style="white-space:pre">域（如下图），并在子区域内根据LBP&#20540;统计其直方图，以直方图作为其判别特征。这样做的好处是在一定范围内避免图像没完全对准的情况，</span></span></span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="color:rgb(51,51,51); line-height:26px"><span style="white-space:pre">同时也对LBP特征做了降维处理。</span></span></span></div><br><div style="text-align:center"><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"><img src="http://img.blog.csdn.net/20150414200606916?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre">其实</span>在上面提到的那篇论文里，分区的意义还在于我们可以根据不同的子区域给予不同的权重，比如说我们认为鼻子的权重大于边缘子区域对于整个图片的权重。权重的意思也就是这个部分对于匹配时整个图片的意义。</span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>我们根据LBP&#20540;统计直方图，上面提到的LBP&#20540;有2^8=256种，其实也就是一个灰度图的直方图统计过程。只要我们把LBP&#20540;看做一个新的像素&#20540;。</span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="white-space:pre"></span>在我的代码中<span style="color:rgb(51,51,51); line-height:26px">判别其相&#20284;性的方法是，假设已知人脸直方图为</span><span style="color:rgb(51,51,51); line-height:26px">M，训练人脸的直方图是N1，N2，，，Ni<br> 我计算他们每个子区域内的直方图的差，再取平方获得最后的相&#20284;&#20540;，对比所有的相&#20284;&#20540;，取最小的。（这样很简单。。）</span></span></div><br><div><span style="font-family:'Microsoft YaHei'"><span style="font-size:14px"><span style="color:rgb(51,51,51); line-height:26px"><span style="white-space:pre"></span>真正判断相&#20284;性的方法有：</span></span></span></div><br><div><span style="color:rgb(51,51,51); line-height:26px; white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150414201420763?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></div><br><div><span style="color:rgb(51,51,51); line-height:26px; white-space:pre"><span style="font-family:'Microsoft YaHei'; font-size:14px"><img src="http://img.blog.csdn.net/20150414201502009?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMDAwNjY0Mw==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></span></span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><span style="color:rgb(51,51,51); line-height:26px; white-space:pre">大家可以</span>去google一下，然后自己实现。</span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><br><br></span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px"><br><br></span></div><br><div><span style="font-family:'Microsoft YaHei'; font-size:14px">代码（这里说一句，虽然一般都是说LBP算法对于光照不敏感，但是大家看实验结果，带light的准确率都很低，，应该是我的代码问题，希望有大神如果愿意的话能告诉我哪里的问题）：</span><pre name="code" class="python">#coding:utf-8<br>#——————————————–<br>#   作用：LBP人脸识别算法实现<br>#   日期：2015年4月11日<br>#   算法链接：<a href="http://blog.csdn.net/feirose/article/details/39552977" target="_blank" rel="external">http://blog.csdn.net/feirose/article/details/39552977</a><br>#           <a href="http://blog.csdn.net/zouxy09/article/details/7929531" target="_blank" rel="external">http://blog.csdn.net/zouxy09/article/details/7929531</a><br>#   实验结果：accuracy of centerlight is 0.333333<br>#             accuracy of glasses is 0.933333<br>#             accuracy of happy is 0.933333<br>#             accuracy of leftlight is 0.266667<br>#             accuracy of noglasses is 0.933333<br>#             accuracy of rightlight is 0.133333<br>#             accuracy of sad is 0.933333<br>#             accuracy of sleepy is 0.933333<br>#             accuracy of surprised is 0.866667<br>#             accuracy of wink is 0.800000<br>#   执行时间：494.759438799s<br>#——————————————–<br>from numpy import <em><br>from numpy import linalg as la<br>import cv2<br>import os<br>import math<br><br># 为了让LBP具有旋转不变性，将二进制串进行旋转。<br># 假设一开始得到的LBP特征为10010000，那么将这个二进制特征，<br># 按照顺时针方向旋转，可以转化为00001001的形式，这样得到的LBP值是最小的。<br># 无论图像怎么旋转，对点提取的二进制特征的最小值是不变的，<br># 用最小值作为提取的LBP特征，这样LBP就是旋转不变的了。<br>def minBinary(pixel):<br>    length = len(pixel)<br>    zero = &#39;&#39;<br>    for i in range(length)[::-1]:<br>        if pixel[i] == &#39;0&#39;:<br>            pixel = pixel[:i]<br>            zero += &#39;0&#39;<br>        else:<br>            return zero + pixel<br>    if len(pixel) == 0:<br>        return &#39;0&#39;<br><br># 加载图像<br>def loadImageSet(add):<br>    FaceMat = mat(zeros((15,98</em>116)))<br>    j =0<br>    for i in os.listdir(add):<br>        if i.split(&#39;.&#39;)[1] == &#39;noglasses&#39;:<br>            try:<br>                img = cv2.imread(add+i,0)<br>                # cv2.imwrite(str(i)+&#39;.jpg&#39;,img)<br>            except:<br>                print &#39;load %s failed&#39;%i<br>            FaceMat[j,:] = mat(img).flatten()<br>            j += 1<br>    return FaceMat<br><br># 算法主过程<br>def LBP(FaceMat,R = 2,P = 8):<br>    Region8_x=[-1,0,1,1,1,0,-1,-1]<br>    Region8_y=[-1,-1,-1,0,1,1,1,0]<br>    pi = math.pi<br>    LBPoperator = mat(zeros(shape(FaceMat)))<br>    for i in range(shape(FaceMat)[1]):<br>        # 对每一个图像进行处理<br>        face = FaceMat[:,i].reshape(116,98)<br>        W,H = shape(face)<br>        tempface = mat(zeros((W,H)))<br>        for x in xrange(R,W-R):<br>            for y in xrange(R,H-R):<br>                repixel = &#39;&#39;<br>                pixel=int(face[x,y])<br>                #　圆形LBP算子<br>                for p in [2,1,0,7,6,5,4,3]:<br>                    p = float(p)<br>                    xp = x + R<em> cos(2</em>pi<em>(p/P))<br>                    yp = y - R</em> sin(2<em>pi</em>(p/P))<br>                    if face[xp,yp]&gt;pixel:<br>                        repixel += &#39;1&#39;<br>                    else:<br>                        repixel += &#39;0&#39;<br>                # minBinary保持LBP算子旋转不变<br>                tempface[x,y] = int(minBinary(repixel),base=2)<br>        LBPoperator[:,i] = tempface.flatten().T<br>        # cv2.imwrite(str(i)+&#39;hh.jpg&#39;,array(tempface,uint8))<br>    return LBPoperator<br><br>    # judgeImg:未知判断图像<br>    # LBPoperator:实验图像的LBP算子<br>    # exHistograms:实验图像的直方图分布<br>def judgeFace(judgeImg,LBPoperator,exHistograms):<br>    judgeImg = judgeImg.T<br>    ImgLBPope = LBP(judgeImg)<br>    #  把图片分为7<em>4份 , calHistogram返回的直方图矩阵有28个小矩阵内的直方图<br>    judgeHistogram = calHistogram(ImgLBPope)<br>    minIndex = 0<br>    minVals = inf<br><br>    for  i in range(shape(LBPoperator)[1]):<br>        exHistogram = exHistograms[:,i]<br>        diff = (array(exHistogram-judgeHistogram)**2).sum()<br>        if diff&lt;minVals:<br>            minIndex = i<br>            minVals = diff<br>    return minIndex<br><br># 统计直方图<br>def calHistogram(ImgLBPope):<br>    Img = ImgLBPope.reshape(116,98)<br>    W,H = shape(Img)<br>    # 把图片分为7</em>4份<br>    Histogram = mat(zeros((256,7<em>4)))<br>    maskx,masky = W/4,H/7<br>    for i in range(4):<br>        for j in range(7):<br>            # 使用掩膜opencv来获得子矩阵直方图<br>            mask = zeros(shape(Img), uint8)<br>            mask[i</em>maskx: (i+1)<em>maskx,j</em>masky :(j+1)<em>masky] = 255<br>            hist = cv2.calcHist([array(Img,uint8)],[0],mask,[ 256],[0,256])<br>            Histogram[:,(i+1)</em>(j+1)-1] = mat(hist).flatten().T<br>    return Histogram.flatten().T<br><br>def runLBP():<br>    # 加载图像<br>    FaceMat = loadImageSet(&#39;D:\python/face recongnition\YALE\YALE\unpadded/&#39;).T<br><br>    LBPoperator = LBP(FaceMat) # 获得实验图像LBP算子<br><br>    # 获得实验图像的直方图分布，这里计算是为了可以多次使用<br>    exHistograms = mat(zeros((256<em>4</em>7,shape(LBPoperator)[1])))<br>    for i in range(shape(LBPoperator)[1]):<br>        exHistogram = calHistogram(LBPoperator[:,i])<br>        exHistograms[:,i] = exHistogram<br><br>    #　下面的代码都是根据我的这个数据库来的，就是为了验证算法准确性，如果大家改了实例，请更改下面的代码<br>    nameList = [&#39;01&#39;,&#39;02&#39;,&#39;03&#39;,&#39;04&#39;,&#39;05&#39;,&#39;06&#39;,&#39;07&#39;,&#39;08&#39;,&#39;09&#39;,&#39;10&#39;,&#39;11&#39;,&#39;12&#39;,&#39;13&#39;,&#39;14&#39;,&#39;15&#39;]<br>    characteristic = [&#39;centerlight&#39;,&#39;glasses&#39;,&#39;happy&#39;,&#39;normal&#39;,&#39;leftlight&#39;,&#39;noglasses&#39;,&#39;rightlight&#39;,&#39;sad&#39;,&#39;sleepy&#39;,&#39;surprised&#39;,&#39;wink&#39;]<br>    for c in characteristic:<br>        count = 0<br>        for i in range(len(nameList)):<br>            # 这里的loadname就是我们要识别的未知人脸图，我们通过15张未知人脸找出的对应训练人脸进行对比来求出正确率<br>            loadname = &#39;D:\python/face recongnition\YALE\YALE\unpadded\subject&#39;+nameList[i]+&#39;.&#39;+c+&#39;.pgm&#39;<br>            judgeImg = cv2.imread(loadname,0)<br>            if judgeFace(mat(judgeImg).flatten(),LBPoperator,exHistograms)+1 == int(nameList[i]):<br>                count += 1<br>        print &#39;accuracy of %s is %f&#39;%(c, float(count)/len(nameList))  # 求出正确率<br><br>if <strong>name</strong> == &#39;<strong>main</strong>&#39;:<br>    # 测试这个算法的运行时间<br>    from timeit import Timer<br>    t1=Timer(&quot;runLBP()&quot;,&quot;from <strong>main</strong> import runLBP&quot;)<br>    print t1.timeit(1)<br>    </pre></div><br><div><br><br></div>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><span style="font-family:'Microsoft YaHei'; font-size:14px">上一次我们说了<a href="http://blog.csdn.net/u010006643/article/details/44978755" tar]]>
-    </summary>
     
   </entry>
   
