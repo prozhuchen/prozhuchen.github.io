@@ -140,7 +140,7 @@
     <link href="http://prozhuchen.github.io/2015/10/03/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%BA%94%E7%AB%99/"/>
     <id>http://prozhuchen.github.io/2015/10/03/Hexo博客第五站/</id>
     <published>2015-10-03T07:53:11.000Z</published>
-    <updated>2015-10-04T06:58:56.023Z</updated>
+    <updated>2015-10-05T12:37:58.000Z</updated>
     <content type="html"><![CDATA[<p>现在我们可以尽情写自己想写的东西了。但是首先我们得学会在哪写和怎么写。</p>
 <h1 id="在哪写(Hexo_文章配置)">在哪写(Hexo 文章配置)</h1><h2 id="从别处迁移">从别处迁移</h2><p>如果我们之前在别的网站已经有了自己的博客，那当然不能直接扔掉啦，Hexo可以从RSS/Jekyll/Octopress/Wordpress迁移之前的博客（传送门 <a href="http://zespia.tw/hexo/docs/migration.html" target="_blank" rel="external">从别处迁移到Hexo</a>）。</p>
 <h2 id="自己写">自己写</h2><p>首先我们在Git Bash中输入：</p>
@@ -155,10 +155,10 @@
 <span class="symbol">render_drafts:</span> <span class="literal">false</span>
 </code></pre><p>然后重新生成一篇文章，可以看到产生的是<code>2015-09-29-article name.md</code>吧。</p>
 <p>此时我们进入这篇文章，可以看见：</p>
-<pre><code>title: q                  //文章的名字
-date: 2015-10-03 15:53:11 //你生成这篇文章的时间
-<span class="header">tags:                     //文章的标签
----</span>
+<pre><code>title: q                  <span class="comment">//文章的名字</span>
+date: <span class="number">2015</span>-<span class="number">10</span>-<span class="number">03</span> <span class="number">15</span>:<span class="number">53</span>:<span class="number">11</span> <span class="comment">//你生成这篇文章的时间</span>
+tags:                     <span class="comment">//文章的标签</span>
+....
 </code></pre><p>类似这样的开头属性还有：</p>
 <pre><code>updated     修改日期        文件的修改日期    
 comments    是否开启评论    <span class="function"><span class="title">true</span><span class="params">(默认)</span></span>   
@@ -190,14 +190,13 @@ categories:
 <ol>
 <li>NexT主题有一个配置选项<code>toc_list_number: true</code>，这个选项使我们的目录会自动配上顺序标号，所以我们在自己写的时候可以不用带上了，如果不习惯的话，把这个配置注释掉即可。</li>
 <li><p>在用Markdown写命令的时候，我们将命令缩进四个空格，就会出现下面的情况。</p>
-<pre><code>命令
+<pre><code>此处是你的命令
 </code></pre></li>
 </ol>
 <p>绝大部分时候，一个Tab就是四个空格，当然你也可以设置，例如用sublime写作时，你就可以设定一个Tab等于多少空格。</p>
 <ol>
-<li><p>在用Markdown写代码的时候，我们只要用<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#10;</span><br></pre></td></tr></table></figure></p>
-<pre><code><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span>
-```
+<li><p>在用Markdown写代码的时候，我们只要用三个点将代码包起来就可以，Markdown会自动进行代码高亮和分辨语言。就像这样：</p>
+<pre><code><span class="comment"><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br></pre></td></tr></table></figure></span>
 </code></pre></li>
 </ol>
 <p>Markdown变得越来越流行，他的兼容性和可读性可以胜任各个场合，而且如果伴随着一些专业编辑器，我们的写作速度大大加快了。</p>
@@ -502,10 +501,11 @@ INFO  Deploy done: git
     <link href="http://prozhuchen.github.io/2015/09/30/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E7%AB%99/"/>
     <id>http://prozhuchen.github.io/2015/09/30/Hexo博客第一站/</id>
     <published>2015-09-30T06:06:28.000Z</published>
-    <updated>2015-10-04T06:59:09.243Z</updated>
+    <updated>2015-10-05T12:39:20.000Z</updated>
     <content type="html"><![CDATA[<p>首先我们先在本地搭一个静态的hexo博客。<a id="more"></a></p>
 <h1 id="Hexo的优势"><strong>Hexo的优势</strong></h1><p>Hexo是一款基于Node.js的静态博客，他的优势在于可以快速的搭建起一个个人博客，并且支持各种评论，分享等插件，最重要的是，它有很多现成的主题，你可以任意选择。</p>
-<h1 id="Hexo安装"><strong>Hexo安装</strong></h1><ol>
+<h1 id="Hexo安装"><strong>Hexo安装</strong></h1><p>首先说明一点，此处的安装是在windows上的。</p>
+<ol>
 <li>安装Git. <a href="http://www.git-scm.com/download/" target="_blank" rel="external">Git安装地址</a></li>
 <li>安装Node.js.  <a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js安装地址</a><br>此时你点击任意文件夹右键，应该有 <code>Git Bash here</code>。进入后输入 <code>node -v</code>和 <code>npm -v</code>，如果显示版本号则安装成功。</li>
 <li>安装Hexo.<br>在Git bash中输入 <code>npm install -g hexo</code>。</li>
