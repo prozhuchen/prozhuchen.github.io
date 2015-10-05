@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://prozhuchen.github.io/"/>
-  <updated>2015-10-04T06:58:36.373Z</updated>
+  <updated>2015-10-05T06:15:51.814Z</updated>
   <id>http://prozhuchen.github.io/</id>
   
   <author>
@@ -13,6 +13,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Hexo博客之改字体]]></title>
+    <link href="http://prozhuchen.github.io/2015/10/05/Hexo%E5%8D%9A%E5%AE%A2%E4%B9%8B%E6%94%B9%E5%AD%97%E4%BD%93/"/>
+    <id>http://prozhuchen.github.io/2015/10/05/Hexo博客之改字体/</id>
+    <published>2015-10-05T06:14:47.000Z</published>
+    <updated>2015-10-05T06:15:51.814Z</updated>
+    <content type="html"><![CDATA[<p>觉得自己的博客字体不好看，在网上找了半天也没有相应的资料，所以这一次我们来看看杂么改掉自己Hexo博客的字体。</p>
+<p>首先找到自己字体和字体大小的文件。<br>字体在<code>/themes/hexo-theme-next/source/css/_variables</code>下的<code>custom.styl</code>（这个是NexT主题的目录，其他主题请按图索骥）。<br>字体大小在<code>/themes/hexo-theme-next/source/css/_variables</code>下的<code>base.styl</code>。</p>
+<p>然后我们来看怎么改动。<br><code>custom.styl</code>文件：</p>
+<pre><code><span class="variable">$font-family-headings</span> = Georgia, sans // 标题，修改成你期望的字体族
+<span class="variable">$font-family-base</span> = <span class="string">"Microsoft YaHei"</span>, Verdana, sans-serif // 修改成你期望的字体族
+</code></pre><p>我们可以看出来第一个字体变量是题目的字体，第二个是其余部分的字体。<br>因为我们是中文博客，所以肯定希望能改成一些比较漂亮的中文字体，但是显而易见，你改成<code>宋体</code>是不合理的，因为第一会出现乱码情况，第二Hexo也不接受中文名字的字体。所以我们需要使用中文字体的英文名称。下面是中文字体对应的英文名称。</p>
+<pre><code>新细明体：PMingLiU 
+细明体：MingLiU 
+标楷体：DFKai-SB 
+黑体：SimHei 
+宋体：SimSun 
+新宋体：NSimSun 
+仿宋：FangSong 
+楷体：KaiTi 
+仿宋_GB2312：FangSong_GB2312 
+楷体_GB2312：KaiTi_GB2312 
+微软正黑体：Microsoft JhengHei 
+微软雅黑体：Microsoft YaHei 
+
+装Office会多出来的一些字体： 
+隶书：LiSu 
+幼圆：YouYuan 
+华文细黑：STXihei 
+华文楷体：STKaiti 
+华文宋体：STSong 
+华文中宋：STZhongsong 
+华文仿宋：STFangsong 
+方正舒体：FZShuTi 
+方正姚体：FZYaoti 
+华文彩云：STCaiyun 
+华文琥珀：STHupo 
+华文隶书：STLiti 
+华文行楷：STXingkai 
+华文新魏：STXinwei 
+
+苹果电脑中的字体： 
+华文细黑：STHeiti Light [STXihei] 
+华文黑体：STHeiti 
+华文楷体：STKaiti 
+华文宋体：STSong 
+华文仿宋：STFangsong 
+丽黑 <span class="keyword">Pro</span>：LiHei <span class="keyword">Pro</span> Medium 
+丽宋 <span class="keyword">Pro</span>：LiSong <span class="keyword">Pro</span> Light 
+标楷体：BiauKai 
+苹果丽中黑：Apple LiGothic Medium 
+苹果丽细宋：Apple LiSung Light 
+</code></pre><p>我们只要将自己喜欢字体的英文名加到这两个变量的第一个前面就可以了，有多个字体是为了预防在某些场合前面的字体出现异常，后面的字体可以替代一下。下面是我的定义。</p>
+<pre><code><span class="variable">$font-family-headings</span> = KaiTi,<span class="string">"Microsoft YaHei"</span>,Georgia, sans // 标题，修改成你期望的字体族
+<span class="variable">$font-family-base</span> = SimHei, Verdana, sans-serif // 修改成你期望的字体族
+</code></pre><p>至于字体大小，我们在前面提到的<code>base.styl</code>里面61行左右会看见如下定义<br>：</p>
+<pre><code>// Font size
+<span class="variable">$font-size-base</span>           = <span class="number">18</span>px
+<span class="variable">$font-size-small</span>          = <span class="variable">$font-size-base</span> - <span class="number">2</span>px
+<span class="variable">$font-size-smaller</span>        = <span class="variable">$font-size-base</span> - <span class="number">4</span>px
+<span class="variable">$font-size-large</span>          = <span class="variable">$font-size-base</span> + <span class="number">4</span>px
+
+// Headings font size
+<span class="variable">$font-size-headings-base</span>  = <span class="number">28</span>px
+<span class="variable">$font-size-headings-step</span>  = <span class="number">2</span>px
+</code></pre><p>同理，第一个部分<code>$font-size-base</code>是除了标题外的其余部分大小，第二个部分<code>$font-size-headings-base</code>是标题大小，你改动成你希望的大小就可以了。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[这一次我们来看看怎么改掉自己Hexo博客的字体。]]>
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://prozhuchen.github.io/tags/Hexo/"/>
+    
+      <category term="Hexo" scheme="http://prozhuchen.github.io/categories/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hexo博客第九又四分之三站：剩下的小东西]]></title>

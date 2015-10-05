@@ -185,8 +185,8 @@ th {
 }
 body {
   position: relative;
-  font-family: "Microsoft YaHei", Verdana, sans-serif;
-  font-size: 16px;
+  font-family: SimHei, Verdana, sans-serif;
+  font-size: 18px;
   line-height: 1.7;
   color: #555;
   background: #fff;
@@ -211,7 +211,7 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1;
-  font-family: Georgia, sans;
+  font-family: KaiTi, "Microsoft YaHei", Georgia, sans;
 }
 h1 {
   font-size: 24px;
@@ -673,7 +673,7 @@ td {
 .post .gist .gist-file .gist-meta {
   background: #2d2d2d;
   color: #999;
-  font: 13px "Microsoft YaHei", Verdana, sans-serif;
+  font: 13px SimHei, Verdana, sans-serif;
   text-shadow: 0 0;
   padding: 0;
   margin-top: 1em;
@@ -889,7 +889,7 @@ body {
 }
 .menu .menu-item a {
   display: block;
-  font-size: 13px;
+  font-size: 15px;
   text-transform: capitalize;
   line-height: 1.5;
   border-bottom: 1px solid transparent;
@@ -1058,7 +1058,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fcd0fa;
+  background: #a7ff88;
 }
 .sidebar-nav {
   margin: 0;
