@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://prozhuchen.github.io/"/>
-  <updated>2015-10-05T06:15:51.000Z</updated>
+  <updated>2015-10-19T04:25:18.000Z</updated>
   <id>http://prozhuchen.github.io/</id>
   
   <author>
@@ -13,6 +13,57 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[shell错误  let:not found]]></title>
+    <link href="http://prozhuchen.github.io/2015/10/19/shell%E9%94%99%E8%AF%AFlet-not-found/"/>
+    <id>http://prozhuchen.github.io/2015/10/19/shell错误let-not-found/</id>
+    <published>2015-10-19T04:08:24.000Z</published>
+    <updated>2015-10-19T04:25:18.000Z</updated>
+    <content type="html"><![CDATA[<p>今天遇到个错误:</p>
+<pre><code>zc@zc-HP-<span class="number">242</span>-G1-Notebook-PC:~$ ./<span class="number">1</span><span class="class">.sh</span>
+<span class="number">1</span><span class="class">.sh</span>: <span class="number">7</span>: <span class="number">1</span><span class="class">.sh</span>: let: not found
+</code></pre><p>查了一下，发现是因为/bin/sh默认的软连接是dash，不是bash,我们可以通过下面的命令在/bin目录下看见这个:</p>
+<pre><code>zc@zc-HP-<span class="number">242</span>-G1-Notebook-PC:/bin$ ll sh
+lrwxrwxrwx <span class="number">1</span> root root <span class="number">4</span> Aug <span class="number">23</span>  <span class="number">2014</span> sh -&gt; dash*
+</code></pre><p>我们直接<code>bash 1.sh</code>就可以了。<br>当然想永远解决的我们有两种方法解决：</p>
+<ol>
+<li>我们可以通过<code>chsh</code>命令进行改变，<code>chsh</code>可以改变目前用户的shell类型。</li>
+</ol>
+<pre><code>zc<span class="variable">@zc</span>-<span class="constant">HP</span>-<span class="number">242</span>-<span class="constant">G1</span>-<span class="constant">Notebook</span>-<span class="constant">PC</span><span class="symbol">:/bin</span><span class="variable">$ </span>chsh
+密码： 
+正在更改 zc 的 shell
+请输入新值，或直接敲回车键以使用默认值
+    登录 <span class="constant">Shell</span> [<span class="regexp">/bin/bash</span>]<span class="symbol">:</span> 
+</code></pre><p>我这里直接是我想要的，所以敲回车即可。如果不是/bin/bash，你就写这个路径就行啦。但是这个命令有一个缺点：</p>
+<pre><code>zc@zc-HP-<span class="number">242</span>-G1-Notebook-PC:~$ ./<span class="number">1.</span>sh
+count = <span class="number">2</span>
+zc@zc-HP-<span class="number">242</span>-G1-Notebook-PC:~$ sh <span class="number">1.</span>sh
+<span class="number">1.</span>sh: <span class="number">7</span>: <span class="number">1.</span>sh: let: not found
+count = <span class="number">1</span>
+</code></pre><p>大家不用关心这个输出是什么…但是我们看到了用.是成功了,用sh还是<code>let: not found</code>。</p>
+<ol>
+<li>第二个方法是改变/bin/sh的连接。输入命令<code>sudo ln -sf /bin/bash /bin/sh</code>，然后输入<code>ll /bin/sh</code>，可以看到下面的情况。</li>
+</ol>
+<pre><code>zc<span class="annotation">@zc</span>-HP-<span class="number">242</span>-G1-Notebook-<span class="string">PC:</span>~$ sudo ln -sf <span class="regexp">/bin/</span>bash <span class="regexp">/bin/</span>sh
+zc<span class="annotation">@zc</span>-HP-<span class="number">242</span>-G1-Notebook-<span class="string">PC:</span>~$ ll <span class="regexp">/bin/</span>sh
+lrwxrwxrwx <span class="number">1</span> root root <span class="number">9</span> Oct <span class="number">19</span> <span class="number">12</span>:<span class="number">05</span> <span class="regexp">/bin/</span>sh -&gt; <span class="regexp">/bin/</span>bash*
+</code></pre><p>这次就算是解决了。</p>
+<pre><code>zc@zc-HP-<span class="number">242</span>-G1-Notebook-PC:~$ sh <span class="number">1.</span>sh
+count = <span class="number">2</span>
+zc@zc-HP-<span class="number">242</span>-G1-Notebook-PC:~$ ./<span class="number">1.</span>sh
+count = <span class="number">2</span>
+</code></pre>]]></content>
+    <summary type="html">
+    <![CDATA[shell错误let:not found 及解决方法]]>
+    
+    </summary>
+    
+      <category term="Shell" scheme="http://prozhuchen.github.io/tags/Shell/"/>
+    
+      <category term="Shell" scheme="http://prozhuchen.github.io/categories/Shell/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Hexo博客之改字体]]></title>
