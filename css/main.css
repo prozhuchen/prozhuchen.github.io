@@ -211,7 +211,7 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1;
-  font-family: Cambria, Georgia, "Microsoft Jhenghei", "Hiragino Sans GB", "Microsoft YaHei", "Times New Roman", serif;
+  font-family: Pontano Sans, Cambria, Georgia, "Microsoft Jhenghei", "Hiragino Sans GB", "Microsoft YaHei", "Times New Roman", serif;
 }
 h1 {
   font-size: 24px;
@@ -1058,7 +1058,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0893b1;
+  background: #9ded88;
 }
 .sidebar-nav {
   margin: 0;
@@ -1970,7 +1970,6 @@ ul li {
 }
 .site-meta .site-title {
   font-size: 35px;
-  font-weight: bolder;
 }
 @media (max-width: 767px) {
   .site-meta .site-title {
