@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://prozhuchen.github.io/"/>
-  <updated>2015-10-19T04:25:18.000Z</updated>
+  <updated>2015-11-02T02:42:44.000Z</updated>
   <id>http://prozhuchen.github.io/</id>
   
   <author>
@@ -13,6 +13,110 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[制作一个python egg 并发布到PyPI]]></title>
+    <link href="http://prozhuchen.github.io/2015/11/02/%E5%88%B6%E4%BD%9C%E4%B8%80%E4%B8%AApython%20egg%20%E5%B9%B6%E5%8F%91%E5%B8%83%E5%88%B0PyPI/"/>
+    <id>http://prozhuchen.github.io/2015/11/02/制作一个python egg 并发布到PyPI/</id>
+    <published>2015-11-02T02:32:19.000Z</published>
+    <updated>2015-11-02T02:42:44.000Z</updated>
+    <content type="html"><![CDATA[<p>最近写了一个可以在终端上输出ASCII表的Python公共库<a href="https://pypi.python.org/pypi?:action=display&amp;name=PrintTable&amp;version=1.0" target="_blank" rel="external">PrintTable</a>，GitHub地址<a href="https://github.com/prozhuchen/PrintTable" target="_blank" rel="external">github PrintTable</a>。<br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/python%20egg%20%E5%B9%B6%E4%B8%8A%E4%BC%A0%E5%88%B0PyPI.jpg" alt=""></p>
+<p>最后将脚本打包并且发布到PyPI的过程也是挺长的，第一次学习记录一下。</p>
+<h1 id="Python脚本-&gt;包">Python脚本-&gt;包</h1><p>首先我们先构建出自己包的架构。这里拿PrintTable这个项目的文件结构举例。</p>
+<ul>
+<li><a href="http://python-packaging-user-guide.readthedocs.org/en/latest/" target="_blank" rel="external">Python Packaging User Guide</a>这是Python打包的官方英文文档。 </li>
+<li><a href="https://github.com/pypa/sampleproject" target="_blank" rel="external">PyPA sample project</a>这是一个官方示例库结构。</li>
+</ul>
+<pre><code>├── LICENSE
+├── MANIFEST<span class="class">.in</span>
+├── printtable
+│   ├── __init__<span class="class">.py</span>
+│   ├── printtable<span class="class">.py</span>
+├── README<span class="class">.md</span>
+├── setup<span class="class">.cfg</span>
+├── setup.py
+</code></pre><p>LICENSE：版权信息文件<br>MANIFEST.in：打包时不会被自动包含进去的附加文件清单<br>printtable：Python程序,我们要注意这个文件夹里必须有<code>__init__.py</code>这个文件。即使里面是空的。这样做是为了防止某些目录有一个共同的名字。<br>README.md：项目说明文件<br>setup.py：安装程序文件<br>setup.cfg：包含setup.py额外配置信息的文件</p>
+<p>其中<code>setup.py</code>是我们主要需要配置的文件。</p>
+<pre><code><span class="keyword">from</span> setuptools import setup, find_packages
+
+setup(
+    name = <span class="comment">'printtable',</span>
+    version = <span class="comment">'1.0',</span>
+    keywords = (<span class="comment">'print table'),</span>
+    description = <span class="comment">'a library for drawing the table in the terminal',</span>
+    license = <span class="comment">'MIT License',</span>
+    url = <span class="comment">'https://github.com/prozhuchen/PrintTable',</span>
+    author = <span class="comment">'prozhuchen',</span>
+    author_email = <span class="comment">'prozhuchen@gmail.com',</span>
+    packages = find_packages(),
+    include_package_data = <span class="literal">True</span>,
+    platforms = <span class="comment">'any',</span>
+    install_requires = [],
+)
+</code></pre><p>上面这些配置信息一般已经够我们用了，如果需要更多的话，<a href="http://python-packaging-user-guide.readthedocs.org/en/latest/distributing/?highlight=manifest#setup-args" target="_blank" rel="external">setup.py配置信息</a>这是官方文档中setup.py的详细配置信息介绍。</p>
+<p><code>MANIFEST.in</code>文件包含了一些打包时不会被自动包含进去的附加文件。其中最广泛包含进去的是<code>README.md</code>，因为这个项目说明文件打包时不会被自动包含进去。</p>
+<pre><code><span class="preprocessor"><span class="keyword">include</span> README.md</span>
+</code></pre><h1 id="打包">打包</h1><p>通过执行下列语句来进行打包：</p>
+<pre><code>python setup<span class="class">.py</span> xxx
+</code></pre><p>其中<code>xxx</code>可以是下列几种方式中其中一个：</p>
+<pre><code>sdist             <span class="built_in">create</span> <span class="operator">a</span> source distribution (tarball, zip <span class="built_in">file</span>, etc.)
+bdist             <span class="built_in">create</span> <span class="operator">a</span> built (binary) distribution
+bdist_dumb        <span class="built_in">create</span> <span class="operator">a</span> <span class="string">"dumb"</span> built distribution
+bdist_rpm         <span class="built_in">create</span> <span class="operator">an</span> RPM distribution
+bdist_wininst     <span class="built_in">create</span> <span class="operator">an</span> executable installer <span class="keyword">for</span> MS Windows
+bdist_egg         <span class="built_in">create</span> <span class="operator">an</span> <span class="string">"egg"</span> distribution
+</code></pre><p>举个例子：</p>
+<pre><code><span class="title">python</span> setup.py sdist　<span class="comment">#生成的文件支持 pip</span>
+</code></pre><p>此时在根目录出现了<code>dist</code>文件夹，里面有<code>name-version.tar.gz</code>这个文件，这就是我们要发布到PyPI的压缩包了。</p>
+<h1 id="发布到PyPI">发布到PyPI</h1><p>首先我们需要在PyPI上注册一个帐号，你可以选择<a href="https://pypi.python.org/pypi?:action=register_form" target="_blank" rel="external">PyPI注册页面</a>和命令行注册两种方式：</p>
+<pre><code>$ python setup.py register -r pypi
+
+running register
+running egg_info
+writing printtable.egg-info/PKG-INFO
+writing top-level names to printtable.egg-info/top_level.txt
+writing dependency_links to printtable.egg-info/dependency_links.txt
+reading manifest file 'printtable.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'printtable.egg-info/SOURCES.txt'
+running <span class="operator"><span class="keyword">check</span>
+We need <span class="keyword">to</span> know who you <span class="keyword">are</span>, so please <span class="keyword">choose</span> either:
+ <span class="number">1.</span> <span class="keyword">use</span> your existing login,
+ <span class="number">2.</span> <span class="keyword">register</span> <span class="keyword">as</span> a <span class="keyword">new</span> <span class="keyword">user</span>,
+ <span class="number">3.</span> have the <span class="keyword">server</span> generate a <span class="keyword">new</span> <span class="keyword">password</span> <span class="keyword">for</span> you (<span class="keyword">and</span> email it <span class="keyword">to</span> you), <span class="keyword">or</span>
+ <span class="number">4.</span> quit
+Your selection [<span class="keyword">default</span> <span class="number">1</span>]: 
+<span class="number">1</span>
+Username: prozhuchen
+<span class="keyword">Password</span>: 
+Registering prinble <span class="keyword">to</span> https://pypi.python.org/pypi
+<span class="keyword">Server</span> response (<span class="number">200</span>): OK
+<span class="keyword">I</span> can <span class="keyword">store</span> your PyPI login so future submissions will be faster.
+(the login will be <span class="keyword">stored</span> <span class="keyword">in</span> /home/zc/.pypirc)
+<span class="keyword">Save</span> your login (y/<span class="keyword">N</span>)?y</span>
+</code></pre><p>当你注册完毕后，会在用户根目录下创建文件~/.pypirc，这样以后就不需要输入帐号密码了。</p>
+<p>然后我们需要向PyPI上发布自己的源代码包。</p>
+<pre><code><span class="variable">$python</span> setup<span class="class">.py</span> sdist upload 
+...
+Creating tar archive
+removing <span class="string">'printtable-1.0'</span> (and everything under it)
+running upload
+Submitting dist/printtable-<span class="number">1.0</span><span class="class">.tar</span><span class="class">.gz</span> to https:<span class="comment">//pypi.python.org/pypi</span>
+Server response (<span class="number">200</span>): OK
+</code></pre><p>此时在网页上就可以看到自己的源代码包啦。<br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/python%20egg%20%E5%B9%B6%E4%B8%8A%E4%BC%A0%E5%88%B0PyPI1.png" alt=""><br>现在我们使用<code>pip install packagename</code>,就可以使用我们自己写的Python库了。</p>
+<p>每次我们想更新我们自己的库时，只需要更新代码文件夹内的代码和<code>setup.py</code>里的<code>version</code>即可。</p>
+<h1 id="注意">注意</h1><p>每次上传时，我们的名字或者版本号两者有一个必须和以前的不一样，也就是打包生成的<code>name-version.tar.gz</code>名字和以前上传的压缩包不一样才行。覆盖是行不通的哦。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[第一次学习脚本打包并且发布到PyPI,记录一下.]]>
+    
+    </summary>
+    
+      <category term="Python" scheme="http://prozhuchen.github.io/tags/Python/"/>
+    
+      <category term="Python" scheme="http://prozhuchen.github.io/categories/Python/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[shell错误  let:not found]]></title>

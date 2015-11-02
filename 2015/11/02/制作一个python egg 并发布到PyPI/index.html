@@ -36,7 +36,7 @@
 
 
 
-  <meta name="keywords" content="Hexo," />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -47,17 +47,18 @@
   <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="首先我们先在本地搭一个静态的hexo博客。">
+<meta name="description" content="第一次学习脚本打包并且发布到PyPI,记录一下.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客第一站：搭建本地Hexo静态博客">
-<meta property="og:url" content="http://prozhuchen.github.io/2015/09/30/Hexo博客第一站/index.html">
+<meta property="og:title" content="制作一个python egg 并发布到PyPI">
+<meta property="og:url" content="http://prozhuchen.github.io/2015/11/02/制作一个python egg 并发布到PyPI/index.html">
 <meta property="og:site_name" content="朱琛的小屋">
-<meta property="og:description" content="首先我们先在本地搭一个静态的hexo博客。">
-<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/hexo.jpg">
-<meta property="og:updated_time" content="2015-10-05T12:48:20.000Z">
+<meta property="og:description" content="第一次学习脚本打包并且发布到PyPI,记录一下.">
+<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/python%20egg%20%E5%B9%B6%E4%B8%8A%E4%BC%A0%E5%88%B0PyPI.jpg">
+<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/python%20egg%20%E5%B9%B6%E4%B8%8A%E4%BC%A0%E5%88%B0PyPI1.png">
+<meta property="og:updated_time" content="2015-11-02T02:42:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo博客第一站：搭建本地Hexo静态博客">
-<meta name="twitter:description" content="首先我们先在本地搭一个静态的hexo博客。">
+<meta name="twitter:title" content="制作一个python egg 并发布到PyPI">
+<meta name="twitter:description" content="第一次学习脚本打包并且发布到PyPI,记录一下.">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -67,7 +68,7 @@
   };
 </script>
 
-  <title> Hexo博客第一站：搭建本地Hexo静态博客 | 朱琛的小屋 </title>
+  <title> 制作一个python egg 并发布到PyPI | 朱琛的小屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -216,7 +217,7 @@
           
           
             
-              Hexo博客第一站：搭建本地Hexo静态博客
+              制作一个python egg 并发布到PyPI
             
           
         </h1>
@@ -225,8 +226,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-30T14:06:28+08:00" content="2015年09月30日">
-            2015年09月30日
+          <time itemprop="dateCreated" datetime="2015-11-02T10:32:19+08:00" content="2015年11月02日">
+            2015年11月02日
           </time>
         </span>
 
@@ -235,8 +236,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Hexo/" itemprop="url" rel="index">
-                  <span itemprop="name">Hexo</span>
+                <a href="/categories/Python/" itemprop="url" rel="index">
+                  <span itemprop="name">Python</span>
                 </a>
               </span>
 
@@ -248,7 +249,7 @@
         
 
         <span class="post-count">
-        &nbsp; | &nbsp;字数&nbsp; 883
+        &nbsp; | &nbsp;字数&nbsp; 1,491
         </span>
 
         <span id="busuanzi_container_page_pv">
@@ -260,8 +261,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/30/Hexo博客第一站/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/30/Hexo博客第一站/" itemprop="commentsCount"></span>
+              <a href="/2015/11/02/制作一个python egg 并发布到PyPI/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2015/11/02/制作一个python egg 并发布到PyPI/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -271,7 +272,7 @@
      
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+            <a href="/tags/Python/" rel="tag">#Python</a>
           
         </div>
       
@@ -283,50 +284,92 @@
       
 
       
-        <span itemprop="articleBody"><p>首先我们先在本地搭一个静态的hexo博客。<a id="more"></a></p>
-<h1 id="Hexo的优势"><strong>Hexo的优势</strong></h1><p>Hexo是一款基于Node.js的静态博客，他的优势在于可以快速的搭建起一个个人博客，并且支持各种评论，分享等插件，最重要的是，它有很多现成的主题，你可以任意选择。</p>
-<h1 id="Hexo安装"><strong>Hexo安装</strong></h1><p>首先说明一点，此处的安装是在windows上的。linux的看这里: <a href="http://m.blog.csdn.net/blog/u012366161/42059813" target="_blank" rel="external">Ubuntu下用Hexo搭建个人博客</a></p>
-<ol>
-<li>安装Git. <a href="http://www.git-scm.com/download/" target="_blank" rel="external">Git安装地址</a></li>
-<li>安装Node.js.  <a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js安装地址</a><br>此时你点击任意文件夹右键，应该有 <code>Git Bash here</code>。进入后输入 <code>node -v</code>和 <code>npm -v</code>，如果显示版本号则安装成功。</li>
-<li>安装Hexo.<br>在Git bash中输入 <code>npm install -g hexo</code>。</li>
-<li>Hexo初始化。</li>
-</ol>
-<p>你可以cd到你选择的目录，然后输入</p>
-<pre><code>hexo init
-npm <span class="keyword">install</span>
-</code></pre><p>或者直接输入</p>
-<pre><code>hexo init 你选择的目录
-npm <span class="keyword">install</span>
-</code></pre><p>此时在你选择的目录下,输入 <code>hexo g</code> 和 <code>hexo s</code>。</p>
-<pre><code>hexo g  <span class="comment">//生成静态网页</span>
-INFO  Files loaded <span class="keyword">in</span> <span class="number">705</span> ms
-INFO  Generated: js/script<span class="class">.js</span>
-...
-INFO  Generated: archives/<span class="number">2015</span>/<span class="number">09</span>/index<span class="class">.html</span>
-INFO  Generated: index<span class="class">.html</span>
-INFO  <span class="number">28</span> files generated <span class="keyword">in</span> <span class="number">1.95</span> s
+        <span itemprop="articleBody"><p>最近写了一个可以在终端上输出ASCII表的Python公共库<a href="https://pypi.python.org/pypi?:action=display&amp;name=PrintTable&amp;version=1.0" target="_blank" rel="external">PrintTable</a>，GitHub地址<a href="https://github.com/prozhuchen/PrintTable" target="_blank" rel="external">github PrintTable</a>。<br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/python%20egg%20%E5%B9%B6%E4%B8%8A%E4%BC%A0%E5%88%B0PyPI.jpg" alt=""></p>
+<p>最后将脚本打包并且发布到PyPI的过程也是挺长的，第一次学习记录一下。</p>
+<h1 id="Python脚本-&gt;包">Python脚本-&gt;包</h1><p>首先我们先构建出自己包的架构。这里拿PrintTable这个项目的文件结构举例。</p>
+<ul>
+<li><a href="http://python-packaging-user-guide.readthedocs.org/en/latest/" target="_blank" rel="external">Python Packaging User Guide</a>这是Python打包的官方英文文档。 </li>
+<li><a href="https://github.com/pypa/sampleproject" target="_blank" rel="external">PyPA sample project</a>这是一个官方示例库结构。</li>
+</ul>
+<pre><code>├── LICENSE
+├── MANIFEST<span class="class">.in</span>
+├── printtable
+│   ├── __init__<span class="class">.py</span>
+│   ├── printtable<span class="class">.py</span>
+├── README<span class="class">.md</span>
+├── setup<span class="class">.cfg</span>
+├── setup.py
+</code></pre><p>LICENSE：版权信息文件<br>MANIFEST.in：打包时不会被自动包含进去的附加文件清单<br>printtable：Python程序,我们要注意这个文件夹里必须有<code>__init__.py</code>这个文件。即使里面是空的。这样做是为了防止某些目录有一个共同的名字。<br>README.md：项目说明文件<br>setup.py：安装程序文件<br>setup.cfg：包含setup.py额外配置信息的文件</p>
+<p>其中<code>setup.py</code>是我们主要需要配置的文件。</p>
+<pre><code><span class="keyword">from</span> setuptools import setup, find_packages
 
-hexo s  <span class="comment">//启动服务器</span>
-INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+C to stop.</span>
-</code></pre><p>此时你打开 <a href="http://127.0.0.1:4000/" target="_blank" rel="external">http://127.0.0.1:4000</a> , 就能看到已经生成的Hexo界面啦。</p>
-<p><img src="http://7xn5ph.com1.z0.glb.clouddn.com/hexo.jpg" alt=""></p>
-<h1 id="Hexo常用命令">Hexo常用命令</h1><p>这里先说一下Hexo常用的命令，接下来的文章也会提醒一些的。</p>
-<pre><code><span class="variable">$ </span>hexo new [layout] &lt;title&gt; <span class="comment">#建立新文章，默认在_posts下，layout="draft"时发布的是草稿</span>
-<span class="variable">$ </span>hexo publish &lt;filename&gt;   <span class="comment">#将_drafts下的文件放到_posts下，也就是发布草稿</span>
-<span class="variable">$ </span>hexo generate             <span class="comment">#生成静态网页</span>
-<span class="variable">$ </span>hexo server               <span class="comment">#启动预览服务器，开启-d选项时可以预览草稿</span>
-<span class="variable">$ </span>hexo deploy               <span class="comment">#发布到远程服务器，开启--generate选项可以在deploy前自动generate</span>
-</code></pre><p>另外这些命令都有简化命令，接下来我使用简化命令多一些。</p>
-<pre><code><span class="variable">$ </span>hexo n  <span class="comment"># == hexo new</span>
-<span class="variable">$ </span>hexo p  <span class="comment"># == hexo publish </span>
-<span class="variable">$ </span>hexo g  <span class="comment"># == hexo generate</span>
-<span class="variable">$ </span>hexo s  <span class="comment"># == hexo server</span>
-<span class="variable">$ </span>hexo d  <span class="comment"># == hexo deploy</span>
-</code></pre><hr>
-<h1 id="注意"><strong>注意</strong></h1><p>有的时候输入 <code>hexo init</code>看到了这句话：</p>
-<pre><code>-<span class="string">bash:</span> <span class="string">hexo:</span> command not found
-</code></pre><p>说明没找到hexo指令，此时我们找到hexo的下载目录，然后在系统变量path添加就可以了。我的目录是在 <code>C:\Users\用户名\AppData\Roaming\npm\node_modules\hexo\bin</code>。大家的应该也在类似位置。</p>
+setup(
+    name = <span class="comment">'printtable',</span>
+    version = <span class="comment">'1.0',</span>
+    keywords = (<span class="comment">'print table'),</span>
+    description = <span class="comment">'a library for drawing the table in the terminal',</span>
+    license = <span class="comment">'MIT License',</span>
+    url = <span class="comment">'https://github.com/prozhuchen/PrintTable',</span>
+    author = <span class="comment">'prozhuchen',</span>
+    author_email = <span class="comment">'prozhuchen@gmail.com',</span>
+    packages = find_packages(),
+    include_package_data = <span class="literal">True</span>,
+    platforms = <span class="comment">'any',</span>
+    install_requires = [],
+)
+</code></pre><p>上面这些配置信息一般已经够我们用了，如果需要更多的话，<a href="http://python-packaging-user-guide.readthedocs.org/en/latest/distributing/?highlight=manifest#setup-args" target="_blank" rel="external">setup.py配置信息</a>这是官方文档中setup.py的详细配置信息介绍。</p>
+<p><code>MANIFEST.in</code>文件包含了一些打包时不会被自动包含进去的附加文件。其中最广泛包含进去的是<code>README.md</code>，因为这个项目说明文件打包时不会被自动包含进去。</p>
+<pre><code><span class="preprocessor"><span class="keyword">include</span> README.md</span>
+</code></pre><h1 id="打包">打包</h1><p>通过执行下列语句来进行打包：</p>
+<pre><code>python setup<span class="class">.py</span> xxx
+</code></pre><p>其中<code>xxx</code>可以是下列几种方式中其中一个：</p>
+<pre><code>sdist             <span class="built_in">create</span> <span class="operator">a</span> source distribution (tarball, zip <span class="built_in">file</span>, etc.)
+bdist             <span class="built_in">create</span> <span class="operator">a</span> built (binary) distribution
+bdist_dumb        <span class="built_in">create</span> <span class="operator">a</span> <span class="string">"dumb"</span> built distribution
+bdist_rpm         <span class="built_in">create</span> <span class="operator">an</span> RPM distribution
+bdist_wininst     <span class="built_in">create</span> <span class="operator">an</span> executable installer <span class="keyword">for</span> MS Windows
+bdist_egg         <span class="built_in">create</span> <span class="operator">an</span> <span class="string">"egg"</span> distribution
+</code></pre><p>举个例子：</p>
+<pre><code><span class="title">python</span> setup.py sdist　<span class="comment">#生成的文件支持 pip</span>
+</code></pre><p>此时在根目录出现了<code>dist</code>文件夹，里面有<code>name-version.tar.gz</code>这个文件，这就是我们要发布到PyPI的压缩包了。</p>
+<h1 id="发布到PyPI">发布到PyPI</h1><p>首先我们需要在PyPI上注册一个帐号，你可以选择<a href="https://pypi.python.org/pypi?:action=register_form" target="_blank" rel="external">PyPI注册页面</a>和命令行注册两种方式：</p>
+<pre><code>$ python setup.py register -r pypi
+
+running register
+running egg_info
+writing printtable.egg-info/PKG-INFO
+writing top-level names to printtable.egg-info/top_level.txt
+writing dependency_links to printtable.egg-info/dependency_links.txt
+reading manifest file 'printtable.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'printtable.egg-info/SOURCES.txt'
+running <span class="operator"><span class="keyword">check</span>
+We need <span class="keyword">to</span> know who you <span class="keyword">are</span>, so please <span class="keyword">choose</span> either:
+ <span class="number">1.</span> <span class="keyword">use</span> your existing login,
+ <span class="number">2.</span> <span class="keyword">register</span> <span class="keyword">as</span> a <span class="keyword">new</span> <span class="keyword">user</span>,
+ <span class="number">3.</span> have the <span class="keyword">server</span> generate a <span class="keyword">new</span> <span class="keyword">password</span> <span class="keyword">for</span> you (<span class="keyword">and</span> email it <span class="keyword">to</span> you), <span class="keyword">or</span>
+ <span class="number">4.</span> quit
+Your selection [<span class="keyword">default</span> <span class="number">1</span>]: 
+<span class="number">1</span>
+Username: prozhuchen
+<span class="keyword">Password</span>: 
+Registering prinble <span class="keyword">to</span> https://pypi.python.org/pypi
+<span class="keyword">Server</span> response (<span class="number">200</span>): OK
+<span class="keyword">I</span> can <span class="keyword">store</span> your PyPI login so future submissions will be faster.
+(the login will be <span class="keyword">stored</span> <span class="keyword">in</span> /home/zc/.pypirc)
+<span class="keyword">Save</span> your login (y/<span class="keyword">N</span>)?y</span>
+</code></pre><p>当你注册完毕后，会在用户根目录下创建文件~/.pypirc，这样以后就不需要输入帐号密码了。</p>
+<p>然后我们需要向PyPI上发布自己的源代码包。</p>
+<pre><code><span class="variable">$python</span> setup<span class="class">.py</span> sdist upload 
+...
+Creating tar archive
+removing <span class="string">'printtable-1.0'</span> (and everything under it)
+running upload
+Submitting dist/printtable-<span class="number">1.0</span><span class="class">.tar</span><span class="class">.gz</span> to https:<span class="comment">//pypi.python.org/pypi</span>
+Server response (<span class="number">200</span>): OK
+</code></pre><p>此时在网页上就可以看到自己的源代码包啦。<br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/python%20egg%20%E5%B9%B6%E4%B8%8A%E4%BC%A0%E5%88%B0PyPI1.png" alt=""><br>现在我们使用<code>pip install packagename</code>,就可以使用我们自己写的Python库了。</p>
+<p>每次我们想更新我们自己的库时，只需要更新代码文件夹内的代码和<code>setup.py</code>里的<code>version</code>即可。</p>
+<h1 id="注意">注意</h1><p>每次上传时，我们的名字或者版本号两者有一个必须和以前的不一样，也就是打包生成的<code>name-version.tar.gz</code>名字和以前上传的压缩包不一样才行。覆盖是行不通的哦。</p>
 </span>
       
     </div>
@@ -337,13 +380,11 @@ INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/30/Hexo博客第二站/" rel="prev">Hexo博客第二站：部署到GitHub</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/03/原-各种排序代码集合笔记/" rel="next">各种排序代码集合笔记</a>
+              <a href="/2015/10/19/shell错误let-not-found/" rel="next">shell错误  let:not found</a>
             
           </div>
         </div>
@@ -391,8 +432,8 @@ INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/09/30/Hexo博客第一站/"
-                   data-title="Hexo博客第一站：搭建本地Hexo静态博客" data-url="http://prozhuchen.github.io/2015/09/30/Hexo博客第一站/">
+              <div class="ds-thread" data-thread-key="2015/11/02/制作一个python egg 并发布到PyPI/"
+                   data-title="制作一个python egg 并发布到PyPI" data-url="http://prozhuchen.github.io/2015/11/02/制作一个python egg 并发布到PyPI/">
               </div>
             
           </div>
@@ -504,7 +545,7 @@ INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo的优势"><span class="nav-number">1.</span> <span class="nav-text">Hexo的优势</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo安装"><span class="nav-number">2.</span> <span class="nav-text">Hexo安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo常用命令"><span class="nav-number">3.</span> <span class="nav-text">Hexo常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意"><span class="nav-number">4.</span> <span class="nav-text">注意</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python脚本->包"><span class="nav-number">1.</span> <span class="nav-text">Python脚本->包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#打包"><span class="nav-number">2.</span> <span class="nav-text">打包</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#发布到PyPI"><span class="nav-number">3.</span> <span class="nav-text">发布到PyPI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意"><span class="nav-number">4.</span> <span class="nav-text">注意</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
