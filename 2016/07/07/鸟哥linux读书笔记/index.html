@@ -36,7 +36,7 @@
 
 
 
-  <meta name="keywords" content="Hexo," />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -47,17 +47,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="首先我们先在本地搭一个静态的hexo博客。">
+<meta name="description" content="这篇文章主要讲的是linux的文件和目录方面的。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客第一站：搭建本地Hexo静态博客">
-<meta property="og:url" content="http://prozhuchen.github.io/2015/09/30/Hexo博客第一站/index.html">
+<meta property="og:title" content="鸟哥linux读书笔记">
+<meta property="og:url" content="http://prozhuchen.github.io/2016/07/07/鸟哥linux读书笔记/index.html">
 <meta property="og:site_name" content="朱琛的小屋">
-<meta property="og:description" content="首先我们先在本地搭一个静态的hexo博客。">
-<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/hexo.jpg">
-<meta property="og:updated_time" content="2015-10-05T12:48:20.665Z">
+<meta property="og:description" content="这篇文章主要讲的是linux的文件和目录方面的。">
+<meta property="og:updated_time" content="2016-07-07T02:43:22.721Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo博客第一站：搭建本地Hexo静态博客">
-<meta name="twitter:description" content="首先我们先在本地搭一个静态的hexo博客。">
+<meta name="twitter:title" content="鸟哥linux读书笔记">
+<meta name="twitter:description" content="这篇文章主要讲的是linux的文件和目录方面的。">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -67,7 +66,7 @@
   };
 </script>
 
-  <title> Hexo博客第一站：搭建本地Hexo静态博客 | 朱琛的小屋 </title>
+  <title> 鸟哥linux读书笔记 | 朱琛的小屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -216,7 +215,7 @@
           
           
             
-              Hexo博客第一站：搭建本地Hexo静态博客
+              鸟哥linux读书笔记
             
           
         </h1>
@@ -225,8 +224,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-09-30T14:06:28+08:00" content="2015年09月30日">
-            2015年09月30日
+          <time itemprop="dateCreated" datetime="2016-07-07T10:42:16+08:00" content="2016年07月07日">
+            2016年07月07日
           </time>
         </span>
 
@@ -235,8 +234,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Hexo/" itemprop="url" rel="index">
-                  <span itemprop="name">Hexo</span>
+                <a href="/categories/linux/" itemprop="url" rel="index">
+                  <span itemprop="name">linux</span>
                 </a>
               </span>
 
@@ -248,7 +247,7 @@
         
 
         <span class="post-count">
-        &nbsp; | &nbsp;字数&nbsp; 883
+        &nbsp; | &nbsp;字数&nbsp; 1,809
         </span>
 
         <span id="busuanzi_container_page_pv">
@@ -260,8 +259,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/09/30/Hexo博客第一站/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/30/Hexo博客第一站/" itemprop="commentsCount"></span>
+              <a href="/2016/07/07/鸟哥linux读书笔记/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/07/鸟哥linux读书笔记/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -271,7 +270,7 @@
      
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
+            <a href="/tags/linux/" rel="tag">#linux</a>
           
         </div>
       
@@ -283,50 +282,39 @@
       
 
       
-        <span itemprop="articleBody"><p>首先我们先在本地搭一个静态的hexo博客。<a id="more"></a></p>
-<h1 id="Hexo的优势"><strong>Hexo的优势</strong></h1><p>Hexo是一款基于Node.js的静态博客，他的优势在于可以快速的搭建起一个个人博客，并且支持各种评论，分享等插件，最重要的是，它有很多现成的主题，你可以任意选择。</p>
-<h1 id="Hexo安装"><strong>Hexo安装</strong></h1><p>首先说明一点，此处的安装是在windows上的。linux的看这里: <a href="http://m.blog.csdn.net/blog/u012366161/42059813" target="_blank" rel="external">Ubuntu下用Hexo搭建个人博客</a></p>
+        <span itemprop="articleBody"><p>这篇文章主要讲的是linux的文件和目录方面的。</p>
+<h2 id="1-_用户和用户组">1. 用户和用户组</h2><p>每一个文件属于一个用户，而每一个用户会属于一个或多个用户组，而系统内会有多个用户组。有些文件用户组之间可以共享，而有些文件被设置成用户个人文件，即使是用户组内的其他用户也不能去读或写。这样的设置使linux下的多任务管理更加简单。<br>在我们的linux系统下，默认所有用户和root的相关信息都记录在了/etc/passwd里面。个人的密码记录在/etc/shadow里，而linux内所有的组名都记录在/etc/group内。</p>
+<h2 id="2-_linux的文件属性和权限">2. linux的文件属性和权限</h2><p>linux下的文件构造可以通过<code>ls -al</code>查看，<code>-a</code>是指所有的文件（包括隐藏文件），<code>-l</code>是指文件信息会以列表格式展现出来。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">~$ ls -al</span><br><span class="line"></span><br><span class="line">drwxr-xr-x <span class="number">32</span> zhuchen root        <span class="number">4096</span>  <span class="number">4</span>月 <span class="number">14</span> <span class="number">18</span>:<span class="number">04</span> .</span><br><span class="line">drwxr-xr-x  <span class="number">5</span> root    root        <span class="number">4096</span>  <span class="number">3</span>月 <span class="number">16</span> <span class="number">10</span>:<span class="number">50</span> ..</span><br><span class="line">drwx------  <span class="number">3</span> zhuchen root        <span class="number">4096</span>  <span class="number">3</span>月 <span class="number">15</span> <span class="number">09</span>:<span class="number">49</span> .adobe</span><br><span class="line">-rw-r--r--  <span class="number">1</span> zhuchen root       <span class="number">25283</span>  <span class="number">7</span>月 <span class="number">17</span>  <span class="number">2015</span> ascii_dora.png</span><br><span class="line">-rw-------  <span class="number">1</span> zhuchen zhuchen    <span class="number">13641</span>  <span class="number">4</span>月 <span class="number">14</span> <span class="number">17</span>:<span class="number">19</span> .bash_history</span><br><span class="line">-rw-r--r--  <span class="number">1</span> zhuchen root         <span class="number">220</span>  <span class="number">3</span>月 <span class="number">14</span> <span class="number">17</span>:<span class="number">34</span> .bash_logout</span><br><span class="line">-rw-r--r--  <span class="number">1</span> zhuchen root        <span class="number">3771</span>  <span class="number">3</span>月 <span class="number">14</span> <span class="number">17</span>:<span class="number">34</span> .bashrc</span><br><span class="line">drwxr-xr-x <span class="number">20</span> zhuchen root        <span class="number">4096</span>  <span class="number">3</span>月 <span class="number">30</span> <span class="number">15</span>:<span class="number">16</span> .cache</span><br><span class="line">drwx------ <span class="number">26</span> zhuchen root        <span class="number">4096</span>  <span class="number">4</span>月  <span class="number">7</span> <span class="number">18</span>:<span class="number">17</span> .config</span><br><span class="line">drwx------  <span class="number">3</span> zhuchen root        <span class="number">4096</span>  <span class="number">3</span>月 <span class="number">14</span> <span class="number">19</span>:<span class="number">26</span> .dbus</span><br><span class="line">drwxr-xr-x  <span class="number">2</span> zhuchen root        <span class="number">4096</span>  <span class="number">3</span>月 <span class="number">23</span> <span class="number">15</span>:<span class="number">29</span> Desktop</span><br></pre></td></tr></table></figure></p>
+<p>首先解读一下每列字段的意义。<br>第一列代表这个文件的类型和权限。具体含义我们后面再说。<br>第二列代表有多少文件名连接到此节点（i-node）。<br>第三列代表文件（目录）所有者（用户）的账号。<br>第四列代表文件（目录）所属的用户组。<br>第五列代表文件（目录）的大小，默认单位为B。<br>第六列代表文件（目录）的修改日期（未修改过则是创建日期）。<br>第七列代表文件（目录）的名字。</p>
+<p>下面我们重点解读一下第一列字符串，文件权限和类型的含义。以<code>drwxr-xr-x</code>为例子。<br>第一个字符代表这个是目录，文件还是别的。</p>
+<ul>
+<li>[d]：目录</li>
+<li>[-]: 文件</li>
+<li>[|]: 连接文件（linkfile）</li>
+<li>[b]: 设备文件里可供存储的接口设备。</li>
+<li>[c]：设备文件里的串行接口设备（键盘，鼠标）。</li>
+</ul>
+<p>例子中的第一个字符是d，也就是文件。</p>
+<p>后面的字符每三个一组总共三组。第一组为’文件所有者的权限’，第二组为’一个用户组内其他用户的权限’，第三组为’不同用户组的用户的权限’。<br>而每一组里有三个字符，第一个r代表可读，第二个w代表可写，第三个x代表可执行。这三个权限的位置不会改变，当没有这个权限的时候，该位置用-表示。<br>例子中的<code>rwxr-xr-x</code>分为三组：</p>
 <ol>
-<li>安装Git. <a href="http://www.git-scm.com/download/" target="_blank" rel="external">Git安装地址</a></li>
-<li>安装Node.js.  <a href="https://nodejs.org/en/" target="_blank" rel="external">Node.js安装地址</a><br>此时你点击任意文件夹右键，应该有 <code>Git Bash here</code>。进入后输入 <code>node -v</code>和 <code>npm -v</code>，如果显示版本号则安装成功。</li>
-<li>安装Hexo.<br>在Git bash中输入 <code>npm install -g hexo</code>。</li>
-<li>Hexo初始化。</li>
+<li>第一组<code>rwx</code>说明文件所有者对该文件可读，可写，可执行。</li>
+<li>第二组<code>r-x</code>说明同用户组内其他用户对该文件可读，不可写，可执行。</li>
+<li>第三组<code>r-x</code>说明不同用户组的其他用户对该文件可读，不可写，可执行。</li>
 </ol>
-<p>你可以cd到你选择的目录，然后输入</p>
-<pre><code>hexo init
-npm <span class="keyword">install</span>
-</code></pre><p>或者直接输入</p>
-<pre><code>hexo init 你选择的目录
-npm <span class="keyword">install</span>
-</code></pre><p>此时在你选择的目录下,输入 <code>hexo g</code> 和 <code>hexo s</code>。</p>
-<pre><code>hexo g  <span class="comment">//生成静态网页</span>
-INFO  Files loaded <span class="keyword">in</span> <span class="number">705</span> ms
-INFO  Generated: js/script<span class="class">.js</span>
-...
-INFO  Generated: archives/<span class="number">2015</span>/<span class="number">09</span>/index<span class="class">.html</span>
-INFO  Generated: index<span class="class">.html</span>
-INFO  <span class="number">28</span> files generated <span class="keyword">in</span> <span class="number">1.95</span> s
-
-hexo s  <span class="comment">//启动服务器</span>
-INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+C to stop.</span>
-</code></pre><p>此时你打开 <a href="http://127.0.0.1:4000/" target="_blank" rel="external">http://127.0.0.1:4000</a> , 就能看到已经生成的Hexo界面啦。</p>
-<p><img src="http://7xn5ph.com1.z0.glb.clouddn.com/hexo.jpg" alt=""></p>
-<h1 id="Hexo常用命令">Hexo常用命令</h1><p>这里先说一下Hexo常用的命令，接下来的文章也会提醒一些的。</p>
-<pre><code><span class="variable">$ </span>hexo new [layout] &lt;title&gt; <span class="comment">#建立新文章，默认在_posts下，layout="draft"时发布的是草稿</span>
-<span class="variable">$ </span>hexo publish &lt;filename&gt;   <span class="comment">#将_drafts下的文件放到_posts下，也就是发布草稿</span>
-<span class="variable">$ </span>hexo generate             <span class="comment">#生成静态网页</span>
-<span class="variable">$ </span>hexo server               <span class="comment">#启动预览服务器，开启-d选项时可以预览草稿</span>
-<span class="variable">$ </span>hexo deploy               <span class="comment">#发布到远程服务器，开启--generate选项可以在deploy前自动generate</span>
-</code></pre><p>另外这些命令都有简化命令，接下来我使用简化命令多一些。</p>
-<pre><code><span class="variable">$ </span>hexo n  <span class="comment"># == hexo new</span>
-<span class="variable">$ </span>hexo p  <span class="comment"># == hexo publish </span>
-<span class="variable">$ </span>hexo g  <span class="comment"># == hexo generate</span>
-<span class="variable">$ </span>hexo s  <span class="comment"># == hexo server</span>
-<span class="variable">$ </span>hexo d  <span class="comment"># == hexo deploy</span>
-</code></pre><hr>
-<h1 id="注意"><strong>注意</strong></h1><p>有的时候输入 <code>hexo init</code>看到了这句话：</p>
-<pre><code>-<span class="string">bash:</span> <span class="string">hexo:</span> command not found
-</code></pre><p>说明没找到hexo指令，此时我们找到hexo的下载目录，然后在系统变量path添加就可以了。我的目录是在 <code>C:\Users\用户名\AppData\Roaming\npm\node_modules\hexo\bin</code>。大家的应该也在类似位置。</p>
+<h2 id="3-_改变文件的属性和权限">3. 改变文件的属性和权限</h2><p>chgrp:改变文件用户组<br>chown:改变文件所有者<br>chmod:改变文件权限</p>
+<p>linux每个文件的基本权限有九个，分别是owner，group，other三种身份各有自己的三个权限（rwx）。而这9个权限是三个一组的。其中，我们用数字来代表各个权限。r:4，w:2，x:1。我们这里拿<code>rwxrw-r-x</code>举例<br>owner = rwx = 4+2+1 = 7<br>group = rw- = 4+2+0 = 6<br>other = r-x = 4+0+1 = 5</p>
+<p>所以我们可以看出，如果要是想将这个文件的权限改为<code>-rw-r--r--</code>，就可以用 <code>chmod 644 filename</code>。</p>
+<h2 id="4-权限对于文件和目录的作用">4.权限对于文件和目录的作用</h2><p>文件：</p>
+<p>r:可以读取文件的实际内容。<br>w:可以编辑，新增和修改内容，但是不能删除。<br>x:可以被系统执行的权限。<br>至于w权限为什么不可以删除该文件，是因为这里的rwx权限都是对于文件本身的内容来说的，而不是文件的存在。</p>
+<p>目录：</p>
+<p>r:可以读取该目录结构列表的权限。也就是可以用ls这个命令了。<br>w:表示你可以更改该目录结构的权限。即：</p>
+<ul>
+<li>新建新的文件和目录</li>
+<li>删除存在的文件和目录</li>
+<li>重命名存在的文件和目录</li>
+<li>转移存在的文件和目录</li>
+</ul>
+<p>x:表示用户能否进入该目录成为工作目录的权限。所谓的工作目录就是你目前所做的目录。也就是你能用<code>cd</code>将转变目前的工作目录成该目录的权限。</p>
 </span>
       
     </div>
@@ -337,13 +325,13 @@ INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/30/Hexo博客第二站/" rel="prev">Hexo博客第二站：部署到GitHub</a>
+              <a href="/2016/07/07/opencv小练习：哈尔小波(haar)/" rel="prev">opencv小练习：哈尔小波(haar)</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/09/03/原-各种排序代码集合笔记/" rel="next">各种排序代码集合笔记</a>
+              <a href="/2015/11/02/制作一个python egg 并发布到PyPI/" rel="next">制作一个python egg 并发布到PyPI</a>
             
           </div>
         </div>
@@ -391,8 +379,8 @@ INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/09/30/Hexo博客第一站/"
-                   data-title="Hexo博客第一站：搭建本地Hexo静态博客" data-url="http://prozhuchen.github.io/2015/09/30/Hexo博客第一站/">
+              <div class="ds-thread" data-thread-key="2016/07/07/鸟哥linux读书笔记/"
+                   data-title="鸟哥linux读书笔记" data-url="http://prozhuchen.github.io/2016/07/07/鸟哥linux读书笔记/">
               </div>
             
           </div>
@@ -504,7 +492,7 @@ INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo的优势"><span class="nav-number">1.</span> <span class="nav-text">Hexo的优势</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo安装"><span class="nav-number">2.</span> <span class="nav-text">Hexo安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo常用命令"><span class="nav-number">3.</span> <span class="nav-text">Hexo常用命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意"><span class="nav-number">4.</span> <span class="nav-text">注意</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_用户和用户组"><span class="nav-number">1.</span> <span class="nav-text">1. 用户和用户组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-_linux的文件属性和权限"><span class="nav-number">2.</span> <span class="nav-text">2. linux的文件属性和权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_改变文件的属性和权限"><span class="nav-number">3.</span> <span class="nav-text">3. 改变文件的属性和权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-权限对于文件和目录的作用"><span class="nav-number">4.</span> <span class="nav-text">4.权限对于文件和目录的作用</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
