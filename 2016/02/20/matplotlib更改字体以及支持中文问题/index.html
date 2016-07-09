@@ -36,7 +36,7 @@
 
 
 
-  <meta name="keywords" content="Opencv," />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -47,17 +47,19 @@
   <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="闲来无聊，写一个小练习">
+<meta name="description" content="matplotlib怎么来支持中文呢？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="opencv小练习：哈尔小波(haar)">
-<meta property="og:url" content="http://prozhuchen.github.io/2016/07/07/opencv小练习：哈尔小波(haar)/index.html">
+<meta property="og:title" content="matplotlib更改字体以及支持中文问题">
+<meta property="og:url" content="http://prozhuchen.github.io/2016/02/20/matplotlib更改字体以及支持中文问题/index.html">
 <meta property="og:site_name" content="朱琛的小屋">
-<meta property="og:description" content="闲来无聊，写一个小练习">
-<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/%E5%93%88%E5%B0%94%E5%B0%8F%E6%B3%A2%28haar%29.jpg">
-<meta property="og:updated_time" content="2016-07-09T17:24:04.900Z">
+<meta property="og:description" content="matplotlib怎么来支持中文呢？">
+<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/matplotlib%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%871.png">
+<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/matplotlib%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%872.png">
+<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/matplotlib%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%873.png">
+<meta property="og:updated_time" content="2016-07-09T17:22:27.461Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="opencv小练习：哈尔小波(haar)">
-<meta name="twitter:description" content="闲来无聊，写一个小练习">
+<meta name="twitter:title" content="matplotlib更改字体以及支持中文问题">
+<meta name="twitter:description" content="matplotlib怎么来支持中文呢？">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -67,7 +69,7 @@
   };
 </script>
 
-  <title> opencv小练习：哈尔小波(haar) | 朱琛的小屋 </title>
+  <title> matplotlib更改字体以及支持中文问题 | 朱琛的小屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -216,7 +218,7 @@
           
           
             
-              opencv小练习：哈尔小波(haar)
+              matplotlib更改字体以及支持中文问题
             
           
         </h1>
@@ -225,8 +227,8 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-07-07T10:44:21+08:00" content="2016年07月07日">
-            2016年07月07日
+          <time itemprop="dateCreated" datetime="2016-02-20T10:48:00+08:00" content="2016年02月20日">
+            2016年02月20日
           </time>
         </span>
 
@@ -235,8 +237,8 @@
             &nbsp; | &nbsp; 分类于
             
               <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Opencv/" itemprop="url" rel="index">
-                  <span itemprop="name">Opencv</span>
+                <a href="/categories/Python/" itemprop="url" rel="index">
+                  <span itemprop="name">Python</span>
                 </a>
               </span>
 
@@ -248,7 +250,7 @@
         
 
         <span class="post-count">
-        &nbsp; | &nbsp;字数&nbsp; 1,883
+        &nbsp; | &nbsp;字数&nbsp; 1,074
         </span>
 
         <span id="busuanzi_container_page_pv">
@@ -260,8 +262,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/07/07/opencv小练习：哈尔小波(haar)/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/07/opencv小练习：哈尔小波(haar)/" itemprop="commentsCount"></span>
+              <a href="/2016/02/20/matplotlib更改字体以及支持中文问题/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/20/matplotlib更改字体以及支持中文问题/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -271,7 +273,7 @@
      
         <div class="post-tags">
           
-            <a href="/tags/Opencv/" rel="tag">#Opencv</a>
+            <a href="/tags/Python/" rel="tag">#Python</a>
           
         </div>
       
@@ -283,45 +285,22 @@
       
 
       
-        <span itemprop="articleBody"><p>首先说一下一维haar小波的原理。<br>例如我们有一个一维的图像[2,4,6,8,10,12,14,16].</p>
+        <span itemprop="articleBody"><p>在使用matplotlib的时候，发现了matplotlib无法支持中文的一个问题。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">x = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line">y = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line">plt.plot(x, y)</span><br><span class="line">plt.title(<span class="string">u'测试程序'</span>)</span><br><span class="line">plt.xlabel(<span class="string">u'x轴'</span>)</span><br><span class="line">plt.ylabel(<span class="string">u'y轴'</span>)</span><br><span class="line">plt.grid(<span class="keyword">True</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p>结果图：<br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/matplotlib%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%871.png" alt=""></p>
+<p>有两个方法解决他：</p>
 <ol>
-<li>求均值：我们求相邻像素的均值[3,7,11,15]。这个新的图像分辨率就成了原来的一半(8/2=4)。</li>
-<li>求差值。上面的均值我们存储了图像的整体信息。但是很多细节信息我们丢掉了，所以我们同时要记录图像的细节信息，这样在重构时能够恢复图像的全部信息。下面是求第m个差值的公式：</li>
+<li>直接在开头时改变整个脚本的显示字体：<code>matplotlib.rcParams[&#39;font.sans-serif&#39;] = [&#39;SimHei&#39;]</code> 当然这个SimHei是可以自己改的。<br> 例子：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">matplotlib.rcParams[<span class="string">'font.sans-serif'</span>] = [<span class="string">'SimHei'</span>]</span><br><span class="line">x = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line">y = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line">plt.plot(x, y)</span><br><span class="line">plt.title(<span class="string">u'测试程序'</span>)</span><br><span class="line">plt.xlabel(<span class="string">u'x轴'</span>)</span><br><span class="line">plt.ylabel(<span class="string">u'y轴'</span>)</span><br><span class="line">plt.grid(<span class="keyword">True</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<p>$$b[m]=(a[2m]-a[2m+1])/2$$<br>经过计算我们得到了结果[-1,-1,-1,-1]。这个新的分辨率也成了原来的一半(8/2=4)。</p>
+<p>结果图：<br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/matplotlib%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%872.png" alt=""></p>
 <ol>
-<li>此时上面两步形成了第一次分解的结果[3,7,11,15,-1,-1,-1,-1]。包含了图像的整体信息和细节信息。接下来的分解我们重复1,2步，将整体信息再次进行分解，得到了二级分解结果[5，13，-2，-2].同样的，前面的[5,13]是整体信息，后面的[-2,-2]是细节信息。</li>
+<li>也可以动态的决定每个显示时的字体：<br>例子：<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">font = matplotlib.font_manager.FontProperties(fname=<span class="string">'C:\Windows\Fonts\simsun.ttc'</span>)</span><br><span class="line">font1 = matplotlib.font_manager.FontProperties(fname=<span class="string">'C:\Windows\Fonts\mingliu.ttc'</span>)</span><br><span class="line">x = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line">y = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line">plt.plot(x, y)</span><br><span class="line">plt.title(<span class="string">u'测试程序'</span>,fontproperties=font1)</span><br><span class="line">plt.xlabel(<span class="string">u'x轴'</span>, fontproperties=font)</span><br><span class="line">plt.ylabel(<span class="string">u'y轴'</span>, fontproperties=font)</span><br><span class="line">plt.grid(<span class="keyword">True</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
-<table>
-<thead>
-<tr>
-<th>分辨率</th>
-<th style="text-align:center">整体信息</th>
-<th style="text-align:center">细节信息</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>4</td>
-<td style="text-align:center">3,7,11,15</td>
-<td style="text-align:center">-1,-1,-1,-1</td>
-</tr>
-<tr>
-<td>2</td>
-<td style="text-align:center">5，13</td>
-<td style="text-align:center">-2，-2</td>
-</tr>
-<tr>
-<td>1</td>
-<td style="text-align:center">9</td>
-<td style="text-align:center">-4</td>
-</tr>
-</tbody>
-</table>
-<p>经过三次分解，我们得到了一个整体信息和三个细节系数，这个就是一维小波变换。</p>
-<p>对于二维haar小波，我们通常一次分解形成了整体图像，水平细节，垂直细节，对角细节。首先我们按照一维haar小波分解的原理，按照行顺序对行进行处理，然后按照列顺序对行处理结果进行同样的处理。最后形成了如下的形式。<br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/%E5%93%88%E5%B0%94%E5%B0%8F%E6%B3%A2%28haar%29.jpg" alt=""></p>
-<p>  c++代码（opencv版本：opencv3.0）：</p>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">/<span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span></span><br><span class="line">Copyright:zhuchen</span><br><span class="line">Author: zhuchen</span><br><span class="line">Date:2016-01-10</span><br><span class="line">Description:多级haar小波变换</span><br><span class="line"><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span><span class="keyword">*</span>/</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># include&lt;opencv2/opencv.hpp&gt;</span></span><br><span class="line"><span class="comment"># include&lt;iostream&gt;</span></span><br><span class="line"></span><br><span class="line">using namespace std;</span><br><span class="line">using namespace cv;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	Mat img = imread(<span class="string">"lenna.bmp"</span>,0);</span><br><span class="line">	int Height = img.cols;</span><br><span class="line">	int Width = img.rows;</span><br><span class="line">	int depth = 3;    //定义分解深度</span><br><span class="line">	int depthcount = 1; </span><br><span class="line">	Mat tmp = Mat::ones(Width, Height, CV_32FC1);</span><br><span class="line">	Mat wavelet = Mat::ones(Width, Height, CV_32FC1);</span><br><span class="line">	Mat imgtmp = img.clone();</span><br><span class="line">	imgtmp.convertTo(imgtmp, CV_32FC1);</span><br><span class="line">	while (depthcount<span class="variable">&lt;=depth)&#123;</span><br><span class="line">		Width = img.rows / depthcount;</span><br><span class="line">		Height = img.cols / depthcount;</span><br><span class="line">		int step = 2 * depthcount;</span><br><span class="line">		for (int i = 0; i &lt; Width; i++)&#123;</span><br><span class="line">			for (int j = 0; j &lt; Height / 2; j++)&#123;</span><br><span class="line">				tmp.at&lt;float&gt;</span>(i, j) = (imgtmp.at<span class="variable">&lt;float&gt;</span>(i, 2 <span class="keyword">*</span> j) + imgtmp.at<span class="variable">&lt;float&gt;</span>(i, 2 <span class="keyword">*</span> j + 1)) / 2;</span><br><span class="line">				tmp.at<span class="variable">&lt;float&gt;</span>(i, j + Height / 2) = (imgtmp.at<span class="variable">&lt;float&gt;</span>(i, 2 <span class="keyword">*</span> j) - imgtmp.at<span class="variable">&lt;float&gt;</span>(i, 2 <span class="keyword">*</span> j + 1)) / 2;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		for (int i = 0; i <span class="variable">&lt; Width / 2; i++)&#123;</span><br><span class="line">			for (int j = 0; j &lt; Height; j++)&#123;</span><br><span class="line">				wavelet.at&lt;float&gt;</span>(i, j) = (tmp.at<span class="variable">&lt;float&gt;</span>(2 <span class="keyword">*</span> i, j) + tmp.at<span class="variable">&lt;float&gt;</span>(2 <span class="keyword">*</span> i + 1, j)) / 2;</span><br><span class="line">				wavelet.at<span class="variable">&lt;float&gt;</span>(i + Width / 2, j) = (tmp.at<span class="variable">&lt;float&gt;</span>(2 <span class="keyword">*</span> i, j) - tmp.at<span class="variable">&lt;float&gt;</span>(2 <span class="keyword">*</span> i + 1, j)) / 2;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		imgtmp = wavelet;</span><br><span class="line">		depthcount++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	namedWindow(<span class="string">"jpg"</span>,0);</span><br><span class="line">	wavelet.convertTo(wavelet, CV_8UC1);</span><br><span class="line">	wavelet += 50;            //图像暗度过低，所以这里我加了50</span><br><span class="line">	imshow(<span class="string">"jpg"</span>, wavelet);</span><br><span class="line">	waitKey(0);</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></span>
+<p>结果图：<br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/matplotlib%E6%94%AF%E6%8C%81%E4%B8%AD%E6%96%873.png" alt=""></p>
+<p>这个图里的’测试程序’和’x轴’是两种字体，也就是说我们可以任意改变每一个label的字体啦。</p>
+</span>
       
     </div>
 
@@ -331,13 +310,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/07/09/学习制作一个python egg 并发布到PyPI/" rel="prev">学习制作一个python egg 并发布到PyPI</a>
+              <a href="/2016/04/14/鸟哥linux读书笔记(1)/" rel="prev">鸟哥linux读书笔记(1)</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/14/鸟哥linux读书笔记(1)/" rel="next">鸟哥linux读书笔记(1)</a>
+              <a href="/2015/11/02/制作一个python egg 并发布到PyPI/" rel="next">制作一个python egg 并发布到PyPI</a>
             
           </div>
         </div>
@@ -385,8 +364,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/07/07/opencv小练习：哈尔小波(haar)/"
-                   data-title="opencv小练习：哈尔小波(haar)" data-url="http://prozhuchen.github.io/2016/07/07/opencv小练习：哈尔小波(haar)/">
+              <div class="ds-thread" data-thread-key="2016/02/20/matplotlib更改字体以及支持中文问题/"
+                   data-title="matplotlib更改字体以及支持中文问题" data-url="http://prozhuchen.github.io/2016/02/20/matplotlib更改字体以及支持中文问题/">
               </div>
             
           </div>
