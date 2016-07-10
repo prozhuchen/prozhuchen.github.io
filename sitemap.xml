@@ -2,8 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://prozhuchen.github.io/2015/10/03/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%BA%94%E7%AB%99/</loc>
+    <lastmod>2016-07-10T04:24:22.567Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://prozhuchen.github.io/2016/07/10/Hexo%E5%8D%9A%E5%AE%A2%E5%B0%8F%E7%9F%A5%E8%AF%86%EF%BC%9A%E6%9B%B4%E6%94%B9%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2/</loc>
+    <lastmod>2016-07-10T04:20:26.641Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://prozhuchen.github.io/2015/12/06/%E7%BA%BF%E6%80%A7%E9%A2%84%E6%B5%8Blinear%20prediction/</loc>
-    <lastmod>2016-07-09T17:59:37.675Z</lastmod>
+    <lastmod>2016-07-09T18:01:42.401Z</lastmod>
   </url>
   
   <url>
@@ -44,11 +54,6 @@
   <url>
     <loc>http://prozhuchen.github.io/2015/09/30/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E7%AB%99/</loc>
     <lastmod>2015-10-05T12:48:20.665Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://prozhuchen.github.io/2015/10/03/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%BA%94%E7%AB%99/</loc>
-    <lastmod>2015-10-05T12:37:58.942Z</lastmod>
   </url>
   
   <url>

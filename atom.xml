@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://prozhuchen.github.io/"/>
-  <updated>2016-07-09T17:24:04.900Z</updated>
+  <updated>2016-07-10T04:20:26.641Z</updated>
   <id>http://prozhuchen.github.io/</id>
   
   <author>
@@ -13,6 +13,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[Hexo博客小知识：更改背景颜色]]></title>
+    <link href="http://prozhuchen.github.io/2016/07/10/Hexo%E5%8D%9A%E5%AE%A2%E5%B0%8F%E7%9F%A5%E8%AF%86%EF%BC%9A%E6%9B%B4%E6%94%B9%E8%83%8C%E6%99%AF%E9%A2%9C%E8%89%B2/"/>
+    <id>http://prozhuchen.github.io/2016/07/10/Hexo博客小知识：更改背景颜色/</id>
+    <published>2016-07-10T03:27:05.000Z</published>
+    <updated>2016-07-10T04:20:26.641Z</updated>
+    <content type="html"><![CDATA[<p>最近发现有读者在问这个博客的背景颜色是怎么做出来的，这里单独写出来解答一下吧。</p>
+<p>更改背景颜色这种的事情是通过css来控制的，具体的文件是<code>hexo/public/css</code>下的<code>main.css</code>来定义的。下面是页面上两处颜色的定义。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*首页头部的颜色设置*/</span></span><br><span class="line"><span class="class">.header</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#d1fab8</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="comment">/*主体部分的颜色设置*/</span></span><br><span class="line"><span class="tag">body</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#e0fccf</span></span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>我们只需要更改上述的两个背景颜色，就可以获得我们想要的颜色效果。<br>那如何获得我们想要的颜色代码呢？最简单的一种方法就是使用chrome上的颜色抓取器。或者可以参照<a href="http://www.114la.com/other/rgb.htm/" target="_blank" rel="external">RGB颜色查询对照表</a>。</p>
+<p>其实只要我们懂得简单的css和js，我们就可以更改任何我们想更改的部分啦。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[我们来看看如何更改博客的背景颜色。]]>
+    
+    </summary>
+    
+      <category term="Hexo" scheme="http://prozhuchen.github.io/tags/Hexo/"/>
+    
+      <category term="Hexo" scheme="http://prozhuchen.github.io/categories/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[opencv小练习：哈尔小波(haar)]]></title>
@@ -159,14 +182,14 @@
     <link href="http://prozhuchen.github.io/2015/12/06/%E7%BA%BF%E6%80%A7%E9%A2%84%E6%B5%8Blinear%20prediction/"/>
     <id>http://prozhuchen.github.io/2015/12/06/线性预测linear prediction/</id>
     <published>2015-12-05T17:56:51.000Z</published>
-    <updated>2016-07-09T17:59:37.675Z</updated>
+    <updated>2016-07-09T18:01:42.401Z</updated>
     <content type="html"><![CDATA[<p>线性预测是一种利用之前样品的线性函数来估计未来离散时间信号的值的数学运算方式。</p>
 <p>在数字信号处理中,线性预测通常被称为线性预测编码(LPC),因此可以视为滤波器理论的一个子集。在系统分析(数学的一个分支)中,线性预测可以看作是数学建模或者是优化问题的一部分。</p>
 <p>#预测模型</p>
-<p>最普通的线性预测表达式是<br><img src="https://upload.wikimedia.org/math/2/9/8/298ffd65763de57f54b00265e4eab093.png" alt="此处输入图片的描述"><br>这里的$\widehat{x}(n)$是预测的信号值，$x(n-i)$是之前获得的值，${a}<em>{i}$是预测系数，估计所产生的误差是<br><img src="https://upload.wikimedia.org/math/6/c/4/6c4e327c077c8a75dfe2e5bce093f93f.png" alt="此处输入图片的描述"><br>这里的$x(n)$是正确的信号值。<br>这些方程对于所有类型的一维线性预测都是有效的。对于不同的方法其所不同的是参数 ${a}</em>{i}$ 的选择。<br>对于多维信号而言，误差指标一般被定义为</p>
-<p><img src="https://upload.wikimedia.org/math/9/8/f/98f0d06152b1ae8c7abd335b03915fa6.png" alt="此处输入图片的描述"><br>这里的$\left | . \right |$是一个合适的向量范数。预测函数（$\widehat{x}(n)$）通常使用卡尔曼滤波器和平滑来分别估计当前和过去的信号。</p>
-<p>#估计参数<br>对于优化参数 $\widehat{x}(n)$，最常见的选择是均方根标准，也被称为自相关性准则。在这个方法中,我们使平方误差<img src="https://upload.wikimedia.org/math/7/6/f/76f77ec3a84efce98d1be71aec2b1f5c.png" alt="此处输入图片的描述">的期望值最小化,得到的公式是</p>
-<p><img src="https://upload.wikimedia.org/math/8/6/4/864e5aebb65c00bb7d5f73de63ebdbc1.png" alt="此处输入图片的描述"> 1 ≤ j ≤ p<br>这里的R是信号<code>x(n)</code>的自相关性。定义是：<br><img src="https://upload.wikimedia.org/math/5/0/5/5056382e606158a997e377f49fc58ada.png" alt="此处输入图片的描述"><br>这里的 $E$ 是期望值。在多维情况中，这个对应于L2范数的最小化。<br>上面的方程称为normal方程或者Yule-Walker方程。该方程在矩阵形式中可以等价于<br>$Ra=-r$<br>这里的自相关矩阵R是对称的，$p*p$的<code>Toeplitz</code>矩阵，其元素<img src="https://upload.wikimedia.org/math/e/3/b/e3bace5f06f9153be1a1c1b0dbd56c8e.png" alt="此处输入图片的描述">，向量$a$是一个参数向量。<br>另一个更一般的做法是尽可能降低在公式中定义的误差平方和<br><img src="https://upload.wikimedia.org/math/a/f/7/af76053e4e83b5d30280ef9c2ca136ec.png" alt=""><br>其中对于所有$a_i$的最优化问题，都必须限制在$a_0=-1$内。<br>另一方面，如果均方预测误差被约束为一致的，同时预测误差方程被包括在normal方程的顶部，增广组方程是由<br><img src="https://upload.wikimedia.org/math/8/c/c/8cc8ebbe7eee188032176043a514b23c.png" alt="此处输入图片的描述"><br>得到，其中索引i从0到$p$，同时 $R$ 是一个 $(p + 1) × (p + 1)$ 矩阵。</p>
+<p>最普通的线性预测表达式是<br><img src="https://upload.wikimedia.org/math/2/9/8/298ffd65763de57f54b00265e4eab093.png" alt=""><br>这里的$\widehat{x}(n)$是预测的信号值，$x(n-i)$是之前获得的值，${a}<em>{i}$是预测系数，估计所产生的误差是<br><img src="https://upload.wikimedia.org/math/6/c/4/6c4e327c077c8a75dfe2e5bce093f93f.png" alt=""><br>这里的$x(n)$是正确的信号值。<br>这些方程对于所有类型的一维线性预测都是有效的。对于不同的方法其所不同的是参数 ${a}</em>{i}$ 的选择。<br>对于多维信号而言，误差指标一般被定义为</p>
+<p><img src="https://upload.wikimedia.org/math/9/8/f/98f0d06152b1ae8c7abd335b03915fa6.png" alt=""><br>这里的$\left | . \right |$是一个合适的向量范数。预测函数（$\widehat{x}(n)$）通常使用卡尔曼滤波器和平滑来分别估计当前和过去的信号。</p>
+<p>#估计参数<br>对于优化参数 $\widehat{x}(n)$，最常见的选择是均方根标准，也被称为自相关性准则。在这个方法中,我们使平方误差<img src="https://upload.wikimedia.org/math/7/6/f/76f77ec3a84efce98d1be71aec2b1f5c.png" alt="">的期望值最小化,得到的公式是</p>
+<p><img src="https://upload.wikimedia.org/math/8/6/4/864e5aebb65c00bb7d5f73de63ebdbc1.png" alt=""> 1 ≤ j ≤ p<br>这里的R是信号<code>x(n)</code>的自相关性。定义是：<br><img src="https://upload.wikimedia.org/math/5/0/5/5056382e606158a997e377f49fc58ada.png" alt=""><br>这里的 $E$ 是期望值。在多维情况中，这个对应于L2范数的最小化。<br>上面的方程称为normal方程或者Yule-Walker方程。该方程在矩阵形式中可以等价于<br>$Ra=-r$<br>这里的自相关矩阵R是对称的，$p*p$的<code>Toeplitz</code>矩阵，其元素<img src="https://upload.wikimedia.org/math/e/3/b/e3bace5f06f9153be1a1c1b0dbd56c8e.png" alt="">，向量$a$是一个参数向量。<br>另一个更一般的做法是尽可能降低在公式中定义的误差平方和<br><img src="https://upload.wikimedia.org/math/a/f/7/af76053e4e83b5d30280ef9c2ca136ec.png" alt=""><br>其中对于所有$a_i$的最优化问题，都必须限制在$a_0=-1$内。<br>另一方面，如果均方预测误差被约束为一致的，同时预测误差方程被包括在normal方程的顶部，增广组方程是由<br><img src="https://upload.wikimedia.org/math/8/c/c/8cc8ebbe7eee188032176043a514b23c.png" alt=""><br>得到，其中索引i从0到$p$，同时 $R$ 是一个 $(p + 1) × (p + 1)$ 矩阵。</p>
 <p>线性预测参数的规范是一个很广泛的主题,而且大量的方法已经被提出。实际上，自相关方法是最常见的，例如在语音编码GSM标准中使用。</p>
 <p>矩阵方程 $Ra = r$在计算量上是一个相对大的过程。矩阵求逆的高斯算法可能是最古老的方法，但这种方法并不能有效地使用R和r的对称性。一个更快的算法是Norman Levinson在1947年提出的Levinson recursion算法，利用递归来解决这个问题。特别是上面的自相关方程，可以更有效地被Durbin算法求解。<br>之后，Delsarte等0提出了一种对于这个算法的改进，称为split Levinson recursion 这个算法需要大约一半乘法和除法。它使用参数向量的一个特殊的对称属性在后来的递归上。也就是说，对于包含$P$项的最优预测点的计算利用了包含$P-1$项的最优预测点的相似计算值。<br>识别模型参数的另一种方式是迭代地计算出使用了卡尔曼滤波器和获得的期望最大化算法中的最大似然估计值的状态估计值。</p>
 ]]></content>
@@ -462,9 +485,9 @@ count = <span class="number">2</span>
     <link href="http://prozhuchen.github.io/2015/10/03/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%BA%94%E7%AB%99/"/>
     <id>http://prozhuchen.github.io/2015/10/03/Hexo博客第五站/</id>
     <published>2015-10-03T07:53:11.000Z</published>
-    <updated>2015-10-05T12:37:58.942Z</updated>
+    <updated>2016-07-10T04:24:22.567Z</updated>
     <content type="html"><![CDATA[<p>现在我们可以尽情写自己想写的东西了。但是首先我们得学会在哪写和怎么写。</p>
-<h1 id="在哪写(Hexo_文章配置)">在哪写(Hexo 文章配置)</h1><h2 id="从别处迁移">从别处迁移</h2><p>如果我们之前在别的网站已经有了自己的博客，那当然不能直接扔掉啦，Hexo可以从RSS/Jekyll/Octopress/Wordpress迁移之前的博客（传送门 <a href="http://zespia.tw/hexo/docs/migration.html" target="_blank" rel="external">从别处迁移到Hexo</a>）。</p>
+<h1 id="在哪写(Hexo_文章配置)">在哪写(Hexo 文章配置)</h1><h2 id="从别处迁移">从别处迁移</h2><p>如果我们之前在别的网站已经有了自己,./的博客，那当然不能直接扔掉啦，Hexo可以从RSS/Jekyll/Octopress/Wordpress迁移之前的博客（传送门 <a href="http://zespia.tw/hexo/docs/migration.html" target="_blank" rel="external">从别处迁移到Hexo</a>）。</p>
 <h2 id="自己写">自己写</h2><p>首先我们在Git Bash中输入：</p>
 <pre><code>hexo <span class="keyword">new</span> <span class="string">"article name"</span>
 </code></pre><p>然后我们在博客根目录<code>/source/_posts</code>下会看见新产生的<code>article name.md</code>。<br>如果我们想改变这个名字的格式，就可以在站点配置文件的31行左右改变<code>new_post_name</code>，下面将名字格式改成了类似这样的<code>2015-09-29-name.md</code>：</p>
