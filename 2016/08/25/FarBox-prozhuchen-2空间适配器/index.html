@@ -36,7 +36,7 @@
 
 
 
-  <meta name="keywords" content="Hexo," />
+  <meta name="keywords" content="Hexo,next" />
 
 
 
@@ -47,16 +47,56 @@
   <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="README + 404页面 + 图床 + 社交与友情链接">
+<meta name="description" content="空间配置器
+空间配置器：是对空间进行分配和处理的部分。是空间而不是内存的原因是因为空间也可以是磁盘等其他介质。
+
+
+SGI STL的配置器是alloc而不是allocator，而且不接受任何参数。
+
+SGI STL对于标准的配置器只做了一层简单包装，且不推荐我们使用。
+
+SGI STL的new和delete：
+
+内存配置由alloc::allocate()负责。
+
+内存释放由alloc::deal">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客第九又四分之三站：剩下的小东西">
-<meta property="og:url" content="http://prozhuchen.github.io/2015/10/04/Hexo博客第九又四分之三站/index.html">
+<meta property="og:title" content="空间配置器">
+<meta property="og:url" content="http://prozhuchen.github.io/2016/08/25/FarBox-prozhuchen-2空间适配器/index.html">
 <meta property="og:site_name" content="朱琛的小屋">
-<meta property="og:description" content="README + 404页面 + 图床 + 社交与友情链接">
-<meta property="og:updated_time" content="2015-10-04T06:58:36.373Z">
+<meta property="og:description" content="空间配置器
+空间配置器：是对空间进行分配和处理的部分。是空间而不是内存的原因是因为空间也可以是磁盘等其他介质。
+
+
+SGI STL的配置器是alloc而不是allocator，而且不接受任何参数。
+
+SGI STL对于标准的配置器只做了一层简单包装，且不推荐我们使用。
+
+SGI STL的new和delete：
+
+内存配置由alloc::allocate()负责。
+
+内存释放由alloc::deal">
+<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A81.png">
+<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A82.png">
+<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/空间配置器3.png">
+<meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A84.png">
+<meta property="og:updated_time" content="2016-08-26T08:28:35.822Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo博客第九又四分之三站：剩下的小东西">
-<meta name="twitter:description" content="README + 404页面 + 图床 + 社交与友情链接">
+<meta name="twitter:title" content="空间配置器">
+<meta name="twitter:description" content="空间配置器
+空间配置器：是对空间进行分配和处理的部分。是空间而不是内存的原因是因为空间也可以是磁盘等其他介质。
+
+
+SGI STL的配置器是alloc而不是allocator，而且不接受任何参数。
+
+SGI STL对于标准的配置器只做了一层简单包装，且不推荐我们使用。
+
+SGI STL的new和delete：
+
+内存配置由alloc::allocate()负责。
+
+内存释放由alloc::deal">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -66,7 +106,7 @@
   };
 </script>
 
-  <title> Hexo博客第九又四分之三站：剩下的小东西 | 朱琛的小屋 </title>
+  <title> 空间配置器 | 朱琛的小屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -223,7 +263,7 @@
           
           
             
-              Hexo博客第九又四分之三站：剩下的小东西
+              空间配置器
             
           
         </h1>
@@ -232,30 +272,15 @@
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2015-10-04T14:55:10+08:00" content="2015年10月04日">
-            2015年10月04日
+          <time itemprop="dateCreated" datetime="2016-08-25T10:26:00+08:00" content="2016年08月25日">
+            2016年08月25日
           </time>
         </span>
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分类于
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/Hexo/" itemprop="url" rel="index">
-                  <span itemprop="name">Hexo</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
-        
 
         <span class="post-count">
-        &nbsp; | &nbsp;字数&nbsp; 1,098
+        &nbsp; | &nbsp;字数&nbsp; 1,726
         </span>
 
         <span id="busuanzi_container_page_pv">
@@ -267,8 +292,8 @@
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2015/10/04/Hexo博客第九又四分之三站/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/04/Hexo博客第九又四分之三站/" itemprop="commentsCount"></span>
+              <a href="/2016/08/25/FarBox-prozhuchen-2空间适配器/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/25/FarBox-prozhuchen-2空间适配器/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -276,12 +301,6 @@
       </div>
 
      
-        <div class="post-tags">
-          
-            <a href="/tags/Hexo/" rel="tag">#Hexo</a>
-          
-        </div>
-      
     </header>
 
     <div class="post-body">
@@ -290,31 +309,66 @@
       
 
       
-        <span itemprop="articleBody"><p>最后看了看还是有点小东西没说，但是前面都已经写完结尾了啊啊啊，所以在此补了个九又四分之三站(不知道深意的请百度哈利波特站台….)，有缘分的小伙伴进来看一看有木有你能用上的。</p>
-<h1 id="Hexo_+_README">Hexo + README</h1><p>每次进入GitHub的gh-pages分支都提醒写README，烦死了，我们在根目录下的<code>source</code>下面新建一个README文件，写上对自己博客的描述啥的，再次生成部署就会发现README已经传上去了。</p>
-<h1 id="Hexo_+_404">Hexo + 404</h1><p>GitHub本身给我们配置了404页面，如果是做自己的404页面，你可以像上面一样，在<code>source</code>里面加上404.html，但是注意，自定义的404页面仅对绑定顶级域名的项目才起作用，GitHub默认分配的二级域名是不起作用的，使用hexo server在本机调试也是不起作用的。例如，如果一开始你的域名是XXX.github.io,你就可以在XXX.github.io/404.html看到你的404页面，但是如果你的域名是XXX.github.io/blog，那么你就无法看到自己的404了。<br>现如今，很多人都把自己的404页面当做公益项目的传播，为社会做点自己的贡献，例如这样子：<a href="http://prozhuchen.github.io/404.html">404页面</a>。下面是几个公益404的地址。</p>
-<ul>
-<li><a href="http://www.qq.com/404/" target="_blank" rel="external">腾讯公益404</a></li>
-<li><a href="http://yibo.iyiyun.com/Index/web404" target="_blank" rel="external">404公益_益云(公益互联网)社会创新中心</a></li>
-<li><a href="http://404page.missingkids.org.tw/" target="_blank" rel="external">失蹤兒童少年資料管理中心404</a></li>
-</ul>
-<h1 id="hexo_+_图床">hexo + 图床</h1><p>我们的博客部署在GitHub上虽然有很多好处，但是有一个问题，他的个人空间只有100M！如果光是普通文件也就差不多够了，但是有图片可怎么办呐。所以我们可以把图片放在图床上，然后用外链地址来引用图片，问题解决。<br>我用的图床是七牛，他的体验用户是1G，标准用户是10G，而且免费的，应该够绝大多数个人博客的使用了。这里是七牛的地址 <a href="https://portal.qiniu.com/signup?code=3lpoc69h8k502" target="_blank" rel="external">七牛</a>。这里说一下七牛的简单使用。<br>我们首先注册（想成为标准用户得通过个人验证），完成后新建一个空间，名字任意。<br>此时我们进入空间，选择内容管理，然后上传图片，点击该图片后右边会出现图片的缩略图和外链地址，我们复制该外链地址，即图片的访问地址到自己的文章里，就可以看到图片啦。</p>
-<h1 id="hexo_+_社交连接，友情链接">hexo + 社交连接，友情链接</h1><p>我们在站点配置文件中，加入如下的语句，随便加，别客气！</p>
-<pre><code><span class="comment"># 社交链接，将在侧栏中显示</span>
-<span class="symbol">social:</span>
-  知乎<span class="symbol">:</span> <span class="symbol">http:</span>/<span class="regexp">/www.zhihu.com/people</span><span class="regexp">/zhu-chen-71-40
-  GitHub: https:/</span><span class="regexp">/github.com/prozhuchen</span>
-  <span class="comment"># Twitter: your-twitter-url</span>
-  <span class="comment"># Weibo: your-weibo-url</span>
-  <span class="comment"># DouBan: your-douban-url</span>
-  <span class="comment"># ZhiHu: your-zhihu-url</span>
-  <span class="comment"># 等等</span>
-
-<span class="comment">#友情链接，将在侧栏中显示</span>
-<span class="symbol">links_title:</span> 友情链接
-<span class="symbol">links:</span>
-  我的<span class="constant">CSDN</span>博客<span class="symbol">:</span> <span class="symbol">http:</span>/<span class="regexp">/blog.csdn.net/u</span>010006643
-</code></pre><h1 id="结束啦">结束啦</h1><p>首先感谢网上大神们的博客，很牛，也解决了自己的很多问题，可惜好多博文没有记住…..如果您发现了我引用了你的博客，而且需要我进行说明，我将会尽快说明，在此感谢大神们博客的帮助。<br>经过这几天的整理，总算把自己挖空了。请小伙伴们如果发现错误在下面留言告诉我，我将不胜感激。有疑问的话我也会尽力给大家解决。希望大家能愉快的交流与学习&lt;(￣ˇ￣)/。</p>
+        <span itemprop="articleBody"><h1 id="空间配置器">空间配置器</h1><blockquote>
+<p>空间配置器：是对空间进行分配和处理的部分。是空间而不是内存的原因是因为空间也可以是磁盘等其他介质。</p>
+</blockquote>
+<ol>
+<li><p>SGI STL的配置器是alloc而不是allocator，而且不接受任何参数。</p>
+</li>
+<li><p>SGI STL对于标准的配置器只做了一层简单包装，且不推荐我们使用。</p>
+</li>
+<li><p>SGI STL的new和delete：</p>
+<ol>
+<li><p>内存配置由alloc::allocate()负责。</p>
+</li>
+<li><p>内存释放由alloc::deallocate()负责。</p>
+</li>
+<li><p>对象构造由::construct()负责。</p>
+</li>
+<li><p>对象析构由::destroy()负责。</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="构造和析构：construct,destroy">构造和析构：construct,destroy</h2><p><img src="http://7xn5ph.com1.z0.glb.clouddn.com/%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A81.png" alt=""></p>
+<h2 id="空间的配置和释放::alloc">空间的配置和释放::alloc</h2><p>SGI对于空间配置的设计哲学如下：</p>
+<blockquote>
+<p>向system heap要求空间</p>
+<p>考虑多线程</p>
+<p>考虑内存不足时的应变措施</p>
+<p>考虑小区快带来的内存碎片问题</p>
+</blockquote>
+<p>考虑到小区快带来的内存破碎问题，SGI设计了双层级配置器。</p>
+<p>第一层：直接使用malloc和free</p>
+<p>第二层：视情况不同，配置区块大于128byte时，调用第一层；小于128byte，采用更复杂的memory tool 模式。</p>
+<p><img src="http://7xn5ph.com1.z0.glb.clouddn.com/%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A82.png" alt="image"><br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/空间配置器3.png" alt="image"></p>
+<h2 id="第一级配置器剖析">第一级配置器剖析</h2><ol>
+<li>SGI其实是直接使用了c中的<code>malloc</code>和<code>free</code>。</li>
+<li>sgi不使用c++的new,而是使用c的<code>malloc</code>,有一部分原因是因为c++中没有提供<code>realloc</code>的功能。</li>
+<li>但是当出现内存配置出现问题时，SGI又会仿照C ++ 实现一个new-handler机制。不能直接使用c++的该机制的原因是，它没有使用new来配置内存，所以无法直接使用这个c ++ 的特定机制，只能仿真一个类似的。</li>
+<li>当第一级配置器的<code>allocate（）</code>和<code>realloc（）</code>不成功时，它会调用<code>oom_malloc（）</code>和<code>oom_realloc（）</code>函数（oom代表<code>out of memory</code>），这两个函数内部都是一个内循环，不断调用“内存不足处理例程”。</li>
+<li>注意一点的是，上述的内存不足处理例程由调用者自己设计，如果没有被设定，配置器会直接丢出<code>BAD_AALOC</code>异常。<h2 id="第二级配置器剖析">第二级配置器剖析</h2>第二级配置器的存在就是为了解决小区块内存带来的内存碎片化和配置时带来的额外负担。<blockquote>
+<p>额外负担是指，当每一个区块内存被分配的时侯，他都需要一部分额外内存来纪录该块内存的大小，这一块纪录内存属于额外负担。</p>
+</blockquote>
+</li>
+</ol>
+<p>第二级配置器对于内存配置的做法是：<br>区块超过128byte时，移交给第一层配置器处理。<br>区块小于128byte时，使用内存池进行管理。</p>
+<h3 id="内存池管理">内存池管理</h3><p>内存池每次的配置一大块内存，然后用一个free list来进行维护。有内存需求则从free list拔出，如果释放则有free list收回。为了方便管理，SGI会将小区块的内存需求调整到8的倍数。这样一来，有8，16，24，32，40，48，56，64，72，80，88，96，104，112，120，128，总共16个free list。</p>
+<p><img src="http://7xn5ph.com1.z0.glb.clouddn.com/%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A84.png" alt="free_list"></p>
+<blockquote>
+<p>上调到8的倍数实现：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">enum</span> &#123;__ALIGN=<span class="number">8</span>&#125;;</span><br><span class="line">&#123; <span class="keyword">return</span> (((__bytes) + (<span class="keyword">size_t</span>) _ALIGN-<span class="number">1</span>) &amp; ~((<span class="keyword">size_t</span>) _ALIGN – <span class="number">1</span>)); &#125;</span><br></pre></td></tr></table></figure>
+<p>free_list:为了节省空间，obj的结构是一个union类型。也就是&gt; 说，当该区块给用户的时候，obj是一个指向实际区块的指针，&gt;当给系统时候，obj是一个指向下一个节点的指针。这个可以节省内存的开销。<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">obj</span>&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> <span class="title">obj</span>* <span class="title">free_list_link</span>;</span></span><br><span class="line">    char client_data[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="空间配置函数allocate()">空间配置函数allocate()</h3><h3 id="空间释放函数deellocate()">空间释放函数deellocate()</h3><h3 id="重新填充free_list函数refill()">重新填充free_list函数refill()</h3><p>当allocate()发现没有free list没有区块的时候，就调用refill()，refill()从内存池中取出内存重新填充free list。默认取得20个新区快，但是当内存池不够时，获得的会小于20.</p>
+<h3 id="从内存池取内存函数chunk_alloc()">从内存池取内存函数chunk_alloc()</h3><p>chunk_alloc()通过两个指针：end_free和start_free的差值来判断内存池的剩下空间。</p>
+<ol>
+<li>空间&gt;20区块空间：调出20个区块空间给free list.</li>
+<li>1区块空间&lt;空间&lt;20区块空间：调出能调出的空间出来。</li>
+<li>空间&lt;1区块空间：使用malloc()从系统中申请内存，然后拨给free list。新申请的量是需求量的两倍，加上一个随着配置次数增加不断变大的附加量。</li>
+<li>特殊情况（系统内存不够，malloc失败）：chunk_alloc()开始寻找free_list中未被使用的够大的区块，找到了就拿走一块；找不到就调用第一级配置器。第一级配置器虽然使用也是malloc，但是有out-of-memory机制，可以有机会释放其他内存来使用。</li>
+</ol>
+<h2 id="内存基本处理工具">内存基本处理工具</h2><p>对于未初始化的空间，STL的处理工具有五个：<br><code>construct(),destroy(),uninitialized_copy(),uninitialized_fill(),uninitialized_fill_n()</code><br>因为挺好理解，我这里就不记录了。</p>
 </span>
       
     </div>
@@ -325,13 +379,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/10/05/Hexo博客之改字体/" rel="prev">Hexo博客之改字体</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/10/03/Hexo博客第五站/" rel="next">Hexo博客第五站：文章配置+Markdown语法</a>
+              <a href="/2016/07/10/Hexo博客小知识：更改背景颜色/" rel="next">Hexo博客小知识：更改背景颜色</a>
             
           </div>
         </div>
@@ -379,8 +431,8 @@
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2015/10/04/Hexo博客第九又四分之三站/"
-                   data-title="Hexo博客第九又四分之三站：剩下的小东西" data-url="http://prozhuchen.github.io/2015/10/04/Hexo博客第九又四分之三站/">
+              <div class="ds-thread" data-thread-key="2016/08/25/FarBox-prozhuchen-2空间适配器/"
+                   data-title="空间配置器" data-url="http://prozhuchen.github.io/2016/08/25/FarBox-prozhuchen-2空间适配器/">
               </div>
             
           </div>
@@ -492,7 +544,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo_+_README"><span class="nav-number">1.</span> <span class="nav-text">Hexo + README</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo_+_404"><span class="nav-number">2.</span> <span class="nav-text">Hexo + 404</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo_+_图床"><span class="nav-number">3.</span> <span class="nav-text">hexo + 图床</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo_+_社交连接，友情链接"><span class="nav-number">4.</span> <span class="nav-text">hexo + 社交连接，友情链接</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结束啦"><span class="nav-number">5.</span> <span class="nav-text">结束啦</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#空间配置器"><span class="nav-number">1.</span> <span class="nav-text">空间配置器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#构造和析构：construct,destroy"><span class="nav-number">1.1.</span> <span class="nav-text">构造和析构：construct,destroy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#空间的配置和释放::alloc"><span class="nav-number">1.2.</span> <span class="nav-text">空间的配置和释放::alloc</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第一级配置器剖析"><span class="nav-number">1.3.</span> <span class="nav-text">第一级配置器剖析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二级配置器剖析"><span class="nav-number">1.4.</span> <span class="nav-text">第二级配置器剖析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#内存池管理"><span class="nav-number">1.4.1.</span> <span class="nav-text">内存池管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间配置函数allocate()"><span class="nav-number">1.4.2.</span> <span class="nav-text">空间配置函数allocate()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间释放函数deellocate()"><span class="nav-number">1.4.3.</span> <span class="nav-text">空间释放函数deellocate()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重新填充free_list函数refill()"><span class="nav-number">1.4.4.</span> <span class="nav-text">重新填充free_list函数refill()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#从内存池取内存函数chunk_alloc()"><span class="nav-number">1.4.5.</span> <span class="nav-text">从内存池取内存函数chunk_alloc()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存基本处理工具"><span class="nav-number">1.5.</span> <span class="nav-text">内存基本处理工具</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

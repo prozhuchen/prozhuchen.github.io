@@ -2,6 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://prozhuchen.github.io/readnote/index.html</loc>
+    <lastmod>2016-08-26T08:32:49.541Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://prozhuchen.github.io/2016/08/25/FarBox-prozhuchen-2%E7%A9%BA%E9%97%B4%E9%80%82%E9%85%8D%E5%99%A8/</loc>
+    <lastmod>2016-08-26T08:28:35.822Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://prozhuchen.github.io/guestbook/index.html</loc>
     <lastmod>2016-08-24T07:27:53.672Z</lastmod>
   </url>

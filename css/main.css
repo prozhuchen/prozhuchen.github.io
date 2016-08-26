@@ -576,12 +576,12 @@ td {
 }
 .post pre,
 .post .highlight {
-  background: #000;
+  background: #2d2d2d;
   margin: 20px 0;
   padding: 15px;
   overflow: auto;
   font-size: 13px;
-  color: #eaeaea;
+  color: #ccc;
   line-height: 1.6;
 }
 .post .highlight .gutter pre,
@@ -618,7 +618,7 @@ td {
 }
 .post .highlight figcaption {
   font-size: 0.85em;
-  color: #969896;
+  color: #999;
   line-height: 1em;
   margin-bottom: 1em;
 }
@@ -645,7 +645,7 @@ td {
   border-style: solid;
   border-color: #ccc;
   border-width: 1px 0;
-  background: #000;
+  background: #2d2d2d;
   padding: 15px 40px 15px 15px;
 }
 .post .gist .gist-file {
@@ -671,8 +671,8 @@ td {
   border: none;
 }
 .post .gist .gist-file .gist-meta {
-  background: #000;
-  color: #969896;
+  background: #2d2d2d;
+  color: #999;
   font: 13px SimHei, Verdana, sans-serif;
   text-shadow: 0 0;
   padding: 0;
@@ -687,7 +687,7 @@ td {
   text-decoration: underline;
 }
 pre .comment {
-  color: #969896;
+  color: #999;
 }
 pre .variable,
 pre .attribute,
@@ -701,7 +701,7 @@ pre .html .doctype,
 pre .css .id,
 pre .css .class,
 pre .css .pseudo {
-  color: #d54e53;
+  color: #f2777a;
 }
 pre .number,
 pre .preprocessor,
@@ -709,11 +709,11 @@ pre .built_in,
 pre .literal,
 pre .params,
 pre .constant {
-  color: #e78c45;
+  color: #f99157;
 }
 pre .ruby .class .title,
 pre .css .rules .attribute {
-  color: #b9ca4a;
+  color: #9c9;
 }
 pre .string,
 pre .value,
@@ -721,11 +721,11 @@ pre .inheritance,
 pre .header,
 pre .ruby .symbol,
 pre .xml .cdata {
-  color: #b9ca4a;
+  color: #9c9;
 }
 pre .title,
 pre .css .hexcolor {
-  color: #70c0b1;
+  color: #6cc;
 }
 pre .function,
 pre .python .decorator,
@@ -735,11 +735,11 @@ pre .ruby .title .keyword,
 pre .perl .sub,
 pre .javascript .title,
 pre .coffeescript .title {
-  color: #7aa6da;
+  color: #69c;
 }
 pre .keyword,
 pre .javascript .function {
-  color: #c397d8;
+  color: #c9c;
 }
 html,
 body {
@@ -1058,7 +1058,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff78ed;
+  background: #d4afff;
 }
 .sidebar-nav {
   margin: 0;
