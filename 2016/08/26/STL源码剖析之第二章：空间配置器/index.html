@@ -57,7 +57,7 @@
 <meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A82.png">
 <meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/空间配置器3.png">
 <meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A84.png">
-<meta property="og:updated_time" content="2016-08-26T08:48:58.160Z">
+<meta property="og:updated_time" content="2016-08-26T08:54:38.192Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="STL源码剖析之第二章：空间配置器">
 <meta name="twitter:description" content="STL源码剖析第二章：空间配置器笔记">
@@ -251,7 +251,7 @@
         
 
         <span class="post-count">
-        &nbsp; | &nbsp;字数&nbsp; 1,717
+        &nbsp; | &nbsp;字数&nbsp; 1,723
         </span>
 
         <span id="busuanzi_container_page_pv">
@@ -316,8 +316,8 @@
 <p>考虑小区快带来的内存碎片问题</p>
 </blockquote>
 <p>考虑到小区快带来的内存破碎问题，SGI设计了双层级配置器。</p>
-<p>第一层：直接使用malloc和free</p>
-<p>第二层：视情况不同，配置区块大于128byte时，调用第一层；小于128byte，采用更复杂的memory tool 模式。</p>
+<p>第一级配置器：直接使用malloc和free</p>
+<p>第二级配置器：视情况不同，配置区块大于128byte时，调用第一层；小于128byte，采用更复杂的memory tool 模式。</p>
 <p><img src="http://7xn5ph.com1.z0.glb.clouddn.com/%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A82.png" alt=""><br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/空间配置器3.png" alt=""></p>
 <h2 id="第一级配置器剖析">第一级配置器剖析</h2><ol>
 <li>SGI其实是直接使用了c中的<code>malloc</code>和<code>free</code>。</li>
