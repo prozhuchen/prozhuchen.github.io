@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://prozhuchen.github.io/"/>
-  <updated>2016-08-26T08:28:35.822Z</updated>
+  <updated>2016-08-26T08:45:06.441Z</updated>
   <id>http://prozhuchen.github.io/</id>
   
   <author>
@@ -15,11 +15,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[空间配置器]]></title>
-    <link href="http://prozhuchen.github.io/2016/08/25/FarBox-prozhuchen-2%E7%A9%BA%E9%97%B4%E9%80%82%E9%85%8D%E5%99%A8/"/>
-    <id>http://prozhuchen.github.io/2016/08/25/FarBox-prozhuchen-2空间适配器/</id>
-    <published>2016-08-25T02:26:00.000Z</published>
-    <updated>2016-08-26T08:28:35.822Z</updated>
+    <title><![CDATA[STL源码剖析之第二章：空间配置器]]></title>
+    <link href="http://prozhuchen.github.io/2016/08/26/p/"/>
+    <id>http://prozhuchen.github.io/2016/08/26/p/</id>
+    <published>2016-08-26T08:42:34.000Z</published>
+    <updated>2016-08-26T08:45:06.441Z</updated>
     <content type="html"><![CDATA[<h1 id="空间配置器">空间配置器</h1><blockquote>
 <p>空间配置器：是对空间进行分配和处理的部分。是空间而不是内存的原因是因为空间也可以是磁盘等其他介质。</p>
 </blockquote>
@@ -82,12 +82,13 @@
 <h2 id="内存基本处理工具">内存基本处理工具</h2><p>对于未初始化的空间，STL的处理工具有五个：<br><code>construct(),destroy(),uninitialized_copy(),uninitialized_fill(),uninitialized_fill_n()</code><br>因为挺好理解，我这里就不记录了。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<h1 id="空间配置器">空间配置器</h1><blockquote>
-<p>空间配置器：是对空间进行分配和处理的部分。是空间而不是内存的原因是因为空间也可以是磁盘等其他介质。</p>
-</blockquote>
-<ol>
-<li><p>SGI STL的配置器是alloc而不]]>
+    <![CDATA[STL源码剖析第二章：空间配置器笔记]]>
+    
     </summary>
+    
+      <category term="读书笔记" scheme="http://prozhuchen.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="读书笔记" scheme="http://prozhuchen.github.io/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

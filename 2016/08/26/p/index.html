@@ -36,7 +36,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="读书笔记," />
 
 
 
@@ -47,56 +47,20 @@
   <link rel="shorticon icon" type="image/x-icon" href="/images/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="空间配置器
-空间配置器：是对空间进行分配和处理的部分。是空间而不是内存的原因是因为空间也可以是磁盘等其他介质。
-
-
-SGI STL的配置器是alloc而不是allocator，而且不接受任何参数。
-
-SGI STL对于标准的配置器只做了一层简单包装，且不推荐我们使用。
-
-SGI STL的new和delete：
-
-内存配置由alloc::allocate()负责。
-
-内存释放由alloc::deal">
+<meta name="description" content="STL源码剖析第二章：空间配置器笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="空间配置器">
-<meta property="og:url" content="http://prozhuchen.github.io/2016/08/25/FarBox-prozhuchen-2空间适配器/index.html">
+<meta property="og:title" content="STL源码剖析之第二章：空间配置器">
+<meta property="og:url" content="http://prozhuchen.github.io/2016/08/26/p/index.html">
 <meta property="og:site_name" content="朱琛的小屋">
-<meta property="og:description" content="空间配置器
-空间配置器：是对空间进行分配和处理的部分。是空间而不是内存的原因是因为空间也可以是磁盘等其他介质。
-
-
-SGI STL的配置器是alloc而不是allocator，而且不接受任何参数。
-
-SGI STL对于标准的配置器只做了一层简单包装，且不推荐我们使用。
-
-SGI STL的new和delete：
-
-内存配置由alloc::allocate()负责。
-
-内存释放由alloc::deal">
+<meta property="og:description" content="STL源码剖析第二章：空间配置器笔记">
 <meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A81.png">
 <meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A82.png">
 <meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/空间配置器3.png">
 <meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A84.png">
-<meta property="og:updated_time" content="2016-08-26T08:28:35.822Z">
+<meta property="og:updated_time" content="2016-08-26T08:45:06.441Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="空间配置器">
-<meta name="twitter:description" content="空间配置器
-空间配置器：是对空间进行分配和处理的部分。是空间而不是内存的原因是因为空间也可以是磁盘等其他介质。
-
-
-SGI STL的配置器是alloc而不是allocator，而且不接受任何参数。
-
-SGI STL对于标准的配置器只做了一层简单包装，且不推荐我们使用。
-
-SGI STL的new和delete：
-
-内存配置由alloc::allocate()负责。
-
-内存释放由alloc::deal">
+<meta name="twitter:title" content="STL源码剖析之第二章：空间配置器">
+<meta name="twitter:description" content="STL源码剖析第二章：空间配置器笔记">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -106,7 +70,7 @@ SGI STL的new和delete：
   };
 </script>
 
-  <title> 空间配置器 | 朱琛的小屋 </title>
+  <title> STL源码剖析之第二章：空间配置器 | 朱琛的小屋 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -206,14 +170,6 @@ SGI STL的new和delete：
           </a>
         </li>
       
-        
-        <li class="menu-item menu-item-readnote">
-          <a href="/readnote" rel="section">
-            <i class="menu-item-icon icon-next-readnote"></i> <br />
-            读书笔记
-          </a>
-        </li>
-      
 
       
       
@@ -263,7 +219,7 @@ SGI STL的new和delete：
           
           
             
-              空间配置器
+              STL源码剖析之第二章：空间配置器
             
           
         </h1>
@@ -272,11 +228,26 @@ SGI STL的new和delete：
       <div class="post-meta">
         <span class="post-time">
           发表于
-          <time itemprop="dateCreated" datetime="2016-08-25T10:26:00+08:00" content="2016年08月25日">
-            2016年08月25日
+          <time itemprop="dateCreated" datetime="2016-08-26T16:42:34+08:00" content="2016年08月26日">
+            2016年08月26日
           </time>
         </span>
 
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                  <span itemprop="name">读书笔记</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
         
 
         <span class="post-count">
@@ -292,8 +263,8 @@ SGI STL的new和delete：
           
             <span class="post-comments-count">
               &nbsp; | &nbsp;
-              <a href="/2016/08/25/FarBox-prozhuchen-2空间适配器/#comments" itemprop="discussionUrl">
-                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/25/FarBox-prozhuchen-2空间适配器/" itemprop="commentsCount"></span>
+              <a href="/2016/08/26/p/#comments" itemprop="discussionUrl">
+                <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/26/p/" itemprop="commentsCount"></span>
               </a>
             </span>
           
@@ -301,6 +272,12 @@ SGI STL的new和delete：
       </div>
 
      
+        <div class="post-tags">
+          
+            <a href="/tags/读书笔记/" rel="tag">#读书笔记</a>
+          
+        </div>
+      
     </header>
 
     <div class="post-body">
@@ -431,8 +408,8 @@ SGI STL的new和delete：
         
           <div class="comments" id="comments">
             
-              <div class="ds-thread" data-thread-key="2016/08/25/FarBox-prozhuchen-2空间适配器/"
-                   data-title="空间配置器" data-url="http://prozhuchen.github.io/2016/08/25/FarBox-prozhuchen-2空间适配器/">
+              <div class="ds-thread" data-thread-key="2016/08/26/p/"
+                   data-title="STL源码剖析之第二章：空间配置器" data-url="http://prozhuchen.github.io/2016/08/26/p/">
               </div>
             
           </div>
@@ -479,14 +456,14 @@ SGI STL的new和delete：
           
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
