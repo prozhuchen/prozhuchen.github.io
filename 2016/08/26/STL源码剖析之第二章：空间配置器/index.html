@@ -57,7 +57,7 @@
 <meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A82.png">
 <meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/空间配置器3.png">
 <meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A84.png">
-<meta property="og:updated_time" content="2016-08-26T08:54:38.192Z">
+<meta property="og:updated_time" content="2016-08-26T10:04:09.328Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="STL源码剖析之第二章：空间配置器">
 <meta name="twitter:description" content="STL源码剖析第二章：空间配置器笔记">
@@ -251,7 +251,7 @@
         
 
         <span class="post-count">
-        &nbsp; | &nbsp;字数&nbsp; 1,723
+        &nbsp; | &nbsp;字数&nbsp; 1,721
         </span>
 
         <span id="busuanzi_container_page_pv">
@@ -336,7 +336,7 @@
 <blockquote>
 <p>上调到8的倍数实现：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">enum</span> &#123;__ALIGN=<span class="number">8</span>&#125;;</span><br><span class="line">&#123; <span class="keyword">return</span> (((__bytes) + (<span class="keyword">size_t</span>) _ALIGN-<span class="number">1</span>) &amp; ~((<span class="keyword">size_t</span>) _ALIGN – <span class="number">1</span>)); &#125;</span><br></pre></td></tr></table></figure>
-<p>free_list:为了节省空间，obj的结构是一个union类型。也就是&gt; 说，当该区块给用户的时候，obj是一个指向实际区块的指针，&gt;当给系统时候，obj是一个指向下一个节点的指针。这个可以节省内存的开销。<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">obj</span>&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> <span class="title">obj</span>* <span class="title">free_list_link</span>;</span></span><br><span class="line">    char client_data[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>free_list:为了节省空间，obj的结构是一个union类型。也就是说，当该区块给用户的时候，obj是一个指向实际区块的指针，当给系统时候，obj是一个指向下一个节点的指针。这个可以节省内存的开销。<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">obj</span>&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> <span class="title">obj</span>* <span class="title">free_list_link</span>;</span></span><br><span class="line">    char client_data[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <h3 id="空间配置函数allocate()">空间配置函数allocate()</h3><h3 id="空间释放函数deellocate()">空间释放函数deellocate()</h3><h3 id="重新填充free_list函数refill()">重新填充free_list函数refill()</h3><p>当allocate()发现没有freelist没有区块的时候，就调用refill()，refill()从内存池中取出内存重新填充freelist。默认取得20个新区快，但是当内存池不够时，获得的会小于20.</p>
 <h3 id="从内存池取内存函数chunk_alloc()">从内存池取内存函数chunk_alloc()</h3><p>chunk_alloc()通过两个指针：end_free和start_free的差值来判断内存池的剩下空间。</p>
