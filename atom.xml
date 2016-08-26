@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://prozhuchen.github.io/"/>
-  <updated>2016-08-26T10:04:09.328Z</updated>
+  <updated>2016-08-26T11:55:23.882Z</updated>
   <id>http://prozhuchen.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://prozhuchen.github.io/2016/08/26/STL%E6%BA%90%E7%A0%81%E5%89%96%E6%9E%90%E4%B9%8B%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%9A%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A8/"/>
     <id>http://prozhuchen.github.io/2016/08/26/STL源码剖析之第二章：空间配置器/</id>
     <published>2016-08-26T08:42:34.000Z</published>
-    <updated>2016-08-26T10:04:09.328Z</updated>
+    <updated>2016-08-26T11:55:23.882Z</updated>
     <content type="html"><![CDATA[<h1 id="空间配置器">空间配置器</h1><blockquote>
 <p>空间配置器：是对空间进行分配和处理的部分。是空间而不是内存的原因是因为空间也可以是磁盘等其他介质。</p>
 </blockquote>
@@ -27,6 +27,8 @@
 <li><p>SGI STL的配置器是alloc而不是allocator，而且不接受任何参数。</p>
 </li>
 <li><p>SGI STL对于标准的配置器只做了一层简单包装，且不推荐我们使用。</p>
+</li>
+<li><p>在一般使用类的动态内存申请时，我们使用的new其实分为两步：<br> (1)调用operator new 配置内存<br> (2)调用类的构造函数构造对象。<br>delete也一样：<br> (1)调用类的析构函数析构对象。<br> (2)调用operator delete 释放内存</p>
 </li>
 <li><p>SGI STL的new和delete：</p>
 <ol>
@@ -47,15 +49,15 @@
 <p>向system heap要求空间</p>
 <p>考虑多线程</p>
 <p>考虑内存不足时的应变措施</p>
-<p>考虑小区快带来的内存碎片问题</p>
+<p>考虑小区块带来的内存碎片问题</p>
 </blockquote>
 <p>考虑到小区快带来的内存破碎问题，SGI设计了双层级配置器。</p>
-<p>第一级配置器：直接使用malloc和free</p>
-<p>第二级配置器：视情况不同，配置区块大于128byte时，调用第一层；小于128byte，采用更复杂的memory tool 模式。</p>
+<p>第一级配置器：直接使用C中的malloc和free。</p>
+<p>第二级配置器：视情况不同，配置区块大于128byte时，调用第一级；小于128byte，采用更复杂的内存池 模式。</p>
 <p><img src="http://7xn5ph.com1.z0.glb.clouddn.com/%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A82.png" alt=""><br><img src="http://7xn5ph.com1.z0.glb.clouddn.com/空间配置器3.png" alt=""></p>
 <h2 id="第一级配置器剖析">第一级配置器剖析</h2><ol>
 <li>SGI其实是直接使用了c中的<code>malloc</code>和<code>free</code>。</li>
-<li>sgi不使用c++的new,而是使用c的<code>malloc</code>,有一部分原因是因为c++中没有提供<code>realloc</code>的功能。</li>
+<li>SGI不使用c++的new,而是使用c的<code>malloc</code>,有一部分原因是因为c++中没有提供<code>realloc</code>的功能。</li>
 <li>但是当出现内存配置出现问题时，SGI又会仿照C ++ 实现一个new-handler机制。不能直接使用c++的该机制的原因是，它没有使用new来配置内存，所以无法直接使用这个c ++ 的特定机制，只能仿真一个类似的。</li>
 <li>当第一级配置器的<code>allocate（）</code>和<code>realloc（）</code>不成功时，它会调用<code>oom_malloc（）</code>和<code>oom_realloc（）</code>函数（oom代表<code>out of memory</code>），这两个函数内部都是一个内循环，不断调用“内存不足处理例程”。</li>
 <li>注意一点的是，上述的内存不足处理例程由调用者自己设计，如果没有被设定，配置器会直接丢出<code>BAD_AALOC</code>异常。</li>
@@ -64,15 +66,19 @@
 <blockquote>
 <p>额外负担是指，当每一个区块内存被分配的时侯，他都需要一部分额外内存来纪录该块内存的大小，这一块纪录内存属于额外负担。</p>
 </blockquote>
-<p>第二级配置器对于内存配置的做法是：<br>区块超过128byte时，移交给第一层配置器处理。<br>区块小于128byte时，使用内存池进行管理。</p>
-<h3 id="内存池管理">内存池管理</h3><p>内存池每次的配置一大块内存，然后用一个freelist来进行维护。有内存需求则从freelist拔出，如果释放则有freelist收回。为了方便管理，SGI会将小区块的内存需求调整到8的倍数。这样一来，有8，16，24，32，40，48，56，64，72，80，88，96，104，112，120，128，总共16个freelist。</p>
+<p>第二级配置器对于内存配置的做法是：<br>区块大于128byte时，移交给第一级配置器处理。<br>区块小于128byte时，使用内存池进行管理。</p>
+<h3 id="内存池管理">内存池管理</h3><p>内存池每次的配置一大块内存，然后用一个freelist来进行维护。有内存需求则从freelist拨出，如果释放则有freelist收回。为了方便管理，SGI会将小区块的内存需求调整到8的倍数。这样一来，有8，16，24，32，40，48，56，64，72，80，88，96，104，112，120，128，总共16个freelist。</p>
 <p><img src="http://7xn5ph.com1.z0.glb.clouddn.com/%E7%A9%BA%E9%97%B4%E9%85%8D%E7%BD%AE%E5%99%A84.png" alt=""></p>
 <blockquote>
 <p>上调到8的倍数实现：</p>
+</blockquote>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">enum</span> &#123;__ALIGN=<span class="number">8</span>&#125;;</span><br><span class="line">&#123; <span class="keyword">return</span> (((__bytes) + (<span class="keyword">size_t</span>) _ALIGN-<span class="number">1</span>) &amp; ~((<span class="keyword">size_t</span>) _ALIGN – <span class="number">1</span>)); &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
 <p>free_list:为了节省空间，obj的结构是一个union类型。也就是说，当该区块给用户的时候，obj是一个指向实际区块的指针，当给系统时候，obj是一个指向下一个节点的指针。这个可以节省内存的开销。<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">union</span> <span class="title">obj</span>&#123;</span></span><br><span class="line">    <span class="class"><span class="keyword">union</span> <span class="title">obj</span>* <span class="title">free_list_link</span>;</span></span><br><span class="line">    char client_data[<span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<h3 id="空间配置函数allocate()">空间配置函数allocate()</h3><h3 id="空间释放函数deellocate()">空间释放函数deellocate()</h3><h3 id="重新填充free_list函数refill()">重新填充free_list函数refill()</h3><p>当allocate()发现没有freelist没有区块的时候，就调用refill()，refill()从内存池中取出内存重新填充freelist。默认取得20个新区快，但是当内存池不够时，获得的会小于20.</p>
+<h3 id="空间配置函数allocate()">空间配置函数allocate()</h3><p>区块大于128byte时，移交给第一级配置器处理。<br>区块小于128byte时，在freelist中找可用区块，有则调用；没有则上调至8倍数边界，调用refill()来填充空间。</p>
+<h3 id="空间释放函数deellocate()">空间释放函数deellocate()</h3><p>区块大于128byte时，移交给第一级配置器处理。<br>区块小于128byte时，找出对应区块，进行回收。</p>
+<h3 id="重新填充free_list函数refill()">重新填充free_list函数refill()</h3><p>当allocate()发现没有freelist没有区块的时候，就调用refill()，refill()从内存池中取出内存重新填充freelist。默认取得20个新区快，但是当内存池不够时，获得的会小于20.</p>
 <h3 id="从内存池取内存函数chunk_alloc()">从内存池取内存函数chunk_alloc()</h3><p>chunk_alloc()通过两个指针：end_free和start_free的差值来判断内存池的剩下空间。</p>
 <ol>
 <li>空间&gt;20区块空间：调出20个区块空间给freelist.</li>
