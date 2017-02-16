@@ -1,0 +1,1238 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="6v8-fdxFxIFT-NHquFTzzIxFjXhBLk8K0HlsUrG2sDs" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="C++,读书笔记," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="朱琛的小屋" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="c++ primer中第十二章：动态内存的笔记。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="c++ primer 笔记第十二弹 - 动态内存">
+<meta property="og:url" content="http://prozhuchen.com/2017/01/22/c++primer_note12/index.html">
+<meta property="og:site_name" content="朱琛的小屋">
+<meta property="og:description" content="c++ primer中第十二章：动态内存的笔记。">
+<meta property="og:updated_time" content="2017-01-22T10:43:10.302Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="c++ primer 笔记第十二弹 - 动态内存">
+<meta name="twitter:description" content="c++ primer中第十二章：动态内存的笔记。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://prozhuchen.com/2017/01/22/c++primer_note12/"/>
+
+
+
+
+
+  <title> c++ primer 笔记第十二弹 - 动态内存 | 朱琛的小屋 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0ab21b9681dab5c2716490100e6d244b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">朱琛的小屋</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-readnotes">
+          <a href="/categories/读书笔记/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            读书笔记
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-comment"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://prozhuchen.com/2017/01/22/c++primer_note12/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="朱琛">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="朱琛的小屋">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="朱琛的小屋" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                c++ primer 笔记第十二弹 - 动态内存
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2017-01-22T18:28:17+08:00">
+                2017年01月22日
+              </time>
+            
+
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/读书笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">读书笔记</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/读书笔记/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          <span class="post-count">
+            &nbsp; | &nbsp;字数&nbsp; 3,625
+            </span>
+            
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/22/c++primer_note12/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/22/c++primer_note12/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/01/22/c++primer_note12/" class="leancloud_visitors" data-flag-title="c++ primer 笔记第十二弹 - 动态内存">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>c++ primer中第十二章：动态内存的笔记。<a id="more"></a></p>
+<h1 id="内存类型分类">内存类型分类</h1><ol>
+<li>静态内存：静态内存用来保存局部static对象，类static数据成员，以及定义在任何函数之外的变量。</li>
+<li>栈内存：用来保存在函数内的非static对象，由编译器进行自动创建和销毁。</li>
+<li>堆内存：又称自由空间。是我们在程序运行时分配的对象。动态对象的生存期由程序来控制。所以需要我们显式的销毁。</li>
+</ol>
+<h1 id="直接管理内存_-new_，delete">直接管理内存 -<code>new</code> ，<code>delete</code></h1><ol>
+<li>如果<code>new</code>无法分配所要求的内存空间，它会抛出一个类型为<code>bad_alloc</code>的异常。</li>
+<li><code>new</code>的作用是分配所需内存，返回指向该对象的指针</li>
+<li><code>delete</code>的作用是销毁给定指针指向的对象，释放对应内存。</li>
+<li><code>new</code>是可以分配<code>const</code>对象的。</li>
+<li>动态内存不同于之前的<code>shared_str</code>，他不会自动释放，所以它的生存期一直到被显式释放之前。但是在很多情况下，我们都容易忘记释放内存，导致内存泄露。</li>
+</ol>
+<p>直接管理内存的劣势：</p>
+<ol>
+<li><p>忘记<code>delete</code>内存。</p>
+</li>
+<li><p>使用已经释放过的对象。</p>
+</li>
+<li><p>同一块内存释放两次。</p>
+</li>
+<li><p>特别是我们有多个指针指向同一块内存，当其中一个指针<code>delete</code>后，其他指针指向的内存也没有了，此时所有指针无效了。但是我们容易忘记该事实。</p>
+</li>
+</ol>
+<h1 id="智能指针">智能指针</h1><p>智能指针是c++11新标准颁布的，用来管理动态内存。智能指针与以前的<code>new，delete</code>区别主要在于他可以自动释放所指向的对象。主要有两类智能指针：<code>shared_ptr</code>和<code>unique_str</code>。<code>shared_ptr</code>允许多个指针指向同一个对象，<code>unique_str</code>独占所指向的对象。</p>
+<h2 id="shared_ptr"><code>shared_ptr</code></h2><p><code>shared_ptr</code>也是一种模板，定义时我们需要提供指针可以指向的类型：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; p1;    <span class="comment">//可以指向string类型</span></span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">list</span>&lt;<span class="keyword">int</span>&gt;&gt; p2; <span class="comment">//可以指向list&lt;int&gt;类型</span></span><br></pre></td></tr></table></figure>
+<h3 id="shared_ptr分配内存"><code>shared_ptr</code>分配内存</h3><p><code>shared_ptr</code>使用<code>make_shared</code>标准库函数来分配内存。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// shared_ptr that points to an int with value 42</span></span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p3 = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">42</span>);</span><br><span class="line"><span class="comment">// p4 points to a string with value 9999999999</span></span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; p4 = make_shared&lt;<span class="built_in">string</span>&gt;(<span class="number">10</span>, ’<span class="number">9</span>’);</span><br><span class="line"><span class="comment">// p5 points to an int that is value initialized (§ 3.3.1 (p. 98)) to 0</span></span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="keyword">int</span>&gt; p5 = make_shared&lt;<span class="keyword">int</span>&gt;();</span><br></pre></td></tr></table></figure>
+<p>注意一点，调用<code>make_shared&lt;string&gt;时</code>传递的参数必须与<code>string</code>的某个构造函数相匹配。如果不传递任何参数，对象会自己进行初始化。</p>
+<p>我们也可以使用c++11新标准的<code>auto</code>关键字进行定义</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> p6 = make_shared&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt;();</span><br></pre></td></tr></table></figure>
+<h3 id="shared_ptr拷贝与赋值"><code>shared_ptr</code>拷贝与赋值</h3><p>当进行拷贝与赋值操作时，每个<code>shared_ptr</code>都会记录有多少个其他的<code>shared_ptr</code>指向相同的对象。</p>
+<p>每一个<code>shared_ptr</code>都有一个关联的计数器。当我们拷贝一个<code>shared_str</code>时，计数器就会递增。</p>
+<p>基本上一个例子我们就能明白。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> r = make_shared&lt;<span class="keyword">int</span>&gt;(<span class="number">42</span>); <span class="comment">// r指向的int只有一个引用者</span></span><br><span class="line">r = q; 	<span class="comment">// r指向了q所指向的地址</span></span><br><span class="line">		<span class="comment">// 递增q所指向对象的引用计数</span></span><br><span class="line">		<span class="comment">// 递减r原来所指向对象的引用计数</span></span><br><span class="line">		<span class="comment">// r原来所指向对象的引用计数为0，即没有引用者，自动释放</span></span><br></pre></td></tr></table></figure>
+<h3 id="shared_str自动销毁所指对象"><code>shared_str</code>自动销毁所指对象</h3><p><code>shared_str</code>是通过一个特殊的成员函数-析构函数来完成销毁工作的。如果当引用计数为0时，它的析构函数就会自动销毁对象，释放内存。</p>
+<h3 id="shared_str自定义删除器"><code>shared_str</code>自定义删除器</h3><p>如果我们希望被销毁时，对指针不是单纯的进行<code>delete</code>操作，我们可以定义一个自己的删除器函数传给智能指针。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">end_connection</span><span class="params">(connection *p)</span> </span>&#123; disconnect(*p); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(destination &amp;d <span class="comment">/* other parameters */</span>)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">connection c = connect(&amp;d);</span><br><span class="line"><span class="built_in">shared_ptr</span>&lt;connection&gt; p(&amp;c, end_connection);</span><br><span class="line"><span class="comment">// use the connection</span></span><br><span class="line"><span class="comment">// when f exits, even if by an exception, the connection will be properly closed</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们可以看到上面的例子，当p被销毁时，我们会调用<code>end_connection</code>，来确保链接被关闭。这样即使在代码运行中发生异常，由于智能指针的特质，连接也一定会被关闭。</p>
+<h2 id="unique_str"><code>unique_str</code></h2><p><code>unique_str</code>与<code>shared_str</code>不同的是，某个时刻只能有一个<code>unique_str</code>指向一个给定对象。当<code>unique_str</code>被销毁时，它所指向的对象也会被销毁。</p>
+<h3 id="unique_ptr分配内存"><code>unique_ptr</code>分配内存</h3><p><code>unique_str</code>没有<code>make_shared</code>这样的标准库函数来返回动态指针。我们只能使用<code>new</code>进行直接初始化。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unique_ptr&lt;<span class="keyword">double</span>&gt; p1; </span><br><span class="line">unique_ptr&lt;<span class="keyword">int</span>&gt; p2(<span class="keyword">new</span> <span class="keyword">int</span>(<span class="number">42</span>));</span><br></pre></td></tr></table></figure>
+<h3 id="unique_ptr拷贝与赋值"><code>unique_ptr</code>拷贝与赋值</h3><p>因为<code>unique_str</code>绑定了他指向的对象，所以她不能进行普通的拷贝或者赋值。我们只能调用<code>release</code>或者<code>reset</code>来转移指针的所有权。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// transfers ownership from p1 (which points to the string Stegosaurus) to p2</span></span><br><span class="line">unique_ptr&lt;<span class="built_in">string</span>&gt; p2(p1.release()); <span class="comment">// release makes p1 null</span></span><br><span class="line">unique_ptr&lt;<span class="built_in">string</span>&gt; p3(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"Trex"</span>));</span><br><span class="line"><span class="comment">// transfers ownership from p3 to p2</span></span><br><span class="line">p2.reset(p3.release()); <span class="comment">// reset deletes the memory to which p2 had pointed</span></span><br></pre></td></tr></table></figure>
+<p>我们可以发现，利用<code>release</code>将切断<code>unique_ptr</code>和他所绑定对象的关系，返回的值可以用来初始化另一个<code>unique_ptr</code>。这样就达到了所有权转移的目的。</p>
+<h3 id="unique_str自定义删除器"><code>unique_str</code>自定义删除器</h3><p><code>unique_str</code>自定义删除器和上面<code>shared_str</code>不同，我们必须在尖括号中<code>unique_str</code>指向类型后提供删除器类型。重写上面<code>shared_str</code>自定义删除器的例子：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span><span class="params">(destination &amp;d )</span></span><br><span class="line"></span>&#123;</span><br><span class="line">connection c = connect(&amp;d); </span><br><span class="line"><span class="comment">// 当p被销毁时，连接将会被关闭</span></span><br><span class="line">unique_ptr&lt;connection, <span class="keyword">decltype</span>(end_connection)*&gt; p(&amp;c, end_connection);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 即使发生异常，连接也会被关闭</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个例子中，<code>decltype</code>返回的是一个函数类型，所以我们必须添加一个<code>*</code> 来指出我们该类型的一个指针。</p>
+<h3 id="unique_str管理动态数组"><code>unique_str</code>管理动态数组</h3><p><code>unique_str</code>初始化动态数组的时候，我们要在对象类型后加一对空方括号。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// up 指向一个包含10个非初始化int的数组</span></span><br><span class="line">unique_ptr&lt;<span class="keyword">int</span>[]&gt; up(<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>]);</span><br><span class="line">up.release(); <span class="comment">// 自动调用delete[]销毁其指针</span></span><br></pre></td></tr></table></figure>
+<p>当一个<code>unique_str</code>指向一个数组时，我们可以使用下标运算符来访问数组中的元素。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i != <span class="number">10</span>; ++i)</span><br><span class="line">	up[i] = i;</span><br></pre></td></tr></table></figure>
+<h1 id="allocator类"><code>allocator</code>类</h1><p><code>new</code>操作将内存分配和对象构造结合在一起，<code>delete</code>将对象析构和内存释放组合在一起。但是有的时候，我们希望将内存分配和对象构造分离。我们可以先分配大块内存，然后再真正需要时才执行对象创建操作。</p>
+<h2 id="allocator分配内存"><code>allocator</code>分配内存</h2><p><code>allocator</code>是一个模板，为了定义一个对象，我们要指明这个<code>allocator</code>可以分配的对象类型。当一个<code>allocator</code>对象分配内存时，它会根据对象类型来确定恰当的内存大小。但是这些内存是未构造的，所以我们需要的时候，要构造相应的对象。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">allocator&lt;<span class="built_in">string</span>&gt; alloc; </span><br><span class="line"><span class="keyword">auto</span> <span class="keyword">const</span> p = alloc.allocate(n); <span class="comment">// 分配n个未初始化的string</span></span><br></pre></td></tr></table></figure>
+<h2 id="allocator构造对象"><code>allocator</code>构造对象</h2><p>我们可以使用<code>construct</code>来在未分配的内存初始化构造的对象。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> q = p; <span class="comment">// q 指向最后构造的元素之后的位置</span></span><br><span class="line">alloc.construct(q++); <span class="comment">// *q is the empty string</span></span><br><span class="line">alloc.construct(q++, <span class="number">10</span>, ’c’); <span class="comment">// *q is cccccccccc</span></span><br><span class="line">alloc.construct(q++, <span class="string">"hi"</span>); <span class="comment">// *q is hi!</span></span><br></pre></td></tr></table></figure>
+<h2 id="allocator销毁对象"><code>allocator</code>销毁对象</h2><p>当我们用完对象后，我们需要销毁这个对象，对指向的对象执行析构函数。</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="comment">(q != p)</span></span><br><span class="line">	alloc.destroy<span class="comment">(--q)</span>;</span><br></pre></td></tr></table></figure>
+<p>我们需要用一个while循环，来不停的销毁对象，并且对q进行递减操作。这样能够保证所有构造元素都被销毁。销毁后，我们可以重新使用这部分内存来保存其他的<code>string</code>。</p>
+<h2 id="allocator销毁内存"><code>allocator</code>销毁内存</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">alloc</span><span class="class">.deallocate</span>(<span class="tag">p</span>, <span class="tag">n</span>);</span><br></pre></td></tr></table></figure>
+<p>我们传递给该函数的指针不能为空，必须指向由<code>allocate</code>分配的内存。而且传递给<code>deallocate</code>的大小参数必须和<code>allocate</code>分配内存时的大小一样。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/QRcode.png" alt="朱琛 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>扫一扫，用手机看更方便~</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/WeChat.jpg" alt="朱琛 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/Alipay.jpg" alt="朱琛 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <div>
+    
+      
+    
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/C/" rel="tag"># C++</a>
+          
+            <a href="/tags/读书笔记/" rel="tag"># 读书笔记</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/19/c++primer_note7/" rel="next" title="c++ primer 笔记第七弹 - 类">
+                <i class="fa fa-chevron-left"></i> c++ primer 笔记第七弹 - 类
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/22/c++primer_note12/"
+           data-title="c++ primer 笔记第十二弹 - 动态内存" data-url="http://prozhuchen.com/2017/01/22/c++primer_note12/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="朱琛" />
+          <p class="site-author-name" itemprop="name">朱琛</p>
+          <p class="site-description motion-element" itemprop="description">做自己喜欢的事</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/zhu-chen-71-40" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/prozhuchen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/u010006643" title="我的CSDN博客" target="_blank">我的CSDN博客</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#内存类型分类"><span class="nav-text">内存类型分类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#直接管理内存_-new_，delete"><span class="nav-text">直接管理内存 -new ，delete</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#智能指针"><span class="nav-text">智能指针</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#shared_ptr"><span class="nav-text">shared_ptr</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shared_ptr分配内存"><span class="nav-text">shared_ptr分配内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shared_ptr拷贝与赋值"><span class="nav-text">shared_ptr拷贝与赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shared_str自动销毁所指对象"><span class="nav-text">shared_str自动销毁所指对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#shared_str自定义删除器"><span class="nav-text">shared_str自定义删除器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#unique_str"><span class="nav-text">unique_str</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#unique_ptr分配内存"><span class="nav-text">unique_ptr分配内存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unique_ptr拷贝与赋值"><span class="nav-text">unique_ptr拷贝与赋值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unique_str自定义删除器"><span class="nav-text">unique_str自定义删除器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unique_str管理动态数组"><span class="nav-text">unique_str管理动态数组</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#allocator类"><span class="nav-text">allocator类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#allocator分配内存"><span class="nav-text">allocator分配内存</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#allocator构造对象"><span class="nav-text">allocator构造对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#allocator销毁对象"><span class="nav-text">allocator销毁对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#allocator销毁内存"><span class="nav-text">allocator销毁内存</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">朱琛</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">本站访客数&nbsp;<i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv">本站总访问量&nbsp;<i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="http://7xn5ph.com1.z0.glb.clouddn.com/index.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"prozhuchen"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("GaBBIDanEd85q318ogkwDwMm-gzGzoHsz", "JWabQ0RyrncErVXN5y9nahgW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+    <script type="text/javascript" src="/js/src/canvas-nest.min.js"></script>
+  
+</body>
+</html>
