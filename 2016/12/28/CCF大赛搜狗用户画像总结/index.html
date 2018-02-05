@@ -94,11 +94,11 @@
 <meta property="og:url" content="http://prozhuchen.com/2016/12/28/CCF大赛搜狗用户画像总结/index.html">
 <meta property="og:site_name" content="朱琛的小屋">
 <meta property="og:description" content="CCF大赛做了两个多月终于结束了，最后能拿到第五的成绩很意外也很高兴，毕竟第一次参加这种高规格的数据挖掘大赛，自己收获了很多。">
-<meta property="og:image" content="http://prozhuchen.com/images/stacking1.png">
-<meta property="og:image" content="http://prozhuchen.com/images/stacking2.png">
-<meta property="og:image" content="http://prozhuchen.com/images/stacking3.png">
-<meta property="og:image" content="http://prozhuchen.com/images/stacking4.png">
-<meta property="og:updated_time" content="2017-03-05T11:46:54.546Z">
+<meta property="og:image" content="http://prozhuchen.github.io/images/stacking1.png">
+<meta property="og:image" content="http://prozhuchen.github.io/images/stacking2.png">
+<meta property="og:image" content="http://prozhuchen.github.io/images/stacking3.png">
+<meta property="og:image" content="http://prozhuchen.github.io/images/stacking4.png">
+<meta property="og:updated_time" content="2018-02-05T06:53:38.742Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2016CCF大赛-搜狗用户画像-经验分享">
 <meta name="twitter:description" content="CCF大赛做了两个多月终于结束了，最后能拿到第五的成绩很意外也很高兴，毕竟第一次参加这种高规格的数据挖掘大赛，自己收获了很多。">
@@ -377,7 +377,7 @@
           
 
           <span class="post-count">
-            &nbsp; | &nbsp;字数&nbsp; 3,549
+            &nbsp; | &nbsp;字数&nbsp; 3,553
             </span>
             
           
@@ -441,7 +441,7 @@
 <p>在我们的使用中，我们是讲训练好的word2vec信息融入到了后来提到的分类模型中。在前几名的答辩中，都是同时使用了这两个特征，分别或者一起放到深度学习框架里进行训练。然后和正常的TFIDF特征一起进行集成学习。这点是我们差距很大的地方。</p>
 <p>同时在后来和高君老师的聊天中，他也提到了目前搜狗的做法也是利用词向量特征直接放到深度学习框架中来做。不同的是，他们拥有着十分庞大的数据量，所以效果更加显著。</p>
 <h2 id="2-2_分类模型">2.2 分类模型</h2><p>我们在比赛中最后使用的集成模型是stacking模型。这里详细介绍一下这个模型，算是对队友的一个补充。</p>
-<p>经典Stacking模型是指将多种分类器组合在一起来取得更好表现的一种集成学习模型。一般情况下，Stacking模型分为两层。第一层中我们训练多个不同的模型，然后再以第一层训练的各个模型的输出作为输入来训练第二层的模型，以得到一个最终的输出。为了更加详细的阐述stacking模型的训练和预测过程，我们用下面的图作为示例。<br><img src="http://prozhuchen.com/images/stacking1.png" alt="经典stacking模型训练图"><br>首先，我们从stacking模型的训练开始阐述。在上图中我们可以看到，该模型的第一层有五个分类模型，第二层有一个分类模型。在第一层中，对于不同的分类模型，我们分别将训练数据分为 5 份，接下来迭代5次。每次迭代时，将 4 份数据作为训练集对每个分类模型进行训练，然后剩下一份数据在训练好的分类模型上进行预测并且保留结果。当5次迭代都完成以后，我们就获得了一个结果矩阵。该矩阵是一个N<em>1的矩阵，N是训练集的样本数。当5个模型都进行完上述操作后，我们就可以得到一个N</em>5的结果矩阵。然后将该矩阵导入到第二层的模型6中进行训练，此时全部模型训练完毕。接下来是stacking模型的预测过程。<br><img src="http://prozhuchen.com/images/stacking2.png" alt="经典stacking模型预测图"><br>接下来我们开始阐述该模型的预测过程。在第一层中，对于不同分类模型，我们还是使用在训练时分成的5份训练数据进行五次迭代。每次迭代时，我们利用训练后的分类模型对预测集进行预测并保留下来。当5次迭代都完成以后，我们可以得到一个M<em>5的矩阵，M是预测集的样本数。 我们将这个矩阵按列取平均，缩减成M</em>1的矩阵。当5个模型都进行完上述操作后，我们就可以得到一个M*5的结果矩阵。然后将该矩阵导入到第二层中训练好的模型6进行预测，就可以得到最终的预测结果。<br>    在介绍完经典stacking模型的训练及预测过程后，接下来阐述我们自己的stacking模型构建和改进。<br><img src="http://prozhuchen.com/images/stacking3.png" alt="改进后stacking模型训练图"><br>在模型训练过程中，模型第一层中的分类模型有25个。这其中包含了不同类型的分类器，和同一类型但是参数不同的分类器。增加这些分类器的原因是为了增加训练扰动，能够缓解分类模型的过拟合问题。在第二层中，我们使用了SVM分类器。同时我们加入了由词向量转变而成的文档向量矩阵，与第一层的训练结果进行特征拼接，拼接后的结果用来进行训练。加入词向量特征，可以引入词向量所含的语义信息。之所以加在第二层是因为第一层训练集特征的稀疏特性不适合与具有密集特性的词向量进行融合。<br><img src="http://prozhuchen.com/images/stacking4.png" alt="改进后stacking模型训练图"><br>在预测过程中，流程和训练过程相似，只是改成了用预测集在训练好的分类模型上进行预测。我们注意到，在Stacking模型中，由于在第一层的预测过程也需要使用第一层时的数据划分，所以一般Stacking模型的运行顺序是：</p>
+<p>经典Stacking模型是指将多种分类器组合在一起来取得更好表现的一种集成学习模型。一般情况下，Stacking模型分为两层。第一层中我们训练多个不同的模型，然后再以第一层训练的各个模型的输出作为输入来训练第二层的模型，以得到一个最终的输出。为了更加详细的阐述stacking模型的训练和预测过程，我们用下面的图作为示例。<br><img src="http://prozhuchen.github.io/images/stacking1.png" alt="经典stacking模型训练图"><br>首先，我们从stacking模型的训练开始阐述。在上图中我们可以看到，该模型的第一层有五个分类模型，第二层有一个分类模型。在第一层中，对于不同的分类模型，我们分别将训练数据分为 5 份，接下来迭代5次。每次迭代时，将 4 份数据作为训练集对每个分类模型进行训练，然后剩下一份数据在训练好的分类模型上进行预测并且保留结果。当5次迭代都完成以后，我们就获得了一个结果矩阵。该矩阵是一个N<em>1的矩阵，N是训练集的样本数。当5个模型都进行完上述操作后，我们就可以得到一个N</em>5的结果矩阵。然后将该矩阵导入到第二层的模型6中进行训练，此时全部模型训练完毕。接下来是stacking模型的预测过程。<br><img src="http://prozhuchen.github.io/images/stacking2.png" alt="经典stacking模型预测图"><br>接下来我们开始阐述该模型的预测过程。在第一层中，对于不同分类模型，我们还是使用在训练时分成的5份训练数据进行五次迭代。每次迭代时，我们利用训练后的分类模型对预测集进行预测并保留下来。当5次迭代都完成以后，我们可以得到一个M<em>5的矩阵，M是预测集的样本数。 我们将这个矩阵按列取平均，缩减成M</em>1的矩阵。当5个模型都进行完上述操作后，我们就可以得到一个M*5的结果矩阵。然后将该矩阵导入到第二层中训练好的模型6进行预测，就可以得到最终的预测结果。<br>    在介绍完经典stacking模型的训练及预测过程后，接下来阐述我们自己的stacking模型构建和改进。<br><img src="http://prozhuchen.github.io/images/stacking3.png" alt="改进后stacking模型训练图"><br>在模型训练过程中，模型第一层中的分类模型有25个。这其中包含了不同类型的分类器，和同一类型但是参数不同的分类器。增加这些分类器的原因是为了增加训练扰动，能够缓解分类模型的过拟合问题。在第二层中，我们使用了SVM分类器。同时我们加入了由词向量转变而成的文档向量矩阵，与第一层的训练结果进行特征拼接，拼接后的结果用来进行训练。加入词向量特征，可以引入词向量所含的语义信息。之所以加在第二层是因为第一层训练集特征的稀疏特性不适合与具有密集特性的词向量进行融合。<br><img src="http://prozhuchen.github.io/images/stacking4.png" alt="改进后stacking模型训练图"><br>在预测过程中，流程和训练过程相似，只是改成了用预测集在训练好的分类模型上进行预测。我们注意到，在Stacking模型中，由于在第一层的预测过程也需要使用第一层时的数据划分，所以一般Stacking模型的运行顺序是：</p>
 <ol>
 <li>第一层训练</li>
 <li>第一层预测</li>
