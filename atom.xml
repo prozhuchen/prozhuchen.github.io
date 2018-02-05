@@ -4,7 +4,7 @@
   
   <link href="/atom.xml" rel="self"/>
   <link href="http://prozhuchen.com/"/>
-  <updated>2017-01-22T10:43:10.302Z</updated>
+  <updated>2017-01-22T10:43:10.303Z</updated>
   <id>http://prozhuchen.com/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://prozhuchen.com/2017/01/22/c++primer_note12/"/>
     <id>http://prozhuchen.com/2017/01/22/c++primer_note12/</id>
     <published>2017-01-22T10:28:17.000Z</published>
-    <updated>2017-01-22T10:43:10.302Z</updated>
+    <updated>2017-01-22T10:43:10.303Z</updated>
     <content type="html"><![CDATA[<p>c++ primer中第十二章：动态内存的笔记。<a id="more"></a></p>
 <h1 id="内存类型分类">内存类型分类</h1><ol>
 <li>静态内存：静态内存用来保存局部static对象，类static数据成员，以及定义在任何函数之外的变量。</li>
@@ -104,7 +104,7 @@
     <link href="http://prozhuchen.com/2017/01/19/c++primer_note7/"/>
     <id>http://prozhuchen.com/2017/01/19/c++primer_note7/</id>
     <published>2017-01-19T11:43:29.000Z</published>
-    <updated>2017-01-19T11:47:09.599Z</updated>
+    <updated>2017-01-19T11:47:09.600Z</updated>
     <content type="html"><![CDATA[<p>c++ primer中第七章：类的笔记。<a id="more"></a></p>
 <h2 id="类中的this指针">类中的<code>this</code>指针</h2><p>在类中<code>this</code>是一个隐式参数，指向调用他的那个对象。因为<code>this</code>的目的是指向对象，所以<code>this</code>是一个常量指针，不能修改<code>this</code>中保存的地址。</p>
 <p>在默认情况下，<code>this</code>是一个指向非常量的常量指针。例如类是<code>sale_data</code>,<code>this</code>指针的类型为<code>sale_data *const</code>。之前书上提到过，常量指针是不能绑定常量对象上的。例如：</p>
@@ -175,7 +175,7 @@
     <link href="http://prozhuchen.com/2017/01/10/slowdownyoutube/"/>
     <id>http://prozhuchen.com/2017/01/10/slowdownyoutube/</id>
     <published>2017-01-10T15:03:18.000Z</published>
-    <updated>2017-01-10T15:09:45.708Z</updated>
+    <updated>2017-01-10T15:09:45.709Z</updated>
     <content type="html"><![CDATA[<p>在youtube看英文视频时，语速太快听不懂啊，今天突然发现了一个在线自定义播放速度的方法。 <a id="more"></a></p>
 <p>在播放视频界面点击F12调出开发者界面。</p>
 <p>在<code>console</code>栏输入<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">document.<span class="function"><span class="title">getElementsByTagName</span><span class="params">(<span class="string">"video"</span>)</span></span> [<span class="number">0</span>]<span class="class">.playbackRate</span> = <span class="number">0.5</span></span><br></pre></td></tr></table></figure></p>
@@ -242,7 +242,7 @@
     <link href="http://prozhuchen.com/2016/12/28/CCF%E5%A4%A7%E8%B5%9B%E6%90%9C%E7%8B%97%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F%E6%80%BB%E7%BB%93/"/>
     <id>http://prozhuchen.com/2016/12/28/CCF大赛搜狗用户画像总结/</id>
     <published>2016-12-28T15:09:23.000Z</published>
-    <updated>2017-03-05T11:46:54.545Z</updated>
+    <updated>2017-03-05T11:46:54.546Z</updated>
     <content type="html"><![CDATA[<p>CCF大赛做了两个多月终于结束了，最后能拿到第五的成绩很意外也很高兴，毕竟第一次参加这种高规格的数据挖掘大赛，自己收获了很多。<a id="more"></a></p>
 <p>在听取完前几名，包括其他比赛的答辩后，发现现在真是一个深度学习的时代。不管是在图像文本和其他领域，深度学习都表现出了比传统方法好很多的效果。队友戏言，我们是在没有用深度学习的团队中做的最好的，也算是对我们的一点安慰。</p>
 <p>在这里对自己的之前两个月的成果做一点总结和思考吧。鉴于队友的博客<a href="https://coderskychen.github.io/2016/12/28/%E3%80%90%E5%B9%B2%E8%B4%A7%E5%88%86%E4%BA%AB%E3%80%912016CCF%E5%A4%A7%E6%95%B0%E6%8D%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%99%BA%E8%83%BD%E5%A4%A7%E8%B5%9B-%E6%90%9C%E7%8B%97%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F%E6%8C%96%E6%8E%98/" target="_blank" rel="external"> 传送门 </a>对于我们的整体模型已经讲得差不多了。这里对其算是一个补充和自己的一点感受吧，尽量不让大家感觉重复。</p>
@@ -442,7 +442,7 @@
     <link href="http://prozhuchen.com/2016/07/07/opencv%E5%B0%8F%E7%BB%83%E4%B9%A0%EF%BC%9A%E5%93%88%E5%B0%94%E5%B0%8F%E6%B3%A2(haar)/"/>
     <id>http://prozhuchen.com/2016/07/07/opencv小练习：哈尔小波(haar)/</id>
     <published>2016-07-07T02:44:21.000Z</published>
-    <updated>2016-08-24T07:22:30.590Z</updated>
+    <updated>2016-08-24T07:22:30.591Z</updated>
     <content type="html"><![CDATA[<p>首先说一下一维haar小波的原理。<br>例如我们有一个一维的图像[2,4,6,8,10,12,14,16].</p>
 <ol>
 <li>求均值：我们求相邻像素的均值[3,7,11,15]。这个新的图像分辨率就成了原来的一半(8/2=4)。</li>
@@ -498,7 +498,7 @@
     <link href="http://prozhuchen.com/2016/04/14/linux%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0(1)/"/>
     <id>http://prozhuchen.com/2016/04/14/linux读书笔记(1)/</id>
     <published>2016-04-14T02:42:16.000Z</published>
-    <updated>2016-07-09T17:47:53.954Z</updated>
+    <updated>2016-07-09T17:47:53.955Z</updated>
     <content type="html"><![CDATA[<p>这篇文章主要讲的是linux的文件和目录方面的。</p>
 <h2 id="1-_用户和用户组">1. 用户和用户组</h2><p>每一个文件属于一个用户，而每一个用户会属于一个或多个用户组，而系统内会有多个用户组。有些文件用户组之间可以共享，而有些文件被设置成用户个人文件，即使是用户组内的其他用户也不能去读或写。这样的设置使linux下的多任务管理更加简单。<br>在我们的linux系统下，默认所有用户和root的相关信息都记录在了/etc/passwd里面。个人的密码记录在/etc/shadow里，而linux内所有的组名都记录在/etc/group内。</p>
 <h2 id="2-_linux的文件属性和权限">2. linux的文件属性和权限</h2><p>linux下的文件构造可以通过<code>ls -al</code>查看，<code>-a</code>是指所有的文件（包括隐藏文件），<code>-l</code>是指文件信息会以列表格式展现出来。<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">~$ ls -al</span><br><span class="line"></span><br><span class="line">drwxr-xr-x <span class="number">32</span> zhuchen root        <span class="number">4096</span>  <span class="number">4</span>月 <span class="number">14</span> <span class="number">18</span>:<span class="number">04</span> .</span><br><span class="line">drwxr-xr-x  <span class="number">5</span> root    root        <span class="number">4096</span>  <span class="number">3</span>月 <span class="number">16</span> <span class="number">10</span>:<span class="number">50</span> ..</span><br><span class="line">drwx------  <span class="number">3</span> zhuchen root        <span class="number">4096</span>  <span class="number">3</span>月 <span class="number">15</span> <span class="number">09</span>:<span class="number">49</span> .adobe</span><br><span class="line">-rw-r--r--  <span class="number">1</span> zhuchen root       <span class="number">25283</span>  <span class="number">7</span>月 <span class="number">17</span>  <span class="number">2015</span> ascii_dora.png</span><br><span class="line">-rw-------  <span class="number">1</span> zhuchen zhuchen    <span class="number">13641</span>  <span class="number">4</span>月 <span class="number">14</span> <span class="number">17</span>:<span class="number">19</span> .bash_history</span><br><span class="line">-rw-r--r--  <span class="number">1</span> zhuchen root         <span class="number">220</span>  <span class="number">3</span>月 <span class="number">14</span> <span class="number">17</span>:<span class="number">34</span> .bash_logout</span><br><span class="line">-rw-r--r--  <span class="number">1</span> zhuchen root        <span class="number">3771</span>  <span class="number">3</span>月 <span class="number">14</span> <span class="number">17</span>:<span class="number">34</span> .bashrc</span><br><span class="line">drwxr-xr-x <span class="number">20</span> zhuchen root        <span class="number">4096</span>  <span class="number">3</span>月 <span class="number">30</span> <span class="number">15</span>:<span class="number">16</span> .cache</span><br><span class="line">drwx------ <span class="number">26</span> zhuchen root        <span class="number">4096</span>  <span class="number">4</span>月  <span class="number">7</span> <span class="number">18</span>:<span class="number">17</span> .config</span><br><span class="line">drwx------  <span class="number">3</span> zhuchen root        <span class="number">4096</span>  <span class="number">3</span>月 <span class="number">14</span> <span class="number">19</span>:<span class="number">26</span> .dbus</span><br><span class="line">drwxr-xr-x  <span class="number">2</span> zhuchen root        <span class="number">4096</span>  <span class="number">3</span>月 <span class="number">23</span> <span class="number">15</span>:<span class="number">29</span> Desktop</span><br></pre></td></tr></table></figure></p>
@@ -582,7 +582,7 @@
     <link href="http://prozhuchen.com/2015/12/06/%E7%BA%BF%E6%80%A7%E9%A2%84%E6%B5%8Blinear%20prediction/"/>
     <id>http://prozhuchen.com/2015/12/06/线性预测linear prediction/</id>
     <published>2015-12-05T17:56:51.000Z</published>
-    <updated>2016-12-30T13:04:13.029Z</updated>
+    <updated>2016-12-30T13:04:13.030Z</updated>
     <content type="html"><![CDATA[<p>线性预测是一种利用之前样品的线性函数来估计未来离散时间信号的值的数学运算方式。</p>
 <p>在数字信号处理中,线性预测通常被称为线性预测编码(LPC),因此可以视为滤波器理论的一个子集。在系统分析(数学的一个分支)中,线性预测可以看作是数学建模或者是优化问题的一部分。</p>
 <h1 id="1-_预测模型">1. 预测模型</h1><p>最普通的线性预测表达式是<br><img src="https://upload.wikimedia.org/math/2/9/8/298ffd65763de57f54b00265e4eab093.png" alt=""><br>这里的$\widehat{x}(n)$是预测的信号值，$x(n-i)$是之前获得的值，${a}<em>{i}$是预测系数，估计所产生的误差是<br><img src="https://upload.wikimedia.org/math/6/c/4/6c4e327c077c8a75dfe2e5bce093f93f.png" alt=""><br>这里的$x(n)$是正确的信号值。<br>这些方程对于所有类型的一维线性预测都是有效的。对于不同的方法其所不同的是参数 ${a}</em>{i}$ 的选择。<br>对于多维信号而言，误差指标一般被定义为</p>
@@ -763,7 +763,7 @@ count = <span class="number">2</span>
     <link href="http://prozhuchen.com/2015/10/05/Hexo%E5%8D%9A%E5%AE%A2%E4%B9%8B%E6%94%B9%E5%AD%97%E4%BD%93/"/>
     <id>http://prozhuchen.com/2015/10/05/Hexo博客之改字体/</id>
     <published>2015-10-05T06:14:47.000Z</published>
-    <updated>2015-10-05T06:15:51.814Z</updated>
+    <updated>2015-10-05T06:15:51.815Z</updated>
     <content type="html"><![CDATA[<p>觉得自己的博客字体不好看，在网上找了半天也没有相应的资料，所以这一次我们来看看杂么改掉自己Hexo博客的字体。</p>
 <p>首先找到自己字体和字体大小的文件。<br>字体在<code>/themes/hexo-theme-next/source/css/_variables</code>下的<code>custom.styl</code>（这个是NexT主题的目录，其他主题请按图索骥）。<br>字体大小在<code>/themes/hexo-theme-next/source/css/_variables</code>下的<code>base.styl</code>。</p>
 <p>然后我们来看怎么改动。<br><code>custom.styl</code>文件：</p>
@@ -841,7 +841,7 @@ count = <span class="number">2</span>
     <link href="http://prozhuchen.com/2015/10/04/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B9%9D%E5%8F%88%E5%9B%9B%E5%88%86%E4%B9%8B%E4%B8%89%E7%AB%99/"/>
     <id>http://prozhuchen.com/2015/10/04/Hexo博客第九又四分之三站/</id>
     <published>2015-10-04T06:55:10.000Z</published>
-    <updated>2016-12-30T13:02:18.670Z</updated>
+    <updated>2016-12-30T13:02:18.671Z</updated>
     <content type="html"><![CDATA[<p>最后看了看还是有点小东西没说，但是前面都已经写完结尾了啊啊啊，所以在此补了个九又四分之三站(不知道深意的请百度哈利波特站台….)，有缘分的小伙伴进来看一看有木有你能用上的。</p>
 <h1 id="1-_Hexo_+_README">1. Hexo + README</h1><p>每次进入GitHub的gh-pages分支都提醒写README，烦死了，我们在根目录下的<code>source</code>下面新建一个README文件，写上对自己博客的描述啥的，再次生成部署就会发现README已经传上去了。</p>
 <h1 id="2-_Hexo_+_404">2. Hexo + 404</h1><p>GitHub本身给我们配置了404页面，如果是做自己的404页面，你可以像上面一样，在<code>source</code>里面加上404.html，但是注意，自定义的404页面仅对绑定顶级域名的项目才起作用，GitHub默认分配的二级域名是不起作用的，使用hexo server在本机调试也是不起作用的。例如，如果一开始你的域名是XXX.github.io,你就可以在XXX.github.io/404.html看到你的404页面，但是如果你的域名是XXX.github.io/blog，那么你就无法看到自己的404了。<br>现如今，很多人都把自己的404页面当做公益项目的传播，为社会做点自己的贡献，例如这样子：<a href="http://prozhuchen.github.io/404.html" target="_blank" rel="external">404页面</a>。下面是几个公益404的地址。</p>
@@ -1100,7 +1100,7 @@ toc_list_number: <span class="literal">true</span>   #自动在目录里加入�
     <link href="http://prozhuchen.com/2015/10/01/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%89%E7%AB%99/"/>
     <id>http://prozhuchen.com/2015/10/01/Hexo博客第三站/</id>
     <published>2015-10-01T15:14:50.000Z</published>
-    <updated>2016-12-30T12:59:03.747Z</updated>
+    <updated>2016-12-30T12:59:03.748Z</updated>
     <content type="html"><![CDATA[<p>接着我们开始丰富我们的博客。<a id="more"></a></p>
 <p>再次提示：</p>
 <ol>
@@ -1246,7 +1246,7 @@ INFO  Deploy done: git
     <link href="http://prozhuchen.com/2015/09/30/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%80%E7%AB%99/"/>
     <id>http://prozhuchen.com/2015/09/30/Hexo博客第一站/</id>
     <published>2015-09-30T06:06:28.000Z</published>
-    <updated>2016-12-30T12:56:25.590Z</updated>
+    <updated>2016-12-30T12:56:25.591Z</updated>
     <content type="html"><![CDATA[<p>首先我们先在本地搭一个静态的hexo博客。<a id="more"></a></p>
 <h1 id="1-_Hexo的优势">1. <strong>Hexo的优势</strong></h1><p>Hexo是一款基于Node.js的静态博客，他的优势在于可以快速的搭建起一个个人博客，并且支持各种评论，分享等插件，最重要的是，它有很多现成的主题，你可以任意选择。</p>
 <h1 id="2-_Hexo安装">2. <strong>Hexo安装</strong></h1><p>首先说明一点，此处的安装是在windows上的。linux的看这里: <a href="http://m.blog.csdn.net/blog/u012366161/42059813" target="_blank" rel="external">Ubuntu下用Hexo搭建个人博客</a></p>
