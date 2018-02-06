@@ -847,6 +847,25 @@
 
 
 
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+      const gitalk = new Gitalk({
+        clientID: '8eccdc46d5d6f61092a6',
+        clientSecret: '09e6dbe7a85c51a1089ce53b246f32ecbc002e12',
+        repo: 'prozhuchen.github.io',
+        owner: 'prozhuchen',
+        admin: ''.split(','),
+        pagerDirection: 'first',
+        // facebook-like distraction free mode
+        distractionFreeMode: false
+      })
+      gitalk.render('gitalk-container')
+    </script>
+  
+
+
   
   
   <script type="text/javascript">
