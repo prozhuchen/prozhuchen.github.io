@@ -1,0 +1,1226 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="6v8-fdxFxIFT-NHquFTzzIxFjXhBLk8K0HlsUrG2sDs" />
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数据挖掘," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="朱琛的小屋" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="CCF大赛做了两个多月终于结束了，最后能拿到第五的成绩很意外也很高兴，毕竟第一次参加这种高规格的数据挖掘大赛，自己收获了很多。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2016CCF大赛-搜狗用户画像-经验分享">
+<meta property="og:url" content="http://prozhuchen.github.io/2016/12/28/summary_of_CCF/index.html">
+<meta property="og:site_name" content="朱琛的小屋">
+<meta property="og:description" content="CCF大赛做了两个多月终于结束了，最后能拿到第五的成绩很意外也很高兴，毕竟第一次参加这种高规格的数据挖掘大赛，自己收获了很多。">
+<meta property="og:image" content="http://prozhuchen.github.io/images/stacking1.png">
+<meta property="og:image" content="http://prozhuchen.github.io/images/stacking2.png">
+<meta property="og:image" content="http://prozhuchen.github.io/images/stacking3.png">
+<meta property="og:image" content="http://prozhuchen.github.io/images/stacking4.png">
+<meta property="og:updated_time" content="2018-02-05T06:53:38.742Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2016CCF大赛-搜狗用户画像-经验分享">
+<meta name="twitter:description" content="CCF大赛做了两个多月终于结束了，最后能拿到第五的成绩很意外也很高兴，毕竟第一次参加这种高规格的数据挖掘大赛，自己收获了很多。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://prozhuchen.github.io/2016/12/28/summary_of_CCF/"/>
+
+
+
+
+
+  <title> 2016CCF大赛-搜狗用户画像-经验分享 | 朱琛的小屋 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0ab21b9681dab5c2716490100e6d244b";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">朱琛的小屋</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle"></p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-readnotes">
+          <a href="/categories/读书笔记/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            读书笔记
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://prozhuchen.github.io/2016/12/28/summary_of_CCF/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="朱琛">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.gif">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="朱琛的小屋">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="朱琛的小屋" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                2016CCF大赛-搜狗用户画像-经验分享
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Дата создания записи" itemprop="dateCreated datePublished" datetime="2016-12-28T23:09:23+08:00">
+                2016年12月28日
+              </time>
+            
+
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据挖掘/" itemprop="url" rel="index">
+                    <span itemprop="name">数据挖掘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          <span class="post-count">
+            &nbsp; | &nbsp;字数&nbsp; 3,553
+            </span>
+            
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/12/28/summary_of_CCF/" class="leancloud_visitors" data-flag-title="2016CCF大赛-搜狗用户画像-经验分享">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>CCF大赛做了两个多月终于结束了，最后能拿到第五的成绩很意外也很高兴，毕竟第一次参加这种高规格的数据挖掘大赛，自己收获了很多。<a id="more"></a></p>
+<p>在听取完前几名，包括其他比赛的答辩后，发现现在真是一个深度学习的时代。不管是在图像文本和其他领域，深度学习都表现出了比传统方法好很多的效果。队友戏言，我们是在没有用深度学习的团队中做的最好的，也算是对我们的一点安慰。</p>
+<p>在这里对自己的之前两个月的成果做一点总结和思考吧。鉴于队友的博客<a href="https://coderskychen.github.io/2016/12/28/%E3%80%90%E5%B9%B2%E8%B4%A7%E5%88%86%E4%BA%AB%E3%80%912016CCF%E5%A4%A7%E6%95%B0%E6%8D%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%99%BA%E8%83%BD%E5%A4%A7%E8%B5%9B-%E6%90%9C%E7%8B%97%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F%E6%8C%96%E6%8E%98/" target="_blank" rel="external"> 传送门 </a>对于我们的整体模型已经讲得差不多了。这里对其算是一个补充和自己的一点感受吧，尽量不让大家感觉重复。</p>
+<h1 id="1-_算法描述">1. 算法描述</h1><p>本题目提供用户历史一个月的查询词与用户的人口属性标签（包括性别、年龄、学历）做为训练数据，要求参赛人员通过机器学习、数据挖掘技术构建分类算法来对新增用户的人口属性进行判定。其中性别是二分类问题，年龄和学历都是六分类问题。数据集复赛为10w条数据。</p>
+<h1 id="2-_整体流程概述">2. 整体流程概述</h1><h2 id="2-1_特征工程">2.1 特征工程</h2><h3 id="2-1-1_分词">2.1.1 分词</h3><ol>
+<li>分词我们使用的是jieba分词包，从分词速度到精度都还不错。个人感觉想提高分词精度，一个好的自定义词典更加重要。</li>
+<li>分词后处理部分，我们对停用词和单词的词性进行了过滤，只留下名词和动词。也是为了达到一种降维的目的吧。</li>
+<li>最后的第一名大神考虑到了一点，他在分词时，保留了查询词条中的空格信息。他分析后认为博士词条空格数明显更多，是因为高学历者对于搜索引擎的使用更加熟练。这一点也得到了评委们的认可，在工业界的确也是这样处理的。</li>
+</ol>
+<h3 id="2-1-2_特征权重">2.1.2 特征权重</h3><p>文本分类的一个经典模型就是VSM模型。其中词-文档矩阵使用的特征权重就是TFIDF。我们在TFIDF中加入了类间差异信息，改进出了一个基于布尔模型的S-TFIWF算法。细节大家可以看这里<a href="https://coderskychen.github.io/2016/12/28/%E3%80%90%E5%B9%B2%E8%B4%A7%E5%88%86%E4%BA%AB%E3%80%912016CCF%E5%A4%A7%E6%95%B0%E6%8D%AE%E4%B8%8E%E8%AE%A1%E7%AE%97%E6%99%BA%E8%83%BD%E5%A4%A7%E8%B5%9B-%E6%90%9C%E7%8B%97%E7%94%A8%E6%88%B7%E7%94%BB%E5%83%8F%E6%8C%96%E6%8E%98/" target="_blank" rel="external"> 传送门 </a>。</p>
+<p>对于TFIDF的不足，在前几名中都没有对其进行改变。这算是我们的一点亮点。其实在国内外不少论文中，都有很多对于TFIDF的改进，所以大家在做文本分类的时候，也可以试着去使用一些改进的特征权重算法，或者使用我们的这个O(∩_∩)O~。</p>
+<h3 id="2-1-3_特征选择">2.1.3 特征选择</h3><p>这里是我们本次比赛中可以算是最为纠结的的一点。尝试了多种特征选择算法，但是最后发现还是利用单词出现频率出现效果最好，这一点我们很惆怅。本来想在决赛中看看其他队伍的特征选择情况。然而他们是选择了融入其他种类特征，或者直接走深度学习。几乎没有做特征选择。所以，还是深度学习大法好啊。</p>
+<h3 id="2-1-4_融入其他特征">2.1.4 融入其他特征</h3><p>在nlp领域，有两个很著名的特征：LDA和词向量(word2vec，doc2vec)。这两个特征同样可以表达出文本的特征信息，甚至比起TFIDF更好。详细的介绍大家可以百度一波。</p>
+<p>在我们的使用中，我们是讲训练好的word2vec信息融入到了后来提到的分类模型中。在前几名的答辩中，都是同时使用了这两个特征，分别或者一起放到深度学习框架里进行训练。然后和正常的TFIDF特征一起进行集成学习。这点是我们差距很大的地方。</p>
+<p>同时在后来和高君老师的聊天中，他也提到了目前搜狗的做法也是利用词向量特征直接放到深度学习框架中来做。不同的是，他们拥有着十分庞大的数据量，所以效果更加显著。</p>
+<h2 id="2-2_分类模型">2.2 分类模型</h2><p>我们在比赛中最后使用的集成模型是stacking模型。这里详细介绍一下这个模型，算是对队友的一个补充。</p>
+<p>经典Stacking模型是指将多种分类器组合在一起来取得更好表现的一种集成学习模型。一般情况下，Stacking模型分为两层。第一层中我们训练多个不同的模型，然后再以第一层训练的各个模型的输出作为输入来训练第二层的模型，以得到一个最终的输出。为了更加详细的阐述stacking模型的训练和预测过程，我们用下面的图作为示例。<br><img src="http://prozhuchen.github.io/images/stacking1.png" alt="经典stacking模型训练图"><br>首先，我们从stacking模型的训练开始阐述。在上图中我们可以看到，该模型的第一层有五个分类模型，第二层有一个分类模型。在第一层中，对于不同的分类模型，我们分别将训练数据分为 5 份，接下来迭代5次。每次迭代时，将 4 份数据作为训练集对每个分类模型进行训练，然后剩下一份数据在训练好的分类模型上进行预测并且保留结果。当5次迭代都完成以后，我们就获得了一个结果矩阵。该矩阵是一个N<em>1的矩阵，N是训练集的样本数。当5个模型都进行完上述操作后，我们就可以得到一个N</em>5的结果矩阵。然后将该矩阵导入到第二层的模型6中进行训练，此时全部模型训练完毕。接下来是stacking模型的预测过程。<br><img src="http://prozhuchen.github.io/images/stacking2.png" alt="经典stacking模型预测图"><br>接下来我们开始阐述该模型的预测过程。在第一层中，对于不同分类模型，我们还是使用在训练时分成的5份训练数据进行五次迭代。每次迭代时，我们利用训练后的分类模型对预测集进行预测并保留下来。当5次迭代都完成以后，我们可以得到一个M<em>5的矩阵，M是预测集的样本数。 我们将这个矩阵按列取平均，缩减成M</em>1的矩阵。当5个模型都进行完上述操作后，我们就可以得到一个M*5的结果矩阵。然后将该矩阵导入到第二层中训练好的模型6进行预测，就可以得到最终的预测结果。<br>    在介绍完经典stacking模型的训练及预测过程后，接下来阐述我们自己的stacking模型构建和改进。<br><img src="http://prozhuchen.github.io/images/stacking3.png" alt="改进后stacking模型训练图"><br>在模型训练过程中，模型第一层中的分类模型有25个。这其中包含了不同类型的分类器，和同一类型但是参数不同的分类器。增加这些分类器的原因是为了增加训练扰动，能够缓解分类模型的过拟合问题。在第二层中，我们使用了SVM分类器。同时我们加入了由词向量转变而成的文档向量矩阵，与第一层的训练结果进行特征拼接，拼接后的结果用来进行训练。加入词向量特征，可以引入词向量所含的语义信息。之所以加在第二层是因为第一层训练集特征的稀疏特性不适合与具有密集特性的词向量进行融合。<br><img src="http://prozhuchen.github.io/images/stacking4.png" alt="改进后stacking模型训练图"><br>在预测过程中，流程和训练过程相似，只是改成了用预测集在训练好的分类模型上进行预测。我们注意到，在Stacking模型中，由于在第一层的预测过程也需要使用第一层时的数据划分，所以一般Stacking模型的运行顺序是：</p>
+<ol>
+<li>第一层训练</li>
+<li>第一层预测</li>
+<li>第二层训练</li>
+<li>第二层预测</li>
+</ol>
+<p>至此，我们改进后的stacking模型介绍完毕。</p>
+<p>下面谈一下自己使用过程中的感受吧。</p>
+<ol>
+<li>在sklearn中也是有集成模型的。但是他只有boosting和bagging的集成模型代码。可能还是因为stacking模型的灵活性太高了吧。</li>
+<li>我们在第一层的模型选择上，主要是考虑到了速度问题，所以选取的都是一些线性分类器和速度比较快的线性核svm等。第二层我们使用的是rbf核SVM。但是在第二层的特征数由于加入了词向量特征而变大后，第二层的训练预测时间变得很长。所以SVM好，但是使用需谨慎啊。</li>
+<li>对于xgboost模型，我们在和svm比较后，发现比不过svm分类器。同时xgboost的调参也是一个蛮长的贪心过程。所以我们没有使用xgboost。但是在答辩中，前几名的大神在集成模型上几乎都用到了xgboost。这也说明xgboost的效果还是非常好的。</li>
+<li>stacking模型理论上可以扩大到无数层。但是在答辩过程中，发现大家都是只使用了两层，同时我们也实验了搭出三层的stacking，效果也不如两层的。</li>
+<li>在一开始的时候，我们只在第一层中放入了四个分类器，但是受到了一些博客的影响，我们开始尝试加入更多的分类器。第一种是不同类型的分类器，但是更多的是同类型，但是不同参数下的分类器。我们发现，分类器越多时，最终效果更好。但是随着分类器的增多，效果提升的越来越少。但是这不失为是一个刷分的好方法。</li>
+</ol>
+<h1 id="3-_赛后总结">3. 赛后总结</h1><ol>
+<li>在比赛过程中，我们发现，想做到前50，就去多看大神博客。但是想做到前5，还是需要阅读一些这方面的论文进行思想上面的补充的。</li>
+<li>由于我们做的是文本方面的问题，还有看到了一些图像方面的问题。深度学习都已经是主流的解决方法。但是我们也看到在一些传统的以特征工程为主的问题解决中，还是有不少都是利用传统的数据挖掘算法进行解决的。所以不能盲目迷信深度学习，也是要分情况讨论的。</li>
+<li>不管在什么问题上，对于数据的分析都是十分重要的。这也是评委老师们十分看重的一点。毕竟大家的整体模型不会有很大差距，差距的所在很多情况下都是在对数据的分析上。</li>
+<li>如果你是一个比赛小白，还是需要找一个靠谱的团队，不论是从哪个方面都能帮助你很多。当然也是有很多solo大神，这里只能膜拜了。</li>
+<li>一个小建议：如果你答辩紧张，可以事先背演讲稿O(∩_∩)O哈哈~，亲测有用。</li>
+</ol>
+<h1 id="4-_代码">4. 代码</h1><p>代码和答辩PPT已经公开 <a href="https://github.com/prozhuchen/2016CCF-sougou" target="_blank" rel="external">传送门</a>。在coding的过程中，也阅读了一些源码，发现自己的代码写的还是比较low的。在接下来有时间我准备把分类模型stacking这块的代码重构一下，尽量能够达到可复用的目标吧。</p>
+<p>这里给大家一些自己的看法：</p>
+<ol>
+<li>尽量能让自己的代码达到模块化，不管在后期修改和阅读中都有很大好处。在这里我们吃了很大的亏。</li>
+<li>多阅读一些比较著名的源码。真的会对我们有很大帮助。</li>
+</ol>
+<p>python数据挖掘包集合总结：</p>
+<ul>
+<li>基础包：numpy,scipy</li>
+<li>大神级数据挖掘包：sklearn</li>
+<li>数据可视化：pandas</li>
+<li>数据不均衡：imbalanced-learn</li>
+<li>大神级nlp包：gensim（word2vec和LDA）</li>
+<li>深度学习包：TensorFlow</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/QRcode.png" alt="朱琛 wechat" style="width: 200px; max-width: 100%;"/>
+    <div>扫一扫，用手机看更方便~</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/WeChat.jpg" alt="朱琛 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/Alipay.jpg" alt="朱琛 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+
+    <div>
+    
+      
+    
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据挖掘/" rel="tag"># 数据挖掘</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/26/Chapter_2_of_STL/" rel="next" title="STL源码剖析之第二章：空间配置器">
+                <i class="fa fa-chevron-left"></i> STL源码剖析之第二章：空间配置器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/05/web_change/" rel="prev" title="网站改动-加入背景特效 & 自定义页面存放特定文章">
+                网站改动-加入背景特效 & 自定义页面存放特定文章 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+   
+      <div id="gitalk-container"></div>
+       <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    
+  </div>
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="朱琛" />
+          <p class="site-author-name" itemprop="name">朱琛</p>
+          <p class="site-description motion-element" itemprop="description">做自己喜欢的事,邮箱zhuchen01@ict.ac.cn</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/zhu-chen-71-40" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/prozhuchen" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+          <div class="cc-license motion-element" itemprop="license">
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
+              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
+            </a>
+          </div>
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              友情链接
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://blog.csdn.net/u010006643" title="我的CSDN博客" target="_blank">我的CSDN博客</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-_算法描述"><span class="nav-text">1. 算法描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-_整体流程概述"><span class="nav-text">2. 整体流程概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1_特征工程"><span class="nav-text">2.1 特征工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-1_分词"><span class="nav-text">2.1.1 分词</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-2_特征权重"><span class="nav-text">2.1.2 特征权重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-3_特征选择"><span class="nav-text">2.1.3 特征选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-4_融入其他特征"><span class="nav-text">2.1.4 融入其他特征</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2_分类模型"><span class="nav-text">2.2 分类模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-_赛后总结"><span class="nav-text">3. 赛后总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-_代码"><span class="nav-text">4. 代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2015 - 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">朱琛</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+
+        
+
+<div class="busuanzi-count">
+
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">本站访客数&nbsp;<i class="fa fa-user"></i><span class="busuanzi-value" id="busuanzi_value_site_uv"></span>人</span>
+  
+
+  
+    <span class="site-pv">本站总访问量&nbsp;<i class="fa fa-eye"></i><span class="busuanzi-value" id="busuanzi_value_site_pv"></span>次</span>
+  
+  
+</div>
+
+
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="http://7xn5ph.com1.z0.glb.clouddn.com/index.js"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+ 
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+      const gitalk = new Gitalk({
+        clientID: '8eccdc46d5d6f61092a6',
+        clientSecret: '09e6dbe7a85c51a1089ce53b246f32ecbc002e12',
+        repo: 'prozhuchen.github.io',
+        id: window.location.pathname, 
+        owner: 'prozhuchen',
+        admin: 'prozhuchen'.split(','),
+        pagerDirection: 'first',
+        // facebook-like distraction free mode
+        distractionFreeMode: false
+      })
+      gitalk.render('gitalk-container')
+    </script>
+  
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("GaBBIDanEd85q318ogkwDwMm-gzGzoHsz", "JWabQ0RyrncErVXN5y9nahgW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+
+  
+    <script type="text/javascript" src="/js/src/canvas-nest.min.js"></script>
+  
+</body>
+</html>
