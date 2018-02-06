@@ -91,7 +91,7 @@
 <meta name="description" content="接着我们开始丰富我们的博客。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo博客第三站：安装主题+第三方评论+网站统计">
-<meta property="og:url" content="http://prozhuchen.com/2015/10/01/Hexo博客第三站/index.html">
+<meta property="og:url" content="http://prozhuchen.github.io/2015/10/01/Hexo博客第三站/index.html">
 <meta property="og:site_name" content="朱琛的小屋">
 <meta property="og:description" content="接着我们开始丰富我们的博客。">
 <meta property="og:image" content="http://7xn5ph.com1.z0.glb.clouddn.com/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%B8%89%E7%AB%991.jpg">
@@ -127,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="http://prozhuchen.com/2015/10/01/Hexo博客第三站/"/>
+  <link rel="canonical" href="http://prozhuchen.github.io/2015/10/01/Hexo博客第三站/"/>
 
 
 
@@ -247,6 +247,26 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            Карта сайта
+          </a>
+        </li>
+      
 
       
         <li class="menu-item menu-item-search">
@@ -299,7 +319,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://prozhuchen.com/2015/10/01/Hexo博客第三站/">
+  <link itemprop="mainEntityOfPage" href="http://prozhuchen.github.io/2015/10/01/Hexo博客第三站/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="朱琛">
@@ -375,7 +395,7 @@
           
 
           <span class="post-count">
-            &nbsp; | &nbsp;字数&nbsp; 3,723
+            &nbsp; | &nbsp;字数&nbsp; 3,720
             </span>
             
           
@@ -454,7 +474,7 @@ hexo <span class="literal">s</span>
 <li>进入<a href="http://duoshuo.com/" target="_blank" rel="external">多说</a>平台，点击 “ 我要安装 “ 。</li>
 <li>配置好自己的站点，注意多说域名这一栏是我们接下来需要的东西。站点地址就是你Hexo博客上传的GitHub页面地址。</li>
 <li>在你的站点配置文件 (不是主题配置文件) _config.yml加一行：<code>duoshuo_shortname: 你的多说域名</code> ( 多说域名: 你的多说二级域名去掉 .duoshuo.com 部分 )</li>
-<li>再次生成上传 <code>hexo g</code>，<code>hexo d</code> （没有事先部署到GitHub上的看这里  <a href="http://prozhuchen.github.io/blog/2015/09/30/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%BA%8C%E7%AB%99/" target="_blank" rel="external">Hexo博客第二站：部署到GitHub上</a>）,点击文章hello-world，是不是看见最下方出现了评论系统啦。管理的话进入多说的后台管理就行了。</li>
+<li>再次生成上传 <code>hexo g</code>，<code>hexo d</code> （没有事先部署到GitHub上的看这里  <a href="http://prozhuchen.github.io/blog/2015/09/30/Hexo%E5%8D%9A%E5%AE%A2%E7%AC%AC%E4%BA%8C%E7%AB%99/">Hexo博客第二站：部署到GitHub上</a>）,点击文章hello-world，是不是看见最下方出现了评论系统啦。管理的话进入多说的后台管理就行了。</li>
 <li>**有人可能觉得多说的标准css样式不怎么好看。你可以进入后台管理-设置-基本设置-自定义CSS里面编辑自己想要的。我用的是从网上借鉴来，自己改动了一些的。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="id">#ds-reset</span> <span class="class">.ds-avatar</span>,</span><br><span class="line"><span class="id">#ds-recent-visitors</span> <span class="class">.ds-avatar</span><span class="rules">&#123; </span><br><span class="line">  <span class="rule"><span class="attribute">filter</span>:<span class="value"> <span class="function">alpha</span>(opacity=<span class="number">0</span>)</span></span>;   <span class="comment">/*设置图片背景透明*/</span></span><br><span class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="function">rgb</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span></span>;  </span><br><span class="line">    <span class="rule"><span class="attribute">background-color</span>:<span class="value"> <span class="function">rgba</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span></span>;  </span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="id">#ds-reset</span> <span class="class">.ds-avatar</span> <span class="tag">img</span>,</span><br><span class="line"><span class="id">#ds-recent-visitors</span> <span class="class">.ds-avatar</span> <span class="tag">img</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">54px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">54px</span></span></span>;     <span class="comment">/*设置图像的长和宽，这里要根据自己的评论框情况更改*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">border-radius</span>:<span class="value"> <span class="number">27px</span></span></span>;     <span class="comment">/*设置图像圆角效果,在这里我直接设置了超过width/2的像素，即为圆形了*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">-webkit-border-radius</span>:<span class="value"> <span class="number">27px</span></span></span>;     <span class="comment">/*圆角效果：兼容webkit浏览器*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">-moz-border-radius</span>:<span class="value"> <span class="number">27px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">box-shadow</span>:<span class="value"> inset <span class="number">0</span> -<span class="number">1px</span> <span class="number">0</span> <span class="hexcolor">#3333</span>sf</span></span>;     <span class="comment">/*设置图像阴影效果*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">-webkit-box-shadow</span>:<span class="value"> inset <span class="number">0</span> -<span class="number">1px</span> <span class="number">0</span> <span class="hexcolor">#3333</span>sf</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">-webkit-transition</span>:<span class="value"> <span class="number">0.4s</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">-webkit-transition</span>:<span class="value"> -webkit-transform <span class="number">0.4s</span> ease-out</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">transition</span>:<span class="value"> transform <span class="number">0.4s</span> ease-out</span></span>;     <span class="comment">/*变化时间设置为0.4秒(变化动作即为下面的图像旋转360读）*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">-moz-transition</span>:<span class="value"> -moz-transform <span class="number">0.4s</span> ease-out</span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="id">#ds-reset</span> <span class="class">.ds-avatar</span> <span class="rule"><span class="attribute">img</span>:<span class="value">hover,</span><br><span class="line"><span class="hexcolor">#d</span>s-recent-visitors .ds-avatar img:hover &#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*设置鼠标悬浮在头像时的CSS样式*/</span>    box-shadow: <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span> <span class="hexcolor">#fff</span></span></span>;</span><br><span class="line">  <span class="tag">rgba</span>(255, 255, 255, <span class="class">.6</span>), <span class="tag">inset</span> 0 0 20<span class="tag">px</span> <span class="tag">rgba</span>(255, 255, 255, 1);</span><br><span class="line">  <span class="rule"><span class="attribute">-webkit-box-shadow</span>:<span class="value"> <span class="number">0</span> <span class="number">0</span> <span class="number">10px</span> <span class="hexcolor">#fff</span></span></span>;</span><br><span class="line">  <span class="tag">rgba</span>(255, 255, 255, <span class="class">.6</span>), <span class="tag">inset</span> 0 0 20<span class="tag">px</span> <span class="tag">rgba</span>(255, 255, 255, 1);</span><br><span class="line">  <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">rotateZ</span>(<span class="number">360deg</span>)</span></span>;     <span class="comment">/*图像旋转360度*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">-webkit-transform</span>:<span class="value"> <span class="function">rotateZ</span>(<span class="number">360deg</span>)</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">-moz-transform</span>:<span class="value"> <span class="function">rotateZ</span>(<span class="number">360deg</span>)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="id">#ds-recent-visitors</span> <span class="class">.ds-avatar</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">float</span>:<span class="value"> left</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*隐藏多说底部版权*/</span></span><br><span class="line"><span class="hexcolor">#d</span>s-thread <span class="hexcolor">#d</span>s-reset .ds-powered-by &#123;</span><br><span class="line">  display: none</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
