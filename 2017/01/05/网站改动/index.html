@@ -94,9 +94,9 @@
 <meta property="og:url" content="http://prozhuchen.com/2017/01/05/网站改动/index.html">
 <meta property="og:site_name" content="朱琛的小屋">
 <meta property="og:description" content="今天突然发现next主题更新了好多东西，所以将自己网站的主题升级了，版本从0.4.5.1升到了5.1.0，并且做了一些改动。">
-<meta property="og:image" content="http://prozhuchen.com/images/webchange1.png">
-<meta property="og:image" content="http://prozhuchen.com/images/webchange2.png">
-<meta property="og:updated_time" content="2017-01-05T10:29:03.496Z">
+<meta property="og:image" content="http://prozhuchen.github.io/images/webchange1.png">
+<meta property="og:image" content="http://prozhuchen.github.io/images/webchange2.png">
+<meta property="og:updated_time" content="2018-02-06T05:52:42.841Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网站改动-加入背景特效 & 自定义页面存放特定文章">
 <meta name="twitter:description" content="今天突然发现next主题更新了好多东西，所以将自己网站的主题升级了，版本从0.4.5.1升到了5.1.0，并且做了一些改动。">
@@ -375,7 +375,7 @@
           
 
           <span class="post-count">
-            &nbsp; | &nbsp;字数&nbsp; 1,906
+            &nbsp; | &nbsp;字数&nbsp; 1,908
             </span>
             
           
@@ -435,14 +435,14 @@
 <li><p>打开<code>\next\_config.yml</code>，加入下面的代码：</p>
 <figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor"># --------------------------------------------------------------</span></span><br><span class="line"><span class="preprocessor"># background settings</span></span><br><span class="line"><span class="preprocessor"># --------------------------------------------------------------</span></span><br><span class="line"><span class="preprocessor"># add canvas-nest effect</span></span><br><span class="line"><span class="preprocessor"># see detail from https://github.com/hustcc/canvas-nest.js</span></span><br><span class="line">canvas_nest: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 </li>
-<li><p>此时我们在重新部署打开，就能看到最终效果啦。<img src="http://prozhuchen.com/images/webchange1.png" alt="image"></p>
+<li><p>此时我们在重新部署打开，就能看到最终效果啦。<img src="http://prozhuchen.github.io/images/webchange1.png" alt="image"></p>
 </li>
 </ol>
 <h1 id="2-_将主题背景变透明">2. 将主题背景变透明</h1><p>加入了特效后，发现很多部分都被白色内容挡住了，把他们都移走！</p>
 <p>打开<code>next\source\css\_schemes\Pisces\_layout.styl</code>（这里你要是其他的主题，就把地址里的<code>Pisces</code>换成对应主题名）</p>
 <p>找到<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.content-wrap</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">float</span>:<span class="value"> right</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">box-sizing</span>:<span class="value"> border-box</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">padding</span>:<span class="value"> $content-desktop-padding</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">width</span>:<span class="value"> $content-desktop</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">background</span>:<span class="value"> white</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">min-height</span>:<span class="value"> <span class="number">700px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">box-shadow</span>:<span class="value"> $box-shadow-inner</span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">border-radius</span>:<span class="value"> $border-radius-inner</span></span>;</span></span><br></pre></td></tr></table></figure></p>
 <p>将<code>background: white;</code>去掉，加入如下内容：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="rule"><span class="attribute">background</span>:<span class="value"><span class="function">rgba</span>(<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>, <span class="number">0</span>) none repeat scroll <span class="number">0</span> <span class="number">0</span> <span class="important">!important</span></span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">background-color</span>:<span class="value"><span class="hexcolor">#000000</span></span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">filter</span>:<span class="value"><span class="function">Alpha</span>(opacity=<span class="number">50</span>)</span></span>;</span><br><span class="line"><span class="rule"><span class="attribute">position</span>:<span class="value">static</span></span>; </span><br><span class="line">*<span class="rule"><span class="attribute">zoom</span>:<span class="value"><span class="number">1</span></span></span>;</span><br></pre></td></tr></table></figure></p>
-<p>此时的主页就变成了：<br><img src="http://prozhuchen.com/images/webchange2.png" alt="image"></p>
+<p>此时的主页就变成了：<br><img src="http://prozhuchen.github.io/images/webchange2.png" alt="image"></p>
 <h1 id="3-_自定义页面存放特定文章">3. 自定义页面存放特定文章</h1><p>因为我想在未来将一些读过的书的笔记单列成一项，对于读者也方便寻找，所以我自定义了<code>读书笔记</code>页面，里面只显示类别为读书笔记的文章。而且几乎所有的单独类别文章都可以这样列到首页啦。</p>
 <h2 id="3-1_定义文章类别">3.1 定义文章类别</h2><p>这个只需要对新文章头部的<code>categories</code>部分进行填写即可，例如我希望将来显示读书笔记，这里就可以定义某一篇文章：<br><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">categories:</span><br><span class="line"><span class="bullet">- </span>读书笔记</span><br></pre></td></tr></table></figure></p>
 <h2 id="3-2_配置首页归档">3.2 配置首页归档</h2><p>在我们的<code>\next\_config.yml</code>下的<code>memu</code>项，加入对读书笔记项的配置：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">menu</span>:</span><br><span class="line">  <span class="attribute">home</span>: /</span><br><span class="line">  <span class="attribute">categories</span>: /categories</span><br><span class="line">  #<span class="attribute">about</span>: /about</span><br><span class="line">  <span class="attribute">archives</span>: /archives</span><br><span class="line">  <span class="attribute">tags</span>: /tags</span><br><span class="line">  <span class="attribute">readnotes</span>: /categories/读书笔记/</span><br></pre></td></tr></table></figure></p>
