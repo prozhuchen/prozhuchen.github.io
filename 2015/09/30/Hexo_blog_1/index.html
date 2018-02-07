@@ -591,6 +591,9 @@ INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+
           
   <div class="comments" id="comments">
    
+      <div id="gitalk-container"></div>
+       <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+    
   </div>
 
 
@@ -904,6 +907,24 @@ INFO  Hexo is running at http:<span class="comment">//0.0.0.0:4000/. Press Ctrl+
 
 
 
+
+  
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script type="text/javascript">
+      const gitalk = new Gitalk({
+        clientID: '8eccdc46d5d6f61092a6',
+        clientSecret: '09e6dbe7a85c51a1089ce53b246f32ecbc002e12',
+        repo: 'prozhuchen.github.io',
+        id: window.location.pathname, 
+        owner: 'prozhuchen',
+        admin: 'prozhuchen'.split(','),
+        pagerDirection: 'last',
+        // facebook-like distraction free mode
+        distractionFreeMode: false
+      })
+      gitalk.render('gitalk-container')
+    </script>
+  
 
 
   
